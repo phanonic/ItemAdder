@@ -204,7 +204,7 @@ Public Class Form2
             RequiredFactionStanding = m_node.ChildNodes.Item(70).InnerText
             RequiredReputationRank = 0
             Unique = m_node.ChildNodes.Item(125).InnerText
-            maxcount = m_node.ChildNodes.Item(98).InnerText
+            maxcount = m_node.ChildNodes.Item(127).InnerText
             ContainerSlots = m_node.ChildNodes.Item(76).InnerText
             itemstatscount = m_node.ChildNodes.Item(120).InnerText
             stat_type1 = m_node.ChildNodes.Item(102).InnerText
@@ -291,8 +291,8 @@ Public Class Form2
             page_material = m_node.ChildNodes.Item(174).InnerText
             quest_id = m_node.ChildNodes.Item(99).InnerText
             lock_id = m_node.ChildNodes.Item(125).InnerText
-            lock_material = m_node.ChildNodes.Item(126).InnerText
-            sheathid = m_node.ChildNodes.Item(127).InnerText
+            lock_material = m_node.ChildNodes.Item(127).InnerText
+            sheathid = m_node.ChildNodes.Item(128).InnerText
             randomprop = m_node.ChildNodes.Item(65).InnerText
             randomsuffix = m_node.ChildNodes.Item(64).InnerText
             block = m_node.ChildNodes.Item(3).InnerText
@@ -889,10 +889,10 @@ Public Class Form2
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        System.Diagnostics.Process.Start("http://phanonic.co.cc")
+        System.Diagnostics.Process.Start("http://www.phanonic.smfnew.com")
     End Sub
 
     Private Sub LinkLabel2_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
-        System.Diagnostics.Process.Start("http://phanonic.co.cc")
+        System.Diagnostics.Process.Start("http://www.phanonic.smfnew.com")
     End Sub
 End Class

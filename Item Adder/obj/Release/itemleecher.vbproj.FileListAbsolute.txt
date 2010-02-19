@@ -1,0 +1,2 @@
+F:\Desktop\Item Adder\Item Leecher\bin\Release\Item Leecher v3.exe.config
+F:\Desktop\Item Adder\Item Leecher\bin\Release\Item Adder.exe.config

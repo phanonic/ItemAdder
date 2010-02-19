@@ -1,0 +1,13 @@
+F:\Desktop\Item Adder\Item Adder\bin\Release\Item Adder.exe.config
+F:\Desktop\Item Adder\Item Adder\bin\Release\Item Adder.exe
+F:\Desktop\Item Adder\Item Adder\bin\Release\Item Adder.pdb
+F:\Desktop\Item Adder\Item Adder\bin\Release\Item Adder.xml
+F:\Desktop\Item Adder\Item Adder\bin\Release\MySql.Data.dll
+F:\Desktop\Item Adder\Item Adder\obj\Release\ResolveAssemblyReference.cache
+F:\Desktop\Item Adder\Item Adder\obj\Release\Item Adder.vbproj.GenerateResource.Cache
+F:\Desktop\Item Adder\Item Adder\obj\Release\Item Adder.exe
+F:\Desktop\Item Adder\Item Adder\obj\Release\Item Adder.xml
+F:\Desktop\Item Adder\Item Adder\obj\Release\Item Adder.pdb
+F:\Desktop\Item Adder\Item Adder\obj\Release\ia.Form1.resources
+F:\Desktop\Item Adder\Item Adder\obj\Release\ia.Form2.resources
+F:\Desktop\Item Adder\Item Adder\obj\Release\ia.Resources.resources

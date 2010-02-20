@@ -583,33 +583,6 @@ Public Class Form2
         description = sb2.ToString
     End Sub
 
-    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        Dim x As Integer
-        Dim y As Integer
-        y = 0
-        x = ListBox1.Items.Count
-        ProgressBar1.Value = 0
-        Label11.Text = "Progress Info"
-        multi = True
-        Do Until y = x
-            parsexml()
-            checktext()
-            writesql()
-            y = y + 1
-        Loop
-        SaveFileDialog1.Filter = "Sql files (*.sql) | "
-        SaveFileDialog1.AddExtension = True
-        SaveFileDialog1.ShowDialog()
-        SaveFileDialog1.RestoreDirectory = True
-        Dim path = SaveFileDialog1.FileName & ".sql"
-        Dim fs As New FileStream(path, FileMode.Create, FileAccess.Write)
-        Dim s As New StreamWriter(fs)
-        s.Write(thequery)
-        s.Close()
-        path = ""
-        SaveFileDialog1.FileName = ""
-    End Sub
-
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
         addtodb()
     End Sub
@@ -631,7 +604,7 @@ Public Class Form2
         Connection.Open()
         Do Until y = x
             item = ListBox1.Items.Item(y)
-            Label11.Text = item & " adding to database."
+            Label11.Text = item & " adding to database." & ListBox2.Items.Count & " item(s) added."
             Label11.Refresh()
             parsexml()
             checktext()
@@ -691,7 +664,6 @@ Public Class Form2
         checkdb()
         If CheckBox1.Checked = True Then
             addtodb()
-            clearrange()
         End If
         Label11.Refresh()
     End Sub
@@ -760,11 +732,11 @@ Public Class Form2
                     ListBox1.Items.RemoveAt(y)
                     y = y - 1
                 End If
-
-                y = y + 1
-                x = ListBox1.Items.Count
-                ProgressBar1.Value = ProgressBar1.Value + 1
             End If
+
+            y = y + 1
+            x = ListBox1.Items.Count
+            ProgressBar1.Value = ProgressBar1.Value + 1
         Loop
         checkarray()
     End Sub
@@ -776,7 +748,6 @@ Public Class Form2
         x = ListBox1.Items.Count
         ProgressBar1.Maximum = x
         ProgressBar1.Value = y
-        ToolStripStatusLabel1.Text = "Web connect status: Connecting to the web..."
         Label11.Refresh()
 
         Do Until y = x
@@ -786,7 +757,7 @@ Public Class Form2
                 y = y - 1
             Else
                 Dim url As String = ("http://wow.allakhazam.com/ihtml?" & item)
-                ToolStripStatusLabel1.Text = "Web connect status: Connected."
+
                 Label11.Text = "Searching item on web: " & item
                 Label11.Refresh()
                 Dim webResponse3 As HttpWebResponse = Nothing
@@ -803,11 +774,11 @@ Public Class Form2
                     ListBox1.Items.RemoveAt(y)
                     y = y - 1
                 End If
-
-                y = y + 1
-                x = ListBox1.Items.Count
-                ProgressBar1.Value = ProgressBar1.Value + 1
             End If
+            y = y + 1
+            x = ListBox1.Items.Count
+            ProgressBar1.Value = ProgressBar1.Value + 1
+            ToolStripStatusLabel1.Text = "Web connect status: Connected."
         Loop
         Label11.Text = "Progress done."
     End Sub
@@ -853,11 +824,6 @@ Public Class Form2
 
     End Sub
 
-
-    Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
     Private Delegate Sub del_sub()
     Dim del As New del_sub(AddressOf checkarray)
     Private Sub yoursub()
@@ -868,7 +834,7 @@ Public Class Form2
         ListBox1.Items.Clear()
     End Sub
 
-    Private Sub ListBox1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBox1.MouseDown, ListBox2.MouseDown
+    Private Sub ListBox1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBox1.MouseDown
         If e.Button = Windows.Forms.MouseButtons.Right Then
             Dim pt As Point
             pt.X = e.X
@@ -879,6 +845,36 @@ Public Class Form2
             End Try
             If ListBox1.SelectedIndex >= 0 Then
                 ContextMenuStrip1.Show(MousePosition)
+            End If
+        End If
+    End Sub
+
+    Private Sub ListBox2_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBox2.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            Dim pt As Point
+            pt.X = e.X
+            pt.Y = e.Y
+            Try
+                ListBox2.SelectedIndex = ListBox2.IndexFromPoint(pt)
+            Catch
+            End Try
+            If ListBox2.SelectedIndex >= 0 Then
+                ContextMenuStrip2.Show(MousePosition)
+            End If
+        End If
+    End Sub
+
+    Private Sub ListBox3_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBox3.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            Dim pt As Point
+            pt.X = e.X
+            pt.Y = e.Y
+            Try
+                ListBox3.SelectedIndex = ListBox3.IndexFromPoint(pt)
+            Catch
+            End Try
+            If ListBox3.SelectedIndex >= 0 Then
+                ContextMenuStrip3.Show(MousePosition)
             End If
         End If
     End Sub
@@ -894,7 +890,7 @@ Public Class Form2
     End Sub
 
     Private Sub ListBox2_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox2.SelectedIndexChanged
-        item = ListBox1.SelectedItem
+        itemid = ListBox2.SelectedItem
         If itemid <> 0 Then
             itemid = ListBox2.SelectedItem
             nodelist()
@@ -903,8 +899,8 @@ Public Class Form2
             WebBrowser5.Navigate("http://wow.allakhazam.com/" & itemicon)
         End If
     End Sub
-    Private Sub ListBox3_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox2.SelectedIndexChanged
-        itemid = ListBox1.SelectedItem
+    Private Sub ListBox3_SelectedIndex(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox3.SelectedIndexChanged
+        itemid = ListBox3.SelectedItem
         If itemid <> 0 Then
             itemid = ListBox3.SelectedItem
             nodelist()
@@ -963,9 +959,9 @@ Public Class Form2
         Execute = New MySqlCommand(thequery, Connection)
         Reader = Execute.ExecuteReader
         Reader.Close()
-        MsgBox(item & name1 & " added successfuly.")
+        MsgBox(item & " " & name1 & " added successfuly.")
         ListBox2.Items.Add(itemid)
-        ListBox1.Items.Remove(itemid)
+        ListBox1.Items.Remove(ListBox1.SelectedItem)
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
@@ -976,7 +972,33 @@ Public Class Form2
         System.Diagnostics.Process.Start("mailto:ctnyvz@gmail.com")
     End Sub
 
-    Private Sub ToolStripStatusLabel1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripStatusLabel1.Click
+    Private Sub RemoveAllToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RemoveAllToolStripMenuItem2.Click
+        ListBox2.Items.Remove(ListBox2.SelectedItem)
+    End Sub
 
+    Private Sub RemoveAllToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RemoveAllToolStripMenuItem1.Click
+        ListBox3.Items.Remove(ListBox3.SelectedItem)
+    End Sub
+
+    Private Sub RemoveAllToolStripMenuItem3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RemoveAllToolStripMenuItem3.Click
+        ListBox2.Items.Clear()
+    End Sub
+
+    Private Sub RemoveAllToolStripMenuItem4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RemoveAllToolStripMenuItem4.Click
+        ListBox3.Items.Clear()
+    End Sub
+
+    Private Sub Listbox2ToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Listbox2ToolStripMenuItem.Click
+        itemid = ListBox2.SelectedItem
+        itemdelete()
+        MsgBox(itemid & " deleted successfuly.")
+        ListBox2.Items.Remove(ListBox2.SelectedItem)
+    End Sub
+
+    Private Sub Lİstbox3ToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Lİstbox3ToolStripMenuItem.Click
+        itemid = ListBox3.SelectedItem
+        itemdelete()
+        MsgBox(itemid & " deleted successfuly.")
+        ListBox3.Items.Remove(ListBox3.SelectedItem)
     End Sub
 End Class

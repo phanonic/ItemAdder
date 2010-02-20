@@ -334,7 +334,9 @@ Public Class Form2
 
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.Click
         itemid = TextBox1.Text
+        ToolStripStatusLabel1.Text = "Web connect status: Connecting..."
         If checkitem() = True Then
+            ToolStripStatusLabel1.Text = "Web connect status: Connected."
             nodelist()
             WebBrowser4.Navigate("http://wow.allakhazam.com/" & itemicon)
             TextBox5.Text = name1
@@ -401,6 +403,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        itemid = TextBox1.Text
         parsexml()
         checktext()
         writesql()
@@ -657,6 +660,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
+
         Label11.Text = "Progress Info"
         Label11.Refresh()
         If TextBox2.Text = "" And TextBox3.Text = "" Then
@@ -772,7 +776,7 @@ Public Class Form2
         x = ListBox1.Items.Count
         ProgressBar1.Maximum = x
         ProgressBar1.Value = y
-        Label11.Text = "Connecting to the web..."
+        ToolStripStatusLabel1.Text = "Web connect status: Connecting to the web..."
         Label11.Refresh()
 
         Do Until y = x
@@ -782,6 +786,7 @@ Public Class Form2
                 y = y - 1
             Else
                 Dim url As String = ("http://wow.allakhazam.com/ihtml?" & item)
+                ToolStripStatusLabel1.Text = "Web connect status: Connected."
                 Label11.Text = "Searching item on web: " & item
                 Label11.Refresh()
                 Dim webResponse3 As HttpWebResponse = Nothing
@@ -969,5 +974,9 @@ Public Class Form2
 
     Private Sub LinkLabel2_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
         System.Diagnostics.Process.Start("mailto:ctnyvz@gmail.com")
+    End Sub
+
+    Private Sub ToolStripStatusLabel1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripStatusLabel1.Click
+
     End Sub
 End Class

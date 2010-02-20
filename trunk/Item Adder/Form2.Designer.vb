@@ -81,6 +81,8 @@ Partial Class Form2
         Me.AddToDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.RemoveAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -98,6 +100,7 @@ Partial Class Form2
         Me.GroupBox2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button3
@@ -153,7 +156,7 @@ Partial Class Form2
         Me.WebBrowser1.Location = New System.Drawing.Point(6, 19)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(308, 317)
+        Me.WebBrowser1.Size = New System.Drawing.Size(308, 343)
         Me.WebBrowser1.TabIndex = 7
         Me.WebBrowser1.Url = New System.Uri("", System.UriKind.Relative)
         '
@@ -165,11 +168,12 @@ Partial Class Form2
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 12)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 12)
+        Me.TabControl1.Margin = New System.Windows.Forms.Padding(1)
         Me.TabControl1.MinimumSize = New System.Drawing.Size(360, 400)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(759, 492)
+        Me.TabControl1.Size = New System.Drawing.Size(780, 518)
         Me.TabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabControl1.TabIndex = 0
         '
@@ -183,7 +187,7 @@ Partial Class Form2
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(751, 466)
+        Me.TabPage1.Size = New System.Drawing.Size(772, 492)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Single Item"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -238,7 +242,7 @@ Partial Class Form2
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox4.Location = New System.Drawing.Point(332, 6)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(413, 454)
+        Me.GroupBox4.Size = New System.Drawing.Size(434, 480)
         Me.GroupBox4.TabIndex = 11
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Item Edit (Coming Soon)"
@@ -250,7 +254,7 @@ Partial Class Form2
         Me.GroupBox3.Controls.Add(Me.WebBrowser1)
         Me.GroupBox3.Location = New System.Drawing.Point(6, 118)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(320, 342)
+        Me.GroupBox3.Size = New System.Drawing.Size(320, 368)
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Item Info"
@@ -262,7 +266,7 @@ Partial Class Form2
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(751, 466)
+        Me.TabPage2.Size = New System.Drawing.Size(772, 492)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Multi Item"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -279,7 +283,7 @@ Partial Class Form2
         Me.GroupBox5.Controls.Add(Me.Button6)
         Me.GroupBox5.Location = New System.Drawing.Point(6, 6)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(407, 455)
+        Me.GroupBox5.Size = New System.Drawing.Size(407, 481)
         Me.GroupBox5.TabIndex = 25
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Item List"
@@ -313,7 +317,7 @@ Partial Class Form2
         Me.GroupBox7.Controls.Add(Me.TextBox7)
         Me.GroupBox7.Location = New System.Drawing.Point(6, 359)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(301, 90)
+        Me.GroupBox7.Size = New System.Drawing.Size(301, 116)
         Me.GroupBox7.TabIndex = 25
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Error: Item not found."
@@ -327,7 +331,7 @@ Partial Class Form2
         Me.TextBox7.Multiline = True
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox7.Size = New System.Drawing.Size(288, 64)
+        Me.TextBox7.Size = New System.Drawing.Size(288, 90)
         Me.TextBox7.TabIndex = 0
         '
         'GroupBox1
@@ -442,7 +446,7 @@ Partial Class Form2
         Me.TabControl2.Location = New System.Drawing.Point(313, 19)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(88, 358)
+        Me.TabControl2.Size = New System.Drawing.Size(88, 384)
         Me.TabControl2.TabIndex = 24
         '
         'TabPage4
@@ -451,7 +455,7 @@ Partial Class Form2
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(80, 332)
+        Me.TabPage4.Size = New System.Drawing.Size(80, 358)
         Me.TabPage4.TabIndex = 0
         Me.TabPage4.Text = "New"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -468,7 +472,7 @@ Partial Class Form2
         Me.ListBox1.ItemHeight = 16
         Me.ListBox1.Location = New System.Drawing.Point(3, 3)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(74, 324)
+        Me.ListBox1.Size = New System.Drawing.Size(74, 340)
         Me.ListBox1.TabIndex = 4
         '
         'TabPage5
@@ -549,7 +553,7 @@ Partial Class Form2
         '
         Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button5.Enabled = False
-        Me.Button5.Location = New System.Drawing.Point(313, 427)
+        Me.Button5.Location = New System.Drawing.Point(313, 453)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(88, 22)
         Me.Button5.TabIndex = 3
@@ -559,7 +563,7 @@ Partial Class Form2
         'Button6
         '
         Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button6.Location = New System.Drawing.Point(313, 383)
+        Me.Button6.Location = New System.Drawing.Point(313, 409)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(88, 38)
         Me.Button6.TabIndex = 2
@@ -576,7 +580,7 @@ Partial Class Form2
         Me.GroupBox2.Controls.Add(Me.TextBox6)
         Me.GroupBox2.Location = New System.Drawing.Point(419, 6)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(326, 455)
+        Me.GroupBox2.Size = New System.Drawing.Size(347, 481)
         Me.GroupBox2.TabIndex = 23
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Item Info"
@@ -584,7 +588,7 @@ Partial Class Form2
         'WebBrowser5
         '
         Me.WebBrowser5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.WebBrowser5.Location = New System.Drawing.Point(231, 8)
+        Me.WebBrowser5.Location = New System.Drawing.Point(252, 8)
         Me.WebBrowser5.Margin = New System.Windows.Forms.Padding(1)
         Me.WebBrowser5.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser5.Name = "WebBrowser5"
@@ -601,7 +605,7 @@ Partial Class Form2
         Me.WebBrowser2.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser2.Name = "WebBrowser2"
         Me.WebBrowser2.ScrollBarsEnabled = False
-        Me.WebBrowser2.Size = New System.Drawing.Size(314, 352)
+        Me.WebBrowser2.Size = New System.Drawing.Size(335, 378)
         Me.WebBrowser2.TabIndex = 6
         '
         'TextBox6
@@ -621,7 +625,7 @@ Partial Class Form2
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(751, 466)
+        Me.TabPage3.Size = New System.Drawing.Size(772, 492)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "About"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -640,7 +644,7 @@ Partial Class Form2
         '
         Me.LinkLabel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(109, 403)
+        Me.LinkLabel1.Location = New System.Drawing.Point(109, 429)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(171, 13)
         Me.LinkLabel1.TabIndex = 3
@@ -653,7 +657,7 @@ Partial Class Form2
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.Label3.Location = New System.Drawing.Point(6, 381)
+        Me.Label3.Location = New System.Drawing.Point(6, 407)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(50, 13)
         Me.Label3.TabIndex = 1
@@ -663,7 +667,7 @@ Partial Class Form2
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 403)
+        Me.Label2.Location = New System.Drawing.Point(6, 429)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(325, 26)
         Me.Label2.TabIndex = 0
@@ -702,11 +706,27 @@ Partial Class Form2
         '
         Me.Timer2.Interval = 600
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 531)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(780, 22)
+        Me.StatusStrip1.TabIndex = 1
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(221, 17)
+        Me.ToolStripStatusLabel1.Text = "Web connect status: Waiting to connect."
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(783, 516)
+        Me.ClientSize = New System.Drawing.Size(780, 553)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.TabControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form2"
@@ -735,7 +755,10 @@ Partial Class Form2
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Button3 As System.Windows.Forms.Button
@@ -795,4 +818,6 @@ Partial Class Form2
     Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
     Friend WithEvents ListBox4 As System.Windows.Forms.ListBox
     Friend WithEvents Timer2 As System.Windows.Forms.Timer
+    Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
+    Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
 End Class

@@ -323,7 +323,7 @@ Public Class Form2
             thequery = arcQuery
         End If
         If My.Settings.type = "Trinity" Then
-            trinquery = "INSERT INTO `item_template` VALUES ('" & entry & "', '" & classs & "', '" & subclass & "', '" & -1 & "', '" & name1 & "', '" & displayid & "', '" & quality & "', '" & flags & "', '" & faction & "', '" & buycount & "', '" & buyprice & "', '" & sellprice & "', '" & inventorytype & "', '" & allowableclass & "', '" & allowablerace & "', '" & itemlevel & "', '" & requiredlevel & "', '" & RequiredSkill & "', '" & RequiredSkillRank & "', '" & RequiredSpell & "', '" & RequiredPlayerRank1 & "', '" & RequiredPlayerRank2 & "', '" & RequiredFaction & "', '" & RequiredFactionStanding & "', '" & maxcount & "', '" & Unique & "',  '" & ContainerSlots & "', '" & itemstatscount & "', '" & stat_type1 & "', '" & stat_value1 & "', '" & stat_type2 & "', '" & stat_value2 & "', '" & stat_type3 & "', '" & stat_value3 & "', '" & stat_type4 & "', '" & stat_value4 & "', '" & stat_type5 & "', '" & stat_value5 & "', '" & stat_type6 & "', '" & stat_value6 & "', '" & stat_type7 & "', '" & stat_value7 & "', '" & stat_type8 & "', '" & stat_value8 & "', '" & stat_type9 & "', '" & stat_value9 & "', '" & stat_type10 & "', '" & stat_value10 & "', '" & ScalingStatsEntry & "', '" & ScalingStatsFlags & "', '" & dmg_min1 & "', '" & dmg_max1 & "', '" & dmg_type1 & "', '" & dmg_min2 & "', '" & dmg_max2 & "', '" & dmg_type2 & "', '" & armor & "', '" & holy_res & "', '" & fire_res & "', '" & nature_res & "', '" & frost_res & "', '" & shadow_res & "', '" & arcane_resist & "', '" & delay & "', '" & ammo_type & "', '0', '" & spellid_1 & "', '" & spelltrigger_1 & "', '" & spellcharges_1 & "', '" & 0 & "', '" & spellcooldown_1 & "', '" & spellcategory_1 & "', '" & spellcategorycooldown_1 & "', '" & spellid_2 & "', '" & spelltrigger_2 & "', '" & spellcharges_2 & "', '" & 0 & "', '" & spellcooldown_2 & "', '" & spellcategory_2 & "', '" & spellcategorycooldown_2 & "', '" & spellid_3 & "', '" & spelltrigger_3 & "', '" & spellcharges_3 & "', '" & 0 & "', '" & spellcooldown_3 & "', '" & spellcategory_3 & "', '" & spellcategorycooldown_3 & "', '" & spellid_4 & "', '" & spelltrigger_4 & "', '" & spellcharges_4 & "', '" & 0 & "', '" & spellcooldown_4 & "', '" & spellcategory_4 & "', '" & spellcategorycooldown_4 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & bonding & "', '" & description & "', '" & pageid & "', '" & page_language & "', '" & page_material & "', '" & quest_id & "', '" & lock_id & "', '" & lock_material & "', '" & sheathid & "', '" & randomprop & "', '" & randomsuffix & "', '" & block & "', '" & itemset & "', '" & MaxDurability & "', '" & ZoneNameID & "', '" & mapid & "', '" & bagfamily & "', '" & TotemCategory & "', '" & socket_color_1 & "', '" & unk201_3 & "', '" & socket_color_2 & "', '" & unk201_5 & "', '" & socket_color_3 & "', '" & unk201_7 & "', '" & socket_bonus & "', '" & GemProperties & "', '" & ReqDisenchantSkill & "', '" & ArmorDamageModifier & "' , '" & duration & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "', '" & 0 & "');"
+            trinquery = "INSERT INTO `item_template` VALUES ('" & entry & "', '" & classs & "', '" & subclass & "', '" & -1 & "', '" & name1 & "', '" & displayid & "', '" & quality & "', '" & flags & "', '" & faction & "', '" & buycount & "', '" & buyprice & "', '" & sellprice & "', '" & inventorytype & "', '" & allowableclass & "', '" & allowablerace & "', '" & itemlevel & "', '" & requiredlevel & "', '" & RequiredSkill & "', '" & RequiredSkillRank & "', '" & RequiredSpell & "', '" & RequiredPlayerRank1 & "', '" & RequiredPlayerRank2 & "', '" & RequiredFaction & "', '" & RequiredFactionStanding & "', '" & maxcount & "', '" & 1 & "',  '" & ContainerSlots & "', '" & itemstatscount & "', '" & stat_type1 & "', '" & stat_value1 & "', '" & stat_type2 & "', '" & stat_value2 & "', '" & stat_type3 & "', '" & stat_value3 & "', '" & stat_type4 & "', '" & stat_value4 & "', '" & stat_type5 & "', '" & stat_value5 & "', '" & stat_type6 & "', '" & stat_value6 & "', '" & stat_type7 & "', '" & stat_value7 & "', '" & stat_type8 & "', '" & stat_value8 & "', '" & stat_type9 & "', '" & stat_value9 & "', '" & stat_type10 & "', '" & stat_value10 & "', '" & ScalingStatsEntry & "', '" & ScalingStatsFlags & "', '" & dmg_min1 & "', '" & dmg_max1 & "', '" & dmg_type1 & "', '" & dmg_min2 & "', '" & dmg_max2 & "', '" & dmg_type2 & "', '" & armor & "', '" & holy_res & "', '" & fire_res & "', '" & nature_res & "', '" & frost_res & "', '" & shadow_res & "', '" & arcane_resist & "', '" & delay & "', '" & ammo_type & "', '0', '" & spellid_1 & "', '" & spelltrigger_1 & "', '" & spellcharges_1 & "', '" & 0 & "', '" & spellcooldown_1 & "', '" & spellcategory_1 & "', '" & spellcategorycooldown_1 & "', '" & spellid_2 & "', '" & spelltrigger_2 & "', '" & spellcharges_2 & "', '" & 0 & "', '" & spellcooldown_2 & "', '" & spellcategory_2 & "', '" & spellcategorycooldown_2 & "', '" & spellid_3 & "', '" & spelltrigger_3 & "', '" & spellcharges_3 & "', '" & 0 & "', '" & spellcooldown_3 & "', '" & spellcategory_3 & "', '" & spellcategorycooldown_3 & "', '" & spellid_4 & "', '" & spelltrigger_4 & "', '" & spellcharges_4 & "', '" & 0 & "', '" & spellcooldown_4 & "', '" & spellcategory_4 & "', '" & spellcategorycooldown_4 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & bonding & "', '" & description & "', '" & pageid & "', '" & page_language & "', '" & page_material & "', '" & quest_id & "', '" & lock_id & "', '" & lock_material & "', '" & sheathid & "', '" & randomprop & "', '" & randomsuffix & "', '" & block & "', '" & itemset & "', '" & MaxDurability & "', '" & ZoneNameID & "', '" & mapid & "', '" & bagfamily & "', '" & TotemCategory & "', '" & socket_color_1 & "', '" & unk201_3 & "', '" & socket_color_2 & "', '" & unk201_5 & "', '" & socket_color_3 & "', '" & unk201_7 & "', '" & socket_bonus & "', '" & GemProperties & "', '" & ReqDisenchantSkill & "', '" & ArmorDamageModifier & "' , '" & duration & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "', '" & 0 & "');"
             thequery = trinquery
         End If
         If My.Settings.type = "Mangos" Then
@@ -334,10 +334,12 @@ Public Class Form2
 
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.Click
         itemid = TextBox1.Text
+        If checkitem() = True Then
+            nodelist()
+            WebBrowser4.Navigate("http://wow.allakhazam.com/" & itemicon)
+            TextBox5.Text = name1
+        End If
         WebBrowser1.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
-        nodelist()
-        WebBrowser4.Navigate("http://wow.allakhazam.com/" & itemicon)
-        TextBox5.Text = name1
         Button2.Enabled = False
         Button3.Enabled = False
 
@@ -451,39 +453,56 @@ Public Class Form2
         TextBox1.Text = ""
     End Sub
 
-    Private Sub btnadd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnadd.Click
-        itemid = txtadd.Text
-        checkstuff()
-    End Sub
-
     Public Sub checkstuff()
-        If Listbox1Check() = True Then
-            MsgBox(itemid & " already in list.")
-            Exit Sub
-        Else
-            If dbcheck() = True Then
-                MsgBox(itemid & " already in database.")
-                TextBox4.Text = TextBox4.Text & itemid & " | "
+        Dim x As Integer
+        Dim y As Integer
+        x = ListBox1.Items.Count
+        y = 0
+
+        Do Until y = x
+            If itemid = ListBox1.Items.Item(y) Then
+                MsgBox(itemid & " already in list.")
                 Exit Sub
-            Else
-                If checkitem() = True Then
-                    ListBox1.Items.Add(itemid)
-                    MsgBox(itemid & " added into list.")
-                Else
-                    MsgBox(itemid & " not found on web.")
-                    TextBox7.Text = TextBox7.Text & itemid & " | "
-                End If
             End If
+            y = y + 1
+        Loop
+
+        x = ListBox3.Items.Count
+        y = 0
+        Do Until y = x
+            If itemid = ListBox3.Items.Item(y) Then
+                MsgBox(itemid & " already in database.")
+                Exit Sub
+            End If
+            y = y + 1
+        Loop
+
+        If dbcheck() = True Then
+            MsgBox(itemid & " already in database.")
+            TextBox4.Text = TextBox4.Text & itemid & " | "
+            ListBox3.Items.Add(itemid)
+            Exit Sub
+        End If
+
+        x = ListBox4.Items.Count
+        y = 0
+        Do Until y = x
+            If itemid = ListBox4.Items.Item(y) Then
+                MsgBox(itemid & " not found on web.")
+                Exit Sub
+            End If
+            y = y + 1
+        Loop
+
+        If checkitem() = True Then
+            ListBox1.Items.Add(itemid)
+            MsgBox(itemid & " added into list.")
+        Else
+            MsgBox(itemid & " not found on web.")
+            TextBox7.Text = TextBox7.Text & itemid & " | "
+            ListBox4.Items.Add(itemid)
         End If
     End Sub
-
-    Public Function Listbox1Check() As Boolean
-        If ListBox1.Items.Contains(itemid) = True Then
-            Return True
-        Else
-            Return False
-        End If
-    End Function
 
     Public Function dbcheck() As Boolean
         Dim Connection As MySqlConnection
@@ -511,13 +530,6 @@ Public Class Form2
         End If
 
     End Function
-
-    Private Sub txtadd_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtadd.KeyPress
-        If Asc(e.KeyChar) = Keys.Enter Then
-            itemid = txtadd.Text
-            checkstuff()
-        End If
-    End Sub
 
     Private Sub removeToolStripMenuItem_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles removeToolStripMenuItem.Click
         ListBox1.Items.Remove(ListBox1.SelectedItem)
@@ -604,33 +616,44 @@ Public Class Form2
         Dim y As Integer
         Dim Connection As MySqlConnection
         Dim execute As MySqlCommand
+        Dim Query As MySqlCommand
+        Dim Reader2 As MySqlDataReader = Nothing
         Dim Reader As MySqlDataReader = Nothing
-        y = 0
         x = ListBox1.Items.Count
+        y = 0
         ProgressBar1.Maximum = x
+        ProgressBar1.Value = y
         multi = True
-
+        Connection = New MySqlConnection("server=" & My.Settings.host & ";user id=" & My.Settings.username & "; password=" & My.Settings.password & "; port=" & My.Settings.port & "; database=" & My.Settings.db & "; pooling=false")
+        Connection.Open()
         Do Until y = x
             item = ListBox1.Items.Item(y)
             Label11.Text = item & " adding to database."
             Label11.Refresh()
-            nodelist()
+            parsexml()
             checktext()
             writesql()
-            Connection = New MySqlConnection("server=" & My.Settings.host & ";user id=" & My.Settings.username & "; password=" & My.Settings.password & "; port=" & My.Settings.port & "; database=" & My.Settings.db & "; pooling=false")
-            Connection.Open()
-            execute = New MySqlCommand(thequery, Connection)
-            Reader = execute.ExecuteReader
-            ListBox2.Items.Add(item)
+            If My.Settings.type = "Trinity" Or My.Settings.type = "Mangos" Then
+                Query = New MySqlCommand("SELECT `entry` FROM `item_template` WHERE `entry` = '" & itemid & "' LIMIT 1;", Connection)
+            Else
+                Query = New MySqlCommand("SELECT `entry` FROM `items` WHERE `entry` = '" & itemid & "' LIMIT 1;", Connection)
+            End If
+            Reader = Query.ExecuteReader()
+            If Reader.HasRows And itemid <> "" Then
+                Reader.Close()
+            Else
+                Reader.Close()
+                execute = New MySqlCommand(thequery, Connection)
+                Reader2 = execute.ExecuteReader
+                Reader2.Close()
+                ListBox1.Items.RemoveAt(y)
+                ListBox2.Items.Add(item)
+                y = y - 1
+            End If
+            x = ListBox1.Items.Count
+            ProgressBar1.Value = ProgressBar1.Value + 1
             y = y + 1
-            ProgressBar1.Value = x
-            Reader.Close()
         Loop
-
-        multi = False
-        ProgressBar1.Value = ProgressBar1.Maximum
-        Label11.Text = ListBox2.Items.Count & " item(s) added successfuly."
-        ListBox1.Items.Clear()
     End Sub
 
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
@@ -653,17 +676,49 @@ Public Class Form2
             Exit Sub
         End If
         Do Until x = y
+
             If ListBox1.Items.Contains(x) Then
             Else
                 ListBox1.Items.Add(x)
             End If
             x = x + 1
         Loop
-        checkdb()
 
+        checkdb()
+        If CheckBox1.Checked = True Then
+            addtodb()
+            clearrange()
+        End If
         Label11.Refresh()
-        ProgressBar1.Maximum = ProgressBar1.Maximum
     End Sub
+
+    Public Function Listbox3Check() As Boolean
+        Dim x As Integer
+        Dim y As Integer
+        y = 0
+        x = ListBox3.Items.Count
+
+        Do Until y = x
+            If ListBox3.Items.Item(y) = item Then
+                Return True
+            End If
+            y = y + 1
+        Loop
+    End Function
+
+    Public Function Listbox4Check() As Boolean
+        Dim x As Integer
+        Dim y As Integer
+        y = 0
+        x = ListBox4.Items.Count
+
+        Do Until y = x
+            If ListBox4.Items.Item(y) = item Then
+                Return True
+            End If
+            y = y + 1
+        Loop
+    End Function
 
     Public Sub checkdb()
         Dim x As Integer
@@ -671,38 +726,42 @@ Public Class Form2
         y = 0
         x = ListBox1.Items.Count
         ProgressBar1.Maximum = x
+        ProgressBar1.Value = y
 
         Do Until y = x
             item = ListBox1.Items.Item(y)
-            ProgressBar1.Value = y
-            Label11.Text = "Check database: Item " & item
-            Label11.Refresh()
-            Dim Connection As MySqlConnection
-            Dim Query As MySqlCommand
-            Dim Reader As MySqlDataReader = Nothing
-
-            Connection = New MySqlConnection("server=" & My.Settings.host & ";user id=" & My.Settings.username & "; password=" & My.Settings.password & "; port=" & My.Settings.port & "; database=" & My.Settings.db & "; pooling=false")
-            Connection.Open()
-
-            If My.Settings.type = "Trinity" Or My.Settings.type = "Mangos" Then
-                Query = New MySqlCommand("SELECT `entry` FROM `item_template` WHERE `entry` = '" & item & "' LIMIT 1;", Connection)
-            Else
-                Query = New MySqlCommand("SELECT `entry` FROM `items` WHERE `entry` = '" & item & "' LIMIT 1;", Connection)
-            End If
-
-            Reader = Query.ExecuteReader()
-            If Reader.HasRows And item <> "" Then
-                TextBox4.Text = TextBox4.Text & item & " | "
+            If Listbox3Check() = True Then
                 ListBox1.Items.RemoveAt(y)
                 y = y - 1
+            Else
+                Label11.Text = "Check database: " & item
+                Label11.Refresh()
+                Dim Connection As MySqlConnection
+                Dim Query As MySqlCommand
+                Dim Reader As MySqlDataReader = Nothing
+
+                Connection = New MySqlConnection("server=" & My.Settings.host & ";user id=" & My.Settings.username & "; password=" & My.Settings.password & "; port=" & My.Settings.port & "; database=" & My.Settings.db & "; pooling=false")
+                Connection.Open()
+
+                If My.Settings.type = "Trinity" Or My.Settings.type = "Mangos" Then
+                    Query = New MySqlCommand("SELECT `entry` FROM `item_template` WHERE `entry` = '" & item & "' LIMIT 1;", Connection)
+                Else
+                    Query = New MySqlCommand("SELECT `entry` FROM `items` WHERE `entry` = '" & item & "' LIMIT 1;", Connection)
+                End If
+
+                Reader = Query.ExecuteReader()
+                If Reader.HasRows And item <> "" Then
+                    TextBox4.Text = TextBox4.Text & item & " | "
+                    ListBox3.Items.Add(item)
+                    ListBox1.Items.RemoveAt(y)
+                    y = y - 1
+                End If
+
+                y = y + 1
+                x = ListBox1.Items.Count
                 ProgressBar1.Value = ProgressBar1.Value + 1
             End If
-
-            x = ListBox1.Items.Count
-            y = y + 1
-            ProgressBar1.Value = y
         Loop
-        ProgressBar1.Value = ProgressBar1.Maximum
         checkarray()
     End Sub
 
@@ -712,49 +771,44 @@ Public Class Form2
         y = 0
         x = ListBox1.Items.Count
         ProgressBar1.Maximum = x
+        ProgressBar1.Value = y
+        Label11.Text = "Connecting to the web..."
+        Label11.Refresh()
 
         Do Until y = x
             item = ListBox1.Items.Item(y)
-            ProgressBar1.Value = y
-            If y = 0 Then
-                Label11.Text = "Please wait while connecting to the web."
-                Label11.Refresh()
-            End If
-            Dim url As String = ("http://wow.allakhazam.com/ihtml?" & item)
-            Dim webResponse3 As HttpWebResponse = Nothing
-            Dim webRequest3 As HttpWebRequest = HttpWebRequest.Create(url)
-            Dim srResp As StreamReader
-            Dim strIn As String
-            webResponse3 = DirectCast(webRequest3.GetResponse(), System.Net.HttpWebResponse)
-            srResp = New StreamReader(webResponse3.GetResponseStream())
-            strIn = srResp.ReadToEnd
-            Label11.Text = "Searching Item on web: " & item
-            Label11.Refresh()
-
-            If strIn.Length < 470 Then
-                TextBox7.Text = TextBox7.Text & item & " | "
+            If Listbox4Check() = True Then
                 ListBox1.Items.RemoveAt(y)
                 y = y - 1
+            Else
+                Dim url As String = ("http://wow.allakhazam.com/ihtml?" & item)
+                Label11.Text = "Searching item on web: " & item
+                Label11.Refresh()
+                Dim webResponse3 As HttpWebResponse = Nothing
+                Dim webRequest3 As HttpWebRequest = HttpWebRequest.Create(url)
+                Dim srResp As StreamReader
+                Dim strIn As String
+                webResponse3 = DirectCast(webRequest3.GetResponse(), System.Net.HttpWebResponse)
+                srResp = New StreamReader(webResponse3.GetResponseStream())
+                strIn = srResp.ReadToEnd
+
+                If strIn.Length < 470 Then
+                    TextBox7.Text = TextBox7.Text & item & " | "
+                    ListBox4.Items.Add(item)
+                    ListBox1.Items.RemoveAt(y)
+                    y = y - 1
+                End If
+
+                y = y + 1
+                x = ListBox1.Items.Count
                 ProgressBar1.Value = ProgressBar1.Value + 1
             End If
-
-            x = ListBox1.Items.Count
-            y = y + 1
-            ProgressBar1.Value = y
         Loop
-        ProgressBar1.Value = ProgressBar1.Maximum
-        Label11.Text = "Progress Done"
-        If CheckBox1.Checked = True Then
-            addtodb()
-            clearrange()
-        End If
+        Label11.Text = "Progress done."
     End Sub
 
     Private Sub Button8_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
         clearrange()
-        ListBox2.Items.Clear()
-        TextBox4.Clear()
-        TextBox7.Clear()
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
@@ -826,18 +880,33 @@ Public Class Form2
 
     Private Sub ListBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox1.SelectedIndexChanged
         itemid = ListBox1.SelectedItem
-        nodelist()
-        TextBox6.Text = name1
-        WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
-        WebBrowser5.Navigate("http://wow.allakhazam.com/" & itemicon)
+        If itemid <> 0 Then
+            nodelist()
+            TextBox6.Text = name1
+            WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
+            WebBrowser5.Navigate("http://wow.allakhazam.com/" & itemicon)
+        End If
     End Sub
 
     Private Sub ListBox2_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox2.SelectedIndexChanged
-        itemid = ListBox2.SelectedItem
-        nodelist()
-        TextBox6.Text = name1
-        WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
-        WebBrowser5.Navigate("http://wow.allakhazam.com/" & itemicon)
+        item = ListBox1.SelectedItem
+        If itemid <> 0 Then
+            itemid = ListBox2.SelectedItem
+            nodelist()
+            TextBox6.Text = name1
+            WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
+            WebBrowser5.Navigate("http://wow.allakhazam.com/" & itemicon)
+        End If
+    End Sub
+    Private Sub ListBox3_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox2.SelectedIndexChanged
+        itemid = ListBox1.SelectedItem
+        If itemid <> 0 Then
+            itemid = ListBox3.SelectedItem
+            nodelist()
+            TextBox6.Text = name1
+            WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
+            WebBrowser5.Navigate("http://wow.allakhazam.com/" & itemicon)
+        End If
     End Sub
 
     Public Sub New()
@@ -854,6 +923,12 @@ Public Class Form2
         TextBox3.Text = ""
         CheckBox1.Checked = False
         ListBox1.Items.Clear()
+        ListBox2.Items.Clear()
+        ListBox3.Items.Clear()
+        ListBox4.Items.Clear()
+        TextBox4.Clear()
+        TextBox7.Clear()
+
     End Sub
 
     Private Sub RemoveAllToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RemoveAllToolStripMenuItem.Click
@@ -893,6 +968,6 @@ Public Class Form2
     End Sub
 
     Private Sub LinkLabel2_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
-        System.Diagnostics.Process.Start("http://www.phanonic.smfnew.com")
+        System.Diagnostics.Process.Start("mailto:ctnyvz@gmail.com")
     End Sub
 End Class

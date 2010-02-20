@@ -40,7 +40,10 @@ Partial Class Form2
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.TabPage2 = New System.Windows.Forms.TabPage
         Me.GroupBox5 = New System.Windows.Forms.GroupBox
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox
+        Me.TextBox4 = New System.Windows.Forms.TextBox
         Me.GroupBox7 = New System.Windows.Forms.GroupBox
+        Me.TextBox7 = New System.Windows.Forms.TextBox
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar
         Me.Label11 = New System.Windows.Forms.Label
@@ -56,10 +59,12 @@ Partial Class Form2
         Me.ListBox1 = New System.Windows.Forms.ListBox
         Me.TabPage5 = New System.Windows.Forms.TabPage
         Me.ListBox2 = New System.Windows.Forms.ListBox
+        Me.TabPage6 = New System.Windows.Forms.TabPage
+        Me.ListBox3 = New System.Windows.Forms.ListBox
+        Me.TabPage7 = New System.Windows.Forms.TabPage
+        Me.ListBox4 = New System.Windows.Forms.ListBox
         Me.Button5 = New System.Windows.Forms.Button
         Me.Button6 = New System.Windows.Forms.Button
-        Me.btnadd = New System.Windows.Forms.Button
-        Me.txtadd = New System.Windows.Forms.TextBox
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.WebBrowser5 = New System.Windows.Forms.WebBrowser
         Me.WebBrowser2 = New System.Windows.Forms.WebBrowser
@@ -67,7 +72,6 @@ Partial Class Form2
         Me.TabPage3 = New System.Windows.Forms.TabPage
         Me.LinkLabel2 = New System.Windows.Forms.LinkLabel
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel
-        Me.Label4 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -76,24 +80,24 @@ Partial Class Form2
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AddToDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.RemoveAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox
-        Me.TextBox4 = New System.Windows.Forms.TextBox
-        Me.TextBox7 = New System.Windows.Forms.TextBox
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.TabPage5.SuspendLayout()
+        Me.TabPage6.SuspendLayout()
+        Me.TabPage7.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
-        Me.GroupBox8.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button3
@@ -273,8 +277,6 @@ Partial Class Form2
         Me.GroupBox5.Controls.Add(Me.TabControl2)
         Me.GroupBox5.Controls.Add(Me.Button5)
         Me.GroupBox5.Controls.Add(Me.Button6)
-        Me.GroupBox5.Controls.Add(Me.btnadd)
-        Me.GroupBox5.Controls.Add(Me.txtadd)
         Me.GroupBox5.Location = New System.Drawing.Point(6, 6)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(407, 455)
@@ -282,17 +284,51 @@ Partial Class Form2
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Item List"
         '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.TextBox4)
+        Me.GroupBox8.Location = New System.Drawing.Point(6, 255)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(301, 98)
+        Me.GroupBox8.TabIndex = 26
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Error: Item already in database."
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox4.Location = New System.Drawing.Point(6, 19)
+        Me.TextBox4.Multiline = True
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TextBox4.Size = New System.Drawing.Size(289, 73)
+        Me.TextBox4.TabIndex = 0
+        '
         'GroupBox7
         '
         Me.GroupBox7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox7.Controls.Add(Me.TextBox7)
-        Me.GroupBox7.Location = New System.Drawing.Point(6, 375)
+        Me.GroupBox7.Location = New System.Drawing.Point(6, 359)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(301, 74)
+        Me.GroupBox7.Size = New System.Drawing.Size(301, 90)
         Me.GroupBox7.TabIndex = 25
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Error: Item not found."
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox7.Location = New System.Drawing.Point(7, 20)
+        Me.TextBox7.Multiline = True
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TextBox7.Size = New System.Drawing.Size(288, 64)
+        Me.TextBox7.TabIndex = 0
         '
         'GroupBox1
         '
@@ -305,9 +341,9 @@ Partial Class Form2
         Me.GroupBox1.Controls.Add(Me.TextBox2)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.Button8)
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 47)
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 19)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(301, 227)
+        Me.GroupBox1.Size = New System.Drawing.Size(301, 230)
         Me.GroupBox1.TabIndex = 22
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Item Range"
@@ -316,7 +352,7 @@ Partial Class Form2
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(6, 186)
+        Me.ProgressBar1.Location = New System.Drawing.Point(6, 189)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(289, 23)
         Me.ProgressBar1.TabIndex = 21
@@ -326,7 +362,7 @@ Partial Class Form2
         Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(6, 166)
+        Me.Label11.Location = New System.Drawing.Point(6, 169)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(96, 17)
         Me.Label11.TabIndex = 19
@@ -345,7 +381,7 @@ Partial Class Form2
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(9, 128)
+        Me.CheckBox1.Location = New System.Drawing.Point(9, 139)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(181, 17)
         Me.CheckBox1.TabIndex = 20
@@ -401,10 +437,12 @@ Partial Class Form2
                     Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.TabControl2.Controls.Add(Me.TabPage4)
         Me.TabControl2.Controls.Add(Me.TabPage5)
+        Me.TabControl2.Controls.Add(Me.TabPage6)
+        Me.TabControl2.Controls.Add(Me.TabPage7)
         Me.TabControl2.Location = New System.Drawing.Point(313, 19)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(88, 390)
+        Me.TabControl2.Size = New System.Drawing.Size(88, 358)
         Me.TabControl2.TabIndex = 24
         '
         'TabPage4
@@ -413,7 +451,7 @@ Partial Class Form2
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(80, 364)
+        Me.TabPage4.Size = New System.Drawing.Size(80, 332)
         Me.TabPage4.TabIndex = 0
         Me.TabPage4.Text = "New"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -430,7 +468,7 @@ Partial Class Form2
         Me.ListBox1.ItemHeight = 16
         Me.ListBox1.Location = New System.Drawing.Point(3, 3)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(74, 356)
+        Me.ListBox1.Size = New System.Drawing.Size(74, 324)
         Me.ListBox1.TabIndex = 4
         '
         'TabPage5
@@ -439,7 +477,7 @@ Partial Class Form2
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(80, 364)
+        Me.TabPage5.Size = New System.Drawing.Size(80, 332)
         Me.TabPage5.TabIndex = 1
         Me.TabPage5.Text = "Added"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -456,16 +494,64 @@ Partial Class Form2
         Me.ListBox2.ItemHeight = 16
         Me.ListBox2.Location = New System.Drawing.Point(3, 3)
         Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(74, 356)
+        Me.ListBox2.Size = New System.Drawing.Size(74, 324)
         Me.ListBox2.TabIndex = 4
+        '
+        'TabPage6
+        '
+        Me.TabPage6.Controls.Add(Me.ListBox3)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage6.Size = New System.Drawing.Size(80, 332)
+        Me.TabPage6.TabIndex = 2
+        Me.TabPage6.Text = "In DB"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'ListBox3
+        '
+        Me.ListBox3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ListBox3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ListBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox3.ForeColor = System.Drawing.Color.Black
+        Me.ListBox3.FormattingEnabled = True
+        Me.ListBox3.ItemHeight = 16
+        Me.ListBox3.Location = New System.Drawing.Point(3, 4)
+        Me.ListBox3.Name = "ListBox3"
+        Me.ListBox3.Size = New System.Drawing.Size(74, 324)
+        Me.ListBox3.TabIndex = 5
+        '
+        'TabPage7
+        '
+        Me.TabPage7.Controls.Add(Me.ListBox4)
+        Me.TabPage7.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage7.Name = "TabPage7"
+        Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage7.Size = New System.Drawing.Size(80, 332)
+        Me.TabPage7.TabIndex = 3
+        Me.TabPage7.Text = "Not Found"
+        Me.TabPage7.UseVisualStyleBackColor = True
+        '
+        'ListBox4
+        '
+        Me.ListBox4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ListBox4.FormattingEnabled = True
+        Me.ListBox4.Location = New System.Drawing.Point(3, 4)
+        Me.ListBox4.Name = "ListBox4"
+        Me.ListBox4.Size = New System.Drawing.Size(74, 316)
+        Me.ListBox4.TabIndex = 0
         '
         'Button5
         '
         Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button5.Enabled = False
-        Me.Button5.Location = New System.Drawing.Point(6, 19)
+        Me.Button5.Location = New System.Drawing.Point(313, 427)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(85, 22)
+        Me.Button5.Size = New System.Drawing.Size(88, 22)
         Me.Button5.TabIndex = 3
         Me.Button5.Text = "Export"
         Me.Button5.UseVisualStyleBackColor = True
@@ -473,33 +559,12 @@ Partial Class Form2
         'Button6
         '
         Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button6.Location = New System.Drawing.Point(313, 411)
+        Me.Button6.Location = New System.Drawing.Point(313, 383)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(88, 38)
         Me.Button6.TabIndex = 2
         Me.Button6.Text = "Add List to Database"
         Me.Button6.UseVisualStyleBackColor = True
-        '
-        'btnadd
-        '
-        Me.btnadd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnadd.BackColor = System.Drawing.SystemColors.Control
-        Me.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.btnadd.Location = New System.Drawing.Point(222, 19)
-        Me.btnadd.Name = "btnadd"
-        Me.btnadd.Size = New System.Drawing.Size(85, 22)
-        Me.btnadd.TabIndex = 1
-        Me.btnadd.Text = "Add to List"
-        Me.btnadd.UseVisualStyleBackColor = False
-        '
-        'txtadd
-        '
-        Me.txtadd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtadd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtadd.Location = New System.Drawing.Point(142, 20)
-        Me.txtadd.Name = "txtadd"
-        Me.txtadd.Size = New System.Drawing.Size(74, 20)
-        Me.txtadd.TabIndex = 0
         '
         'GroupBox2
         '
@@ -518,6 +583,7 @@ Partial Class Form2
         '
         'WebBrowser5
         '
+        Me.WebBrowser5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.WebBrowser5.Location = New System.Drawing.Point(231, 8)
         Me.WebBrowser5.Margin = New System.Windows.Forms.Padding(1)
         Me.WebBrowser5.MinimumSize = New System.Drawing.Size(20, 20)
@@ -540,8 +606,6 @@ Partial Class Form2
         '
         'TextBox6
         '
-        Me.TextBox6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox6.Location = New System.Drawing.Point(6, 19)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(221, 20)
@@ -552,7 +616,6 @@ Partial Class Form2
         '
         Me.TabPage3.Controls.Add(Me.LinkLabel2)
         Me.TabPage3.Controls.Add(Me.LinkLabel1)
-        Me.TabPage3.Controls.Add(Me.Label4)
         Me.TabPage3.Controls.Add(Me.Label3)
         Me.TabPage3.Controls.Add(Me.Label2)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
@@ -575,26 +638,19 @@ Partial Class Form2
         '
         'LinkLabel1
         '
+        Me.LinkLabel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(315, 466)
+        Me.LinkLabel1.Location = New System.Drawing.Point(109, 403)
         Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(112, 13)
+        Me.LinkLabel1.Size = New System.Drawing.Size(171, 13)
         Me.LinkLabel1.TabIndex = 3
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Tag = "http://phanonic.co.cc"
-        Me.LinkLabel1.Text = "http://phanonic.co.cc"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(250, 466)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(70, 13)
-        Me.Label4.TabIndex = 2
-        Me.Label4.Text = "Visit for more:"
+        Me.LinkLabel1.Text = "http://www.phanonic.smfnew.com"
         '
         'Label3
         '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label3.Location = New System.Drawing.Point(6, 381)
@@ -605,6 +661,7 @@ Partial Class Form2
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(6, 403)
         Me.Label2.Name = "Label2"
@@ -620,58 +677,30 @@ Partial Class Form2
         'removeToolStripMenuItem
         '
         Me.removeToolStripMenuItem.Name = "removeToolStripMenuItem"
-        Me.removeToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.removeToolStripMenuItem.Text = "Remove"
+        Me.removeToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.removeToolStripMenuItem.Text = "Remove From List"
         '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToDatabaseToolStripMenuItem, Me.removeToolStripMenuItem, Me.RemoveAllToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(162, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(170, 70)
         '
         'AddToDatabaseToolStripMenuItem
         '
         Me.AddToDatabaseToolStripMenuItem.Name = "AddToDatabaseToolStripMenuItem"
-        Me.AddToDatabaseToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.AddToDatabaseToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.AddToDatabaseToolStripMenuItem.Text = "Add to Database"
         '
         'RemoveAllToolStripMenuItem
         '
         Me.RemoveAllToolStripMenuItem.Name = "RemoveAllToolStripMenuItem"
-        Me.RemoveAllToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.RemoveAllToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.RemoveAllToolStripMenuItem.Text = "Remove All"
         '
-        'GroupBox8
+        'Timer2
         '
-        Me.GroupBox8.Controls.Add(Me.TextBox4)
-        Me.GroupBox8.Location = New System.Drawing.Point(6, 280)
-        Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(301, 89)
-        Me.GroupBox8.TabIndex = 26
-        Me.GroupBox8.TabStop = False
-        Me.GroupBox8.Text = "Error: Item already in database."
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox4.Location = New System.Drawing.Point(6, 19)
-        Me.TextBox4.Multiline = True
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(289, 64)
-        Me.TextBox4.TabIndex = 0
-        '
-        'TextBox7
-        '
-        Me.TextBox7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox7.Location = New System.Drawing.Point(7, 20)
-        Me.TextBox7.Multiline = True
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(288, 48)
-        Me.TextBox7.TabIndex = 0
+        Me.Timer2.Interval = 600
         '
         'Form2
         '
@@ -690,7 +719,8 @@ Partial Class Form2
         Me.GroupBox3.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -698,13 +728,13 @@ Partial Class Form2
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
+        Me.TabPage6.ResumeLayout(False)
+        Me.TabPage7.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
         Me.ContextMenuStrip1.ResumeLayout(False)
-        Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox8.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -725,8 +755,6 @@ Partial Class Form2
     Friend WithEvents RemoveAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents txtadd As System.Windows.Forms.TextBox
-    Friend WithEvents btnadd As System.Windows.Forms.Button
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
     Friend WithEvents WebBrowser2 As System.Windows.Forms.WebBrowser
     Friend WithEvents Label11 As System.Windows.Forms.Label
@@ -741,7 +769,6 @@ Partial Class Form2
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
-    Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents AddToDatabaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -763,4 +790,9 @@ Partial Class Form2
     Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
+    Friend WithEvents TabPage6 As System.Windows.Forms.TabPage
+    Friend WithEvents ListBox3 As System.Windows.Forms.ListBox
+    Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
+    Friend WithEvents ListBox4 As System.Windows.Forms.ListBox
+    Friend WithEvents Timer2 As System.Windows.Forms.Timer
 End Class

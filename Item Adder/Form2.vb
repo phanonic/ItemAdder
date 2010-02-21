@@ -1,8 +1,10 @@
-﻿Imports System.Net
+﻿Option Explicit On
+Imports System.Net
 Imports System.IO
 Imports MySql.Data.MySqlClient
 Imports System.Xml
 Imports System.Threading
+
 
 
 
@@ -45,6 +47,7 @@ Public Class Form2
     Dim RequiredFactionStanding = 0
     Dim RequiredReputationRank = 0
     Dim Unique = 0
+    Dim rangedmodrange = 0
     Dim maxcount = 0
     Dim ContainerSlots = 0
     Dim itemstatscount = 0
@@ -161,6 +164,8 @@ Public Class Form2
     Dim multi As Boolean = False
     Dim x As Integer
     Dim y As Integer
+    Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+
 
     Public Sub nodelist()
         Dim m_xmld As XmlDocument
@@ -277,6 +282,7 @@ Public Class Form2
             itemstatscount = m_node.ChildNodes.Item(120).InnerText
             TotemCategory = m_node.ChildNodes.Item(122).InnerText
             Unique = m_node.ChildNodes.Item(125).InnerText
+            rangedmodrange = 100
             ScalingStatsEntry = 0
             ScalingStatsFlags = 0
             dmg_min4 = 0
@@ -323,11 +329,11 @@ Public Class Form2
             thequery = arcQuery
         End If
         If My.Settings.type = "Trinity" Then
-            trinquery = "INSERT INTO `item_template` VALUES ('" & entry & "', '" & classs & "', '" & subclass & "', '" & -1 & "', '" & name1 & "', '" & displayid & "', '" & quality & "', '" & flags & "', '" & faction & "', '" & buycount & "', '" & buyprice & "', '" & sellprice & "', '" & inventorytype & "', '" & allowableclass & "', '" & allowablerace & "', '" & itemlevel & "', '" & requiredlevel & "', '" & RequiredSkill & "', '" & RequiredSkillRank & "', '" & RequiredSpell & "', '" & RequiredPlayerRank1 & "', '" & RequiredPlayerRank2 & "', '" & RequiredFaction & "', '" & RequiredFactionStanding & "', '" & maxcount & "', '" & 1 & "',  '" & ContainerSlots & "', '" & itemstatscount & "', '" & stat_type1 & "', '" & stat_value1 & "', '" & stat_type2 & "', '" & stat_value2 & "', '" & stat_type3 & "', '" & stat_value3 & "', '" & stat_type4 & "', '" & stat_value4 & "', '" & stat_type5 & "', '" & stat_value5 & "', '" & stat_type6 & "', '" & stat_value6 & "', '" & stat_type7 & "', '" & stat_value7 & "', '" & stat_type8 & "', '" & stat_value8 & "', '" & stat_type9 & "', '" & stat_value9 & "', '" & stat_type10 & "', '" & stat_value10 & "', '" & ScalingStatsEntry & "', '" & ScalingStatsFlags & "', '" & dmg_min1 & "', '" & dmg_max1 & "', '" & dmg_type1 & "', '" & dmg_min2 & "', '" & dmg_max2 & "', '" & dmg_type2 & "', '" & armor & "', '" & holy_res & "', '" & fire_res & "', '" & nature_res & "', '" & frost_res & "', '" & shadow_res & "', '" & arcane_resist & "', '" & delay & "', '" & ammo_type & "', '0', '" & spellid_1 & "', '" & spelltrigger_1 & "', '" & spellcharges_1 & "', '" & 0 & "', '" & spellcooldown_1 & "', '" & spellcategory_1 & "', '" & spellcategorycooldown_1 & "', '" & spellid_2 & "', '" & spelltrigger_2 & "', '" & spellcharges_2 & "', '" & 0 & "', '" & spellcooldown_2 & "', '" & spellcategory_2 & "', '" & spellcategorycooldown_2 & "', '" & spellid_3 & "', '" & spelltrigger_3 & "', '" & spellcharges_3 & "', '" & 0 & "', '" & spellcooldown_3 & "', '" & spellcategory_3 & "', '" & spellcategorycooldown_3 & "', '" & spellid_4 & "', '" & spelltrigger_4 & "', '" & spellcharges_4 & "', '" & 0 & "', '" & spellcooldown_4 & "', '" & spellcategory_4 & "', '" & spellcategorycooldown_4 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & bonding & "', '" & description & "', '" & pageid & "', '" & page_language & "', '" & page_material & "', '" & quest_id & "', '" & lock_id & "', '" & lock_material & "', '" & sheathid & "', '" & randomprop & "', '" & randomsuffix & "', '" & block & "', '" & itemset & "', '" & MaxDurability & "', '" & ZoneNameID & "', '" & mapid & "', '" & bagfamily & "', '" & TotemCategory & "', '" & socket_color_1 & "', '" & unk201_3 & "', '" & socket_color_2 & "', '" & unk201_5 & "', '" & socket_color_3 & "', '" & unk201_7 & "', '" & socket_bonus & "', '" & GemProperties & "', '" & ReqDisenchantSkill & "', '" & ArmorDamageModifier & "' , '" & duration & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "', '" & 0 & "');"
+            trinquery = "INSERT INTO `item_template` VALUES ('" & entry & "', '" & classs & "', '" & subclass & "', '" & -1 & "', '" & name1 & "', '" & displayid & "', '" & quality & "', '" & flags & "', '" & faction & "', '" & buycount & "', '" & buyprice & "', '" & sellprice & "', '" & inventorytype & "', '" & allowableclass & "', '" & allowablerace & "', '" & itemlevel & "', '" & requiredlevel & "', '" & RequiredSkill & "', '" & RequiredSkillRank & "', '" & RequiredSpell & "', '" & RequiredPlayerRank1 & "', '" & RequiredPlayerRank2 & "', '" & RequiredFaction & "', '" & RequiredFactionStanding & "', '" & maxcount & "', '" & 1 & "',  '" & ContainerSlots & "', '" & itemstatscount & "', '" & stat_type1 & "', '" & stat_value1 & "', '" & stat_type2 & "', '" & stat_value2 & "', '" & stat_type3 & "', '" & stat_value3 & "', '" & stat_type4 & "', '" & stat_value4 & "', '" & stat_type5 & "', '" & stat_value5 & "', '" & stat_type6 & "', '" & stat_value6 & "', '" & stat_type7 & "', '" & stat_value7 & "', '" & stat_type8 & "', '" & stat_value8 & "', '" & stat_type9 & "', '" & stat_value9 & "', '" & stat_type10 & "', '" & stat_value10 & "', '" & ScalingStatsEntry & "', '" & ScalingStatsFlags & "', '" & dmg_min1 & "', '" & dmg_max1 & "', '" & dmg_type1 & "', '" & dmg_min2 & "', '" & dmg_max2 & "', '" & dmg_type2 & "', '" & armor & "', '" & holy_res & "', '" & fire_res & "', '" & nature_res & "', '" & frost_res & "', '" & shadow_res & "', '" & arcane_resist & "', '" & delay & "', '" & ammo_type & "', '" & rangedmodrange & "', '" & spellid_1 & "', '" & spelltrigger_1 & "', '" & spellcharges_1 & "', '" & 0 & "', '" & spellcooldown_1 & "', '" & spellcategory_1 & "', '" & spellcategorycooldown_1 & "', '" & spellid_2 & "', '" & spelltrigger_2 & "', '" & spellcharges_2 & "', '" & 0 & "', '" & spellcooldown_2 & "', '" & spellcategory_2 & "', '" & spellcategorycooldown_2 & "', '" & spellid_3 & "', '" & spelltrigger_3 & "', '" & spellcharges_3 & "', '" & 0 & "', '" & spellcooldown_3 & "', '" & spellcategory_3 & "', '" & spellcategorycooldown_3 & "', '" & spellid_4 & "', '" & spelltrigger_4 & "', '" & spellcharges_4 & "', '" & 0 & "', '" & spellcooldown_4 & "', '" & spellcategory_4 & "', '" & spellcategorycooldown_4 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & bonding & "', '" & description & "', '" & pageid & "', '" & page_language & "', '" & page_material & "', '" & quest_id & "', '" & lock_id & "', '" & lock_material & "', '" & sheathid & "', '" & randomprop & "', '" & randomsuffix & "', '" & block & "', '" & itemset & "', '" & MaxDurability & "', '" & ZoneNameID & "', '" & mapid & "', '" & bagfamily & "', '" & TotemCategory & "', '" & socket_color_1 & "', '" & unk201_3 & "', '" & socket_color_2 & "', '" & unk201_5 & "', '" & socket_color_3 & "', '" & unk201_7 & "', '" & socket_bonus & "', '" & GemProperties & "', '" & ReqDisenchantSkill & "', '" & ArmorDamageModifier & "' , '" & duration & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "', '" & 0 & "');"
             thequery = trinquery
         End If
         If My.Settings.type = "Mangos" Then
-            mangoquery = "INSERT INTO `item_template` VALUES ('" & entry & "', '" & classs & "', '" & subclass & "', '" & -1 & "', '" & name1 & "', '" & displayid & "', '" & quality & "', '" & flags & "', '" & faction & "', '" & buycount & "', '" & buyprice & "', '" & sellprice & "', '" & inventorytype & "', '" & allowableclass & "', '" & allowablerace & "', '" & itemlevel & "', '" & requiredlevel & "', '" & RequiredSkill & "', '" & RequiredSkillRank & "', '" & RequiredSpell & "', '" & RequiredPlayerRank1 & "', '" & RequiredFaction & "', '" & RequiredFactionStanding & "', '" & RequiredReputationRank & "', '" & maxcount & "', '" & Unique & "',  '" & ContainerSlots & "', '" & itemstatscount & "', '" & stat_type1 & "', '" & stat_value1 & "', '" & stat_type2 & "', '" & stat_value2 & "', '" & stat_type3 & "', '" & stat_value3 & "', '" & stat_type4 & "', '" & stat_value4 & "', '" & stat_type5 & "', '" & stat_value5 & "', '" & stat_type6 & "', '" & stat_value6 & "', '" & stat_type7 & "', '" & stat_value7 & "', '" & stat_type8 & "', '" & stat_value8 & "', '" & stat_type9 & "', '" & stat_value9 & "', '" & stat_type10 & "', '" & stat_value10 & "', '" & ScalingStatsEntry & "', '" & ScalingStatsFlags & "', '" & dmg_min1 & "', '" & dmg_max1 & "', '" & dmg_type1 & "', '" & dmg_min2 & "', '" & dmg_max2 & "', '" & dmg_type2 & "', '" & armor & "', '" & holy_res & "', '" & fire_res & "', '" & nature_res & "', '" & frost_res & "', '" & shadow_res & "', '" & arcane_resist & "', '" & delay & "', '" & ammo_type & "', '0', '" & spellid_1 & "', '" & spelltrigger_1 & "', '" & spellcharges_1 & "', '" & 0 & "', '" & spellcooldown_1 & "', '" & spellcategory_1 & "', '" & spellcategorycooldown_1 & "', '" & spellid_2 & "', '" & spelltrigger_2 & "', '" & spellcharges_2 & "', '" & 0 & "', '" & spellcooldown_2 & "', '" & spellcategory_2 & "', '" & spellcategorycooldown_2 & "', '" & spellid_3 & "', '" & spelltrigger_3 & "', '" & spellcharges_3 & "', '" & 0 & "', '" & spellcooldown_3 & "', '" & spellcategory_3 & "', '" & spellcategorycooldown_3 & "', '" & spellid_4 & "', '" & spelltrigger_4 & "', '" & spellcharges_4 & "', '" & 0 & "', '" & spellcooldown_4 & "', '" & spellcategory_4 & "', '" & spellcategorycooldown_4 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & bonding & "', '" & description & "', '" & pageid & "', '" & page_language & "', '" & page_material & "', '" & quest_id & "', '" & lock_id & "', '" & lock_material & "', '" & sheathid & "', '" & randomprop & "', '" & randomsuffix & "', '" & block & "', '" & itemset & "', '" & MaxDurability & "', '" & ZoneNameID & "', '" & mapid & "', '" & bagfamily & "', '" & TotemCategory & "', '" & socket_color_1 & "', '" & unk201_3 & "', '" & socket_color_2 & "', '" & unk201_5 & "', '" & socket_color_3 & "', '" & unk201_7 & "', '" & socket_bonus & "', '" & GemProperties & "', '" & ReqDisenchantSkill & "', '" & ArmorDamageModifier & "' , '" & duration & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "');"
+            mangoquery = "INSERT INTO `item_template` VALUES ('" & entry & "', '" & classs & "', '" & subclass & "', '" & -1 & "', '" & name1 & "', '" & displayid & "', '" & quality & "', '" & flags & "', '" & faction & "', '" & buycount & "', '" & buyprice & "', '" & sellprice & "', '" & inventorytype & "', '" & allowableclass & "', '" & allowablerace & "', '" & itemlevel & "', '" & requiredlevel & "', '" & RequiredSkill & "', '" & RequiredSkillRank & "', '" & RequiredSpell & "', '" & RequiredPlayerRank1 & "', '" & RequiredFaction & "', '" & RequiredFactionStanding & "', '" & RequiredReputationRank & "', '" & maxcount & "', '" & Unique & "',  '" & ContainerSlots & "', '" & itemstatscount & "', '" & stat_type1 & "', '" & stat_value1 & "', '" & stat_type2 & "', '" & stat_value2 & "', '" & stat_type3 & "', '" & stat_value3 & "', '" & stat_type4 & "', '" & stat_value4 & "', '" & stat_type5 & "', '" & stat_value5 & "', '" & stat_type6 & "', '" & stat_value6 & "', '" & stat_type7 & "', '" & stat_value7 & "', '" & stat_type8 & "', '" & stat_value8 & "', '" & stat_type9 & "', '" & stat_value9 & "', '" & stat_type10 & "', '" & stat_value10 & "', '" & ScalingStatsEntry & "', '" & ScalingStatsFlags & "', '" & dmg_min1 & "', '" & dmg_max1 & "', '" & dmg_type1 & "', '" & dmg_min2 & "', '" & dmg_max2 & "', '" & dmg_type2 & "', '" & armor & "', '" & holy_res & "', '" & fire_res & "', '" & nature_res & "', '" & frost_res & "', '" & shadow_res & "', '" & arcane_resist & "', '" & delay & "', '" & ammo_type & "', " & rangedmodrange & ", '" & spellid_1 & "', '" & spelltrigger_1 & "', '" & spellcharges_1 & "', '" & 0 & "', '" & spellcooldown_1 & "', '" & spellcategory_1 & "', '" & spellcategorycooldown_1 & "', '" & spellid_2 & "', '" & spelltrigger_2 & "', '" & spellcharges_2 & "', '" & 0 & "', '" & spellcooldown_2 & "', '" & spellcategory_2 & "', '" & spellcategorycooldown_2 & "', '" & spellid_3 & "', '" & spelltrigger_3 & "', '" & spellcharges_3 & "', '" & 0 & "', '" & spellcooldown_3 & "', '" & spellcategory_3 & "', '" & spellcategorycooldown_3 & "', '" & spellid_4 & "', '" & spelltrigger_4 & "', '" & spellcharges_4 & "', '" & 0 & "', '" & spellcooldown_4 & "', '" & spellcategory_4 & "', '" & spellcategorycooldown_4 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & bonding & "', '" & description & "', '" & pageid & "', '" & page_language & "', '" & page_material & "', '" & quest_id & "', '" & lock_id & "', '" & lock_material & "', '" & sheathid & "', '" & randomprop & "', '" & randomsuffix & "', '" & block & "', '" & itemset & "', '" & MaxDurability & "', '" & ZoneNameID & "', '" & mapid & "', '" & bagfamily & "', '" & TotemCategory & "', '" & socket_color_1 & "', '" & unk201_3 & "', '" & socket_color_2 & "', '" & unk201_5 & "', '" & socket_color_3 & "', '" & unk201_7 & "', '" & socket_bonus & "', '" & GemProperties & "', '" & ReqDisenchantSkill & "', '" & ArmorDamageModifier & "' , '" & duration & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "');"
             thequery = mangoquery
         End If
     End Sub
@@ -420,6 +426,7 @@ Public Class Form2
             Reader.Close()
             Execute = New MySqlCommand(thequery, Connection)
             Reader2 = Execute.ExecuteReader
+            name1 = name1.Replace("\", "")
             MsgBox(itemid & " " & name1 & " added successfuly.")
             Reader2.Close()
         End If
@@ -581,8 +588,6 @@ Public Class Form2
         Dim y As Integer
         Dim Connection As MySqlConnection
         Dim execute As MySqlCommand
-        Dim Query As MySqlCommand
-        Dim Reader2 As MySqlDataReader = Nothing
         Dim Reader As MySqlDataReader = Nothing
         x = ListBox1.Items.Count
         y = 0
@@ -595,42 +600,19 @@ Public Class Form2
             item = ListBox1.Items.Item(y)
             Label11.Text = item & " adding to database." & ListBox2.Items.Count & " item(s) added."
             Label11.Refresh()
+            Sleep(NumericUpDown1.Value)
             parsexml()
             checktext()
             writesql()
-            If My.Settings.type = "Trinity" Or My.Settings.type = "Mangos" Then
-                Query = New MySqlCommand("SELECT `entry` FROM `item_template` WHERE `entry` = '" & itemid & "' LIMIT 1;", Connection)
-            Else
-                Query = New MySqlCommand("SELECT `entry` FROM `items` WHERE `entry` = '" & itemid & "' LIMIT 1;", Connection)
-            End If
-            Reader = Query.ExecuteReader()
+            execute = New MySqlCommand(thequery, Connection)
+            Reader = execute.ExecuteReader
             Reader.Close()
-            Reader = Query.ExecuteReader()
-            Reader.Close()
-            Reader = Query.ExecuteReader()
-            Reader.Close()
-            Reader = Query.ExecuteReader()
-            Reader.Close()
-            Reader = Query.ExecuteReader()
-            Reader.Close()
-            Reader = Query.ExecuteReader()
-            Reader.Close()
-            Reader = Query.ExecuteReader()
-            If Reader.HasRows And itemid <> "" Then
-                Reader.Close()
-            Else
-                Reader.Close()
-                execute = New MySqlCommand(thequery, Connection)
-                Reader2 = execute.ExecuteReader
-                Reader2.Close()
-                ListBox1.Items.RemoveAt(y)
-                ListBox2.Items.Add(item)
-                y = y - 1
-            End If
+            ListBox1.Items.RemoveAt(y)
+            ListBox2.Items.Add(item)
             x = ListBox1.Items.Count
             ProgressBar1.Value = ProgressBar1.Value + 1
-            y = y + 1
         Loop
+        multi = False
         Label11.Text = ListBox2.Items.Count & " new item(s) added."
     End Sub
 
@@ -753,6 +735,7 @@ Public Class Form2
                         Else
                             If CheckBox1.Checked = True Then
                                 multi = True
+                                Sleep(NumericUpDown1.Value)
                                 parsexml()
                                 checktext()
                                 writesql()
@@ -958,6 +941,7 @@ Public Class Form2
         Execute = New MySqlCommand(thequery, Connection)
         Reader = Execute.ExecuteReader
         Reader.Close()
+        name1 = name1.Replace("\", "")
         MsgBox(item & " " & name1 & " added successfuly.")
         ListBox2.Items.Add(itemid)
         ListBox1.Items.Remove(ListBox1.SelectedItem)
@@ -1017,4 +1001,5 @@ Public Class Form2
             WebBrowser1.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
         End If
     End Sub
+
 End Class

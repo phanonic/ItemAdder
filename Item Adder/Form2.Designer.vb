@@ -90,6 +90,9 @@ Partial Class Form2
         Me.Lİstbox3ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.RemoveAllToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem
         Me.RemoveAllToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -110,6 +113,7 @@ Partial Class Form2
         Me.StatusStrip1.SuspendLayout()
         Me.ContextMenuStrip2.SuspendLayout()
         Me.ContextMenuStrip3.SuspendLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button3
@@ -123,7 +127,6 @@ Partial Class Form2
         '
         'Button2
         '
-        Me.Button2.Enabled = False
         Me.Button2.Location = New System.Drawing.Point(245, 53)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(70, 23)
@@ -299,9 +302,9 @@ Partial Class Form2
         'GroupBox8
         '
         Me.GroupBox8.Controls.Add(Me.TextBox4)
-        Me.GroupBox8.Location = New System.Drawing.Point(6, 255)
+        Me.GroupBox8.Location = New System.Drawing.Point(6, 282)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(301, 102)
+        Me.GroupBox8.Size = New System.Drawing.Size(301, 89)
         Me.GroupBox8.TabIndex = 26
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Error: Item already in database."
@@ -315,7 +318,7 @@ Partial Class Form2
         Me.TextBox4.Multiline = True
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox4.Size = New System.Drawing.Size(289, 77)
+        Me.TextBox4.Size = New System.Drawing.Size(289, 64)
         Me.TextBox4.TabIndex = 0
         '
         'GroupBox7
@@ -323,9 +326,9 @@ Partial Class Form2
         Me.GroupBox7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox7.Controls.Add(Me.TextBox7)
-        Me.GroupBox7.Location = New System.Drawing.Point(6, 363)
+        Me.GroupBox7.Location = New System.Drawing.Point(6, 377)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(301, 109)
+        Me.GroupBox7.Size = New System.Drawing.Size(301, 95)
         Me.GroupBox7.TabIndex = 25
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Error: Item not found."
@@ -339,11 +342,14 @@ Partial Class Form2
         Me.TextBox7.Multiline = True
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox7.Size = New System.Drawing.Size(288, 83)
+        Me.TextBox7.Size = New System.Drawing.Size(288, 69)
         Me.TextBox7.TabIndex = 0
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.NumericUpDown1)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.ProgressBar1)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.Button7)
@@ -355,7 +361,7 @@ Partial Class Form2
         Me.GroupBox1.Controls.Add(Me.Button8)
         Me.GroupBox1.Location = New System.Drawing.Point(6, 19)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(301, 230)
+        Me.GroupBox1.Size = New System.Drawing.Size(301, 257)
         Me.GroupBox1.TabIndex = 22
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Item Range"
@@ -364,7 +370,7 @@ Partial Class Form2
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(6, 189)
+        Me.ProgressBar1.Location = New System.Drawing.Point(6, 216)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(289, 23)
         Me.ProgressBar1.TabIndex = 21
@@ -374,7 +380,7 @@ Partial Class Form2
         Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(6, 169)
+        Me.Label11.Location = New System.Drawing.Point(6, 196)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(96, 17)
         Me.Label11.TabIndex = 19
@@ -383,7 +389,7 @@ Partial Class Form2
         '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(65, 96)
+        Me.Button7.Location = New System.Drawing.Point(68, 93)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(70, 23)
         Me.Button7.TabIndex = 6
@@ -393,13 +399,11 @@ Partial Class Form2
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Checked = True
-        Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox1.Location = New System.Drawing.Point(9, 139)
+        Me.CheckBox1.Location = New System.Drawing.Point(6, 176)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(249, 17)
+        Me.CheckBox1.Size = New System.Drawing.Size(184, 17)
         Me.CheckBox1.TabIndex = 20
-        Me.CheckBox1.Text = "Add list automaticaly to database (low ban risk) "
+        Me.CheckBox1.Text = "Add list automaticaly to database."
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'Label8
@@ -438,7 +442,7 @@ Partial Class Form2
         '
         'Button8
         '
-        Me.Button8.Location = New System.Drawing.Point(163, 96)
+        Me.Button8.Location = New System.Drawing.Point(166, 93)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(70, 23)
         Me.Button8.TabIndex = 7
@@ -776,6 +780,37 @@ Partial Class Form2
         Me.RemoveAllToolStripMenuItem4.Size = New System.Drawing.Size(166, 22)
         Me.RemoveAllToolStripMenuItem4.Text = "Remove All"
         '
+        'Label4
+        '
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(68, 144)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(130, 13)
+        Me.Label4.TabIndex = 23
+        Me.Label4.Text = "Multi Item add min. speed:"
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(254, 144)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(23, 13)
+        Me.Label5.TabIndex = 23
+        Me.Label5.Text = "ms."
+        '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(204, 142)
+        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {3000, 0, 0, 0})
+        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {500, 0, 0, 0})
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(44, 20)
+        Me.NumericUpDown1.TabIndex = 24
+        Me.NumericUpDown1.Value = New Decimal(New Integer() {2000, 0, 0, 0})
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -814,6 +849,7 @@ Partial Class Form2
         Me.StatusStrip1.PerformLayout()
         Me.ContextMenuStrip2.ResumeLayout(False)
         Me.ContextMenuStrip3.ResumeLayout(False)
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -884,4 +920,7 @@ Partial Class Form2
     Friend WithEvents RemoveAllToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RemoveAllToolStripMenuItem4 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents NumericUpDown1 As System.Windows.Forms.NumericUpDown
 End Class

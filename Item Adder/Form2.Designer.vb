@@ -45,6 +45,9 @@ Partial Class Form2
         Me.GroupBox7 = New System.Windows.Forms.GroupBox
         Me.TextBox7 = New System.Windows.Forms.TextBox
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.Label4 = New System.Windows.Forms.Label
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar
         Me.Label11 = New System.Windows.Forms.Label
         Me.Button7 = New System.Windows.Forms.Button
@@ -90,9 +93,6 @@ Partial Class Form2
         Me.Lİstbox3ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.RemoveAllToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem
         Me.RemoveAllToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -102,6 +102,7 @@ Partial Class Form2
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl2.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.TabPage5.SuspendLayout()
@@ -113,7 +114,6 @@ Partial Class Form2
         Me.StatusStrip1.SuspendLayout()
         Me.ContextMenuStrip2.SuspendLayout()
         Me.ContextMenuStrip3.SuspendLayout()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button3
@@ -366,6 +366,37 @@ Partial Class Form2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Item Range"
         '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(204, 142)
+        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {3000, 0, 0, 0})
+        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {500, 0, 0, 0})
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(44, 20)
+        Me.NumericUpDown1.TabIndex = 24
+        Me.NumericUpDown1.Value = New Decimal(New Integer() {2000, 0, 0, 0})
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(254, 144)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(23, 13)
+        Me.Label5.TabIndex = 23
+        Me.Label5.Text = "ms."
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(68, 144)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(130, 13)
+        Me.Label4.TabIndex = 23
+        Me.Label4.Text = "Multi Item add min. speed:"
+        '
         'ProgressBar1
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
@@ -595,7 +626,7 @@ Partial Class Form2
         '
         Me.TextBox8.Location = New System.Drawing.Point(7, 71)
         Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox8.Size = New System.Drawing.Size(79, 20)
         Me.TextBox8.TabIndex = 25
         Me.TextBox8.Text = "Item No"
         '
@@ -780,37 +811,6 @@ Partial Class Form2
         Me.RemoveAllToolStripMenuItem4.Size = New System.Drawing.Size(166, 22)
         Me.RemoveAllToolStripMenuItem4.Text = "Remove All"
         '
-        'Label4
-        '
-        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(68, 144)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(130, 13)
-        Me.Label4.TabIndex = 23
-        Me.Label4.Text = "Multi Item add min. speed:"
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(254, 144)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(23, 13)
-        Me.Label5.TabIndex = 23
-        Me.Label5.Text = "ms."
-        '
-        'NumericUpDown1
-        '
-        Me.NumericUpDown1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown1.Location = New System.Drawing.Point(204, 142)
-        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {3000, 0, 0, 0})
-        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {500, 0, 0, 0})
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(44, 20)
-        Me.NumericUpDown1.TabIndex = 24
-        Me.NumericUpDown1.Value = New Decimal(New Integer() {2000, 0, 0, 0})
-        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -835,6 +835,7 @@ Partial Class Form2
         Me.GroupBox7.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
@@ -849,7 +850,6 @@ Partial Class Form2
         Me.StatusStrip1.PerformLayout()
         Me.ContextMenuStrip2.ResumeLayout(False)
         Me.ContextMenuStrip3.ResumeLayout(False)
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

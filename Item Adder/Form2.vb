@@ -158,7 +158,6 @@ Public Class Form2
     Dim duration
     Dim ItemLimitCategoryID
     Dim itemid As String
-    Dim item As String
     Dim itemxml As String = ("http://wow.allakhazam.com/cluster/item-xml.pl?witem=" + itemid)
     Dim itemicon As String
     Dim multi As Boolean = False
@@ -171,10 +170,6 @@ Public Class Form2
         Dim m_xmld As XmlDocument
         Dim m_node As XmlNode
         Dim m_nodelist As XmlNodeList
-
-        If multi = True Then
-            itemid = item
-        End If
 
         m_xmld = New XmlDocument()
         m_xmld.Load("http://wow.allakhazam.com/cluster/item-xml.pl?witem=" & itemid)
@@ -508,10 +503,6 @@ Public Class Form2
         Dim Query As MySqlCommand
         Dim Reader As MySqlDataReader = Nothing
 
-        If multi = True Then
-            itemid = item
-        End If
-
         Connection = New MySqlConnection("server=" & My.Settings.host & ";user id=" & My.Settings.username & "; password=" & My.Settings.password & "; port=" & My.Settings.port & "; database=" & My.Settings.db & "; pooling=false")
         Connection.Open()
         If My.Settings.type = "Trinity" Or My.Settings.type = "Mangos" Then
@@ -597,8 +588,8 @@ Public Class Form2
         Connection = New MySqlConnection("server=" & My.Settings.host & ";user id=" & My.Settings.username & "; password=" & My.Settings.password & "; port=" & My.Settings.port & "; database=" & My.Settings.db & "; pooling=false")
         Connection.Open()
         Do Until y = x
-            item = ListBox1.Items.Item(y)
-            Label11.Text = item & " adding to database." & ListBox2.Items.Count & " item(s) added."
+            itemid = ListBox1.Items.Item(y)
+            Label11.Text = itemid & " adding to database." & ListBox2.Items.Count & " item(s) added."
             Label11.Refresh()
             Sleep(NumericUpDown1.Value)
             parsexml()
@@ -608,7 +599,7 @@ Public Class Form2
             Reader = execute.ExecuteReader
             Reader.Close()
             ListBox1.Items.RemoveAt(y)
-            ListBox2.Items.Add(item)
+            ListBox2.Items.Add(itemid)
             x = ListBox1.Items.Count
             ProgressBar1.Value = ProgressBar1.Value + 1
         Loop
@@ -651,7 +642,7 @@ Public Class Form2
         x = ListBox3.Items.Count
 
         Do Until y = x
-            If ListBox3.Items.Item(y) = item Then
+            If ListBox3.Items.Item(y) = itemid Then
                 Return True
             End If
             y = y + 1
@@ -665,7 +656,7 @@ Public Class Form2
         x = ListBox4.Items.Count
 
         Do Until y = x
-            If ListBox4.Items.Item(y) = item Then
+            If ListBox4.Items.Item(y) = itemid Then
                 Return True
             End If
             y = y + 1
@@ -681,8 +672,8 @@ Public Class Form2
         ProgressBar1.Value = y
 
         Do Until y = x
-            item = ListBox1.Items.Item(y)
-            Label11.Text = "Check database and web: " & item
+            itemid = ListBox1.Items.Item(y)
+            Label11.Text = "Check database and web: " & itemid
             Label11.Refresh()
 
             If Listbox3Check() = True Then
@@ -697,16 +688,16 @@ Public Class Form2
                 Connection.Open()
 
                 If My.Settings.type = "Trinity" Or My.Settings.type = "Mangos" Then
-                    Query = New MySqlCommand("SELECT `entry` FROM `item_template` WHERE `entry` = '" & item & "' LIMIT 1;", Connection)
+                    Query = New MySqlCommand("SELECT `entry` FROM `item_template` WHERE `entry` = '" & itemid & "' LIMIT 1;", Connection)
                 Else
-                    Query = New MySqlCommand("SELECT `entry` FROM `items` WHERE `entry` = '" & item & "' LIMIT 1;", Connection)
+                    Query = New MySqlCommand("SELECT `entry` FROM `items` WHERE `entry` = '" & itemid & "' LIMIT 1;", Connection)
                 End If
 
                 Reader = Query.ExecuteReader()
-                If Reader.HasRows And item <> "" Then
+                If Reader.HasRows And itemid <> "" Then
                     Reader.Close()
-                    TextBox4.Text = TextBox4.Text & item & " | "
-                    ListBox3.Items.Add(item)
+                    TextBox4.Text = TextBox4.Text & itemid & " | "
+                    ListBox3.Items.Add(itemid)
                     ListBox1.Items.RemoveAt(y)
                     y = y - 1
 
@@ -716,7 +707,7 @@ Public Class Form2
                         ListBox1.Items.RemoveAt(y)
                         y = y - 1
                     Else
-                        Dim url As String = ("http://wow.allakhazam.com/ihtml?" & item)
+                        Dim url As String = ("http://wow.allakhazam.com/ihtml?" & itemid)
                         Dim webResponse3 As HttpWebResponse = Nothing
                         Dim webRequest3 As HttpWebRequest = HttpWebRequest.Create(url)
                         Dim srResp As StreamReader
@@ -727,8 +718,8 @@ Public Class Form2
                         ToolStripStatusLabel1.Text = "Web connect status: Connected."
 
                         If strIn.Length < 470 Then
-                            TextBox7.Text = TextBox7.Text & item & " | "
-                            ListBox4.Items.Add(item)
+                            TextBox7.Text = TextBox7.Text & itemid & " | "
+                            ListBox4.Items.Add(itemid)
                             ListBox1.Items.RemoveAt(y)
                             y = y - 1
 
@@ -747,7 +738,7 @@ Public Class Form2
                                 Reader2 = Execute.ExecuteReader
                                 Reader2.Close()
                                 ListBox1.Items.RemoveAt(y)
-                                ListBox2.Items.Add(item)
+                                ListBox2.Items.Add(itemid)
                                 y = y - 1
                             End If
                         End If
@@ -942,7 +933,7 @@ Public Class Form2
         Reader = Execute.ExecuteReader
         Reader.Close()
         name1 = name1.Replace("\", "")
-        MsgBox(item & " " & name1 & " added successfuly.")
+        MsgBox(itemid & " " & name1 & " added successfuly.")
         ListBox2.Items.Add(itemid)
         ListBox1.Items.Remove(ListBox1.SelectedItem)
     End Sub

@@ -157,9 +157,10 @@ Public Class Form2
     Dim itemid As String
     Dim item As String
     Dim itemxml As String = ("http://wow.allakhazam.com/cluster/item-xml.pl?witem=" + itemid)
-    Dim info2 As New Thread(AddressOf yoursub)
     Dim itemicon As String
     Dim multi As Boolean = False
+    Dim x As Integer
+    Dim y As Integer
 
     Public Sub nodelist()
         Dim m_xmld As XmlDocument
@@ -312,6 +313,8 @@ Public Class Form2
             duration = m_node.ChildNodes.Item(142).InnerText
             ItemLimitCategoryID = 0
         Next
+
+
     End Sub
 
     Public Sub writesql()
@@ -331,7 +334,6 @@ Public Class Form2
 
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.Click
         itemid = TextBox1.Text
-        ToolStripStatusLabel1.Text = "Web connect status: Connecting..."
         If checkitem() = True Then
             ToolStripStatusLabel1.Text = "Web connect status: Connected."
             nodelist()
@@ -339,13 +341,6 @@ Public Class Form2
             TextBox5.Text = name1
         End If
         WebBrowser1.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
-        Button2.Enabled = False
-        Button3.Enabled = False
-
-        If checkitem() = True Then
-            Button2.Enabled = True
-            Button3.Enabled = True
-        End If
     End Sub
 
     Public Function checkitem() As Boolean
@@ -378,8 +373,7 @@ Public Class Form2
     End Sub
 
     Private Sub Form2_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Button2.Enabled = False
-        Button3.Enabled = False
+
     End Sub
 
     Private Sub Button3_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
@@ -445,8 +439,6 @@ Public Class Form2
     End Sub
 
     Public Sub reset()
-        Button2.Enabled = False
-        Button3.Enabled = False
         Button1.Enabled = True
         itemid = ""
         WebBrowser1.Navigate("")
@@ -612,6 +604,18 @@ Public Class Form2
                 Query = New MySqlCommand("SELECT `entry` FROM `items` WHERE `entry` = '" & itemid & "' LIMIT 1;", Connection)
             End If
             Reader = Query.ExecuteReader()
+            Reader.Close()
+            Reader = Query.ExecuteReader()
+            Reader.Close()
+            Reader = Query.ExecuteReader()
+            Reader.Close()
+            Reader = Query.ExecuteReader()
+            Reader.Close()
+            Reader = Query.ExecuteReader()
+            Reader.Close()
+            Reader = Query.ExecuteReader()
+            Reader.Close()
+            Reader = Query.ExecuteReader()
             If Reader.HasRows And itemid <> "" Then
                 Reader.Close()
             Else
@@ -627,11 +631,10 @@ Public Class Form2
             ProgressBar1.Value = ProgressBar1.Value + 1
             y = y + 1
         Loop
+        Label11.Text = ListBox2.Items.Count & " new item(s) added."
     End Sub
 
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
-
-        Label11.Text = "Progress Info"
         Label11.Refresh()
         If TextBox2.Text = "" And TextBox3.Text = "" Then
             MsgBox("You didn't fill in any information")
@@ -650,19 +653,13 @@ Public Class Form2
             Exit Sub
         End If
         Do Until x = y
-
             If ListBox1.Items.Contains(x) Then
             Else
                 ListBox1.Items.Add(x)
             End If
             x = x + 1
         Loop
-
         checkdb()
-        If CheckBox1.Checked = True Then
-            addtodb()
-        End If
-        Label11.Refresh()
     End Sub
 
     Public Function Listbox3Check() As Boolean
@@ -703,12 +700,13 @@ Public Class Form2
 
         Do Until y = x
             item = ListBox1.Items.Item(y)
+            Label11.Text = "Check database and web: " & item
+            Label11.Refresh()
+
             If Listbox3Check() = True Then
                 ListBox1.Items.RemoveAt(y)
                 y = y - 1
             Else
-                Label11.Text = "Check database: " & item
-                Label11.Refresh()
                 Dim Connection As MySqlConnection
                 Dim Query As MySqlCommand
                 Dim Reader As MySqlDataReader = Nothing
@@ -724,60 +722,67 @@ Public Class Form2
 
                 Reader = Query.ExecuteReader()
                 If Reader.HasRows And item <> "" Then
+                    Reader.Close()
                     TextBox4.Text = TextBox4.Text & item & " | "
                     ListBox3.Items.Add(item)
                     ListBox1.Items.RemoveAt(y)
                     y = y - 1
+
+                Else
+                    Reader.Close()
+                    If Listbox4Check() = True Then
+                        ListBox1.Items.RemoveAt(y)
+                        y = y - 1
+                    Else
+                        Dim url As String = ("http://wow.allakhazam.com/ihtml?" & item)
+                        Dim webResponse3 As HttpWebResponse = Nothing
+                        Dim webRequest3 As HttpWebRequest = HttpWebRequest.Create(url)
+                        Dim srResp As StreamReader
+                        Dim strIn As String
+                        webResponse3 = DirectCast(webRequest3.GetResponse(), System.Net.HttpWebResponse)
+                        srResp = New StreamReader(webResponse3.GetResponseStream())
+                        strIn = srResp.ReadToEnd
+                        ToolStripStatusLabel1.Text = "Web connect status: Connected."
+
+                        If strIn.Length < 470 Then
+                            TextBox7.Text = TextBox7.Text & item & " | "
+                            ListBox4.Items.Add(item)
+                            ListBox1.Items.RemoveAt(y)
+                            y = y - 1
+
+                        Else
+                            If CheckBox1.Checked = True Then
+                                multi = True
+                                parsexml()
+                                checktext()
+                                writesql()
+
+                                Dim Execute As MySqlCommand
+                                Dim Reader2 As MySqlDataReader = Nothing
+
+                                Execute = New MySqlCommand(thequery, Connection)
+                                Reader2 = Execute.ExecuteReader
+                                Reader2.Close()
+                                ListBox1.Items.RemoveAt(y)
+                                ListBox2.Items.Add(item)
+                                y = y - 1
+                            End If
+                        End If
+
+                    End If
                 End If
             End If
 
             y = y + 1
             x = ListBox1.Items.Count
             ProgressBar1.Value = ProgressBar1.Value + 1
+            multi = False
         Loop
-        checkarray()
-    End Sub
-
-    Public Sub checkarray()
-        Dim x As Integer
-        Dim y As Integer
-        y = 0
-        x = ListBox1.Items.Count
-        ProgressBar1.Maximum = x
-        ProgressBar1.Value = y
-        Label11.Refresh()
-
-        Do Until y = x
-            item = ListBox1.Items.Item(y)
-            If Listbox4Check() = True Then
-                ListBox1.Items.RemoveAt(y)
-                y = y - 1
-            Else
-                Dim url As String = ("http://wow.allakhazam.com/ihtml?" & item)
-
-                Label11.Text = "Searching item on web: " & item
-                Label11.Refresh()
-                Dim webResponse3 As HttpWebResponse = Nothing
-                Dim webRequest3 As HttpWebRequest = HttpWebRequest.Create(url)
-                Dim srResp As StreamReader
-                Dim strIn As String
-                webResponse3 = DirectCast(webRequest3.GetResponse(), System.Net.HttpWebResponse)
-                srResp = New StreamReader(webResponse3.GetResponseStream())
-                strIn = srResp.ReadToEnd
-
-                If strIn.Length < 470 Then
-                    TextBox7.Text = TextBox7.Text & item & " | "
-                    ListBox4.Items.Add(item)
-                    ListBox1.Items.RemoveAt(y)
-                    y = y - 1
-                End If
-            End If
-            y = y + 1
-            x = ListBox1.Items.Count
-            ProgressBar1.Value = ProgressBar1.Value + 1
-            ToolStripStatusLabel1.Text = "Web connect status: Connected."
-        Loop
-        Label11.Text = "Progress done."
+        If CheckBox1.Checked = True Then
+            Label11.Text = ListBox2.Items.Count & " new item(s) added."
+        Else
+            Label11.Text = "Progress done."
+        End If
     End Sub
 
     Private Sub Button8_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
@@ -819,12 +824,6 @@ Public Class Form2
             x = x + 1
         Loop
 
-    End Sub
-
-    Private Delegate Sub del_sub()
-    Dim del As New del_sub(AddressOf checkarray)
-    Private Sub yoursub()
-        Invoke(del)
     End Sub
 
     Private Sub btnClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -1004,5 +1003,18 @@ Public Class Form2
 
     Private Sub TextBox2_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox2.TextChanged
         TextBox3.Text = TextBox2.Text
+    End Sub
+
+    Private Sub TextBox1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox1.KeyPress
+        If Asc(e.KeyChar) = Keys.Enter Then
+            itemid = TextBox1.Text
+            If checkitem() = True Then
+                ToolStripStatusLabel1.Text = "Web connect status: Connected."
+                nodelist()
+                WebBrowser4.Navigate("http://wow.allakhazam.com/" & itemicon)
+                TextBox5.Text = name1
+            End If
+            WebBrowser1.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
+        End If
     End Sub
 End Class

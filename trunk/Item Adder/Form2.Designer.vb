@@ -65,6 +65,7 @@ Partial Class Form2
         Me.ListBox4 = New System.Windows.Forms.ListBox
         Me.Button6 = New System.Windows.Forms.Button
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.TextBox8 = New System.Windows.Forms.TextBox
         Me.WebBrowser5 = New System.Windows.Forms.WebBrowser
         Me.WebBrowser2 = New System.Windows.Forms.WebBrowser
         Me.TextBox6 = New System.Windows.Forms.TextBox
@@ -553,9 +554,9 @@ Partial Class Form2
         Me.ListBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.ListBox4.FormattingEnabled = True
         Me.ListBox4.ItemHeight = 16
-        Me.ListBox4.Location = New System.Drawing.Point(3, 8)
+        Me.ListBox4.Location = New System.Drawing.Point(3, 6)
         Me.ListBox4.Name = "ListBox4"
-        Me.ListBox4.Size = New System.Drawing.Size(74, 356)
+        Me.ListBox4.Size = New System.Drawing.Size(74, 372)
         Me.ListBox4.TabIndex = 4
         '
         'Button6
@@ -573,6 +574,7 @@ Partial Class Form2
         Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.TextBox8)
         Me.GroupBox2.Controls.Add(Me.WebBrowser5)
         Me.GroupBox2.Controls.Add(Me.WebBrowser2)
         Me.GroupBox2.Controls.Add(Me.TextBox6)
@@ -582,6 +584,14 @@ Partial Class Form2
         Me.GroupBox2.TabIndex = 23
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Item Info"
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Location = New System.Drawing.Point(7, 71)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox8.TabIndex = 25
+        Me.TextBox8.Text = "Item No"
         '
         'WebBrowser5
         '
@@ -871,4 +881,5 @@ Partial Class Form2
     Friend WithEvents RemoveAllToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RemoveAllToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RemoveAllToolStripMenuItem4 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
 End Class

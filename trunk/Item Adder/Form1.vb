@@ -45,7 +45,7 @@ Public Class Form1
                 My.Settings.mode = True
                 Form2.Show()
                 Me.Hide()
-                Form2.Text = "Item Adder (3.3.2.1b) - Database " & My.Settings.db & " on " & My.Settings.host & " "
+                Form2.Text = "Item Adder (3.3.2.1c) - Database " & My.Settings.db & " on " & My.Settings.host & " "
             Else
                 MsgBox("Error while connecting. Two possible problems:" & vbCrLf & "1. The input is wrong. Database connection details are supposed to be the same as those inside the Server config file (and programs like HeidiSQL)." & vbCrLf & "2. Check if your server is running (Mysql).", MsgBoxStyle.Critical, "Error")
                 Me.Enabled = True
@@ -85,7 +85,7 @@ Public Class Form1
         Form2.Button2.Enabled = False
         My.Settings.mode = False
         Me.Hide()
-        Form2.Text = "Item Adder (3.3.2.1b) - No Database Connection"
+        Form2.Text = "Item Adder (3.3.2.1c) - No Database Connection"
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)

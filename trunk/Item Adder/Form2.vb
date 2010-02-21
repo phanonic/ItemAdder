@@ -26,7 +26,7 @@ Public Class Form2
     Dim name4 = 0
     Dim displayid = 0
     Dim quality = 0
-    Dim buycount
+    Dim buycount = 1
     Dim flags = 0
     Dim faction = 0
     Dim buyprice = 0
@@ -175,38 +175,86 @@ Public Class Form2
         m_nodelist = m_xmld.SelectNodes("/wowitem")
 
         For Each m_node In m_nodelist
+            arcane_resist = m_node.ChildNodes.Item(0).InnerText
+            armor = m_node.ChildNodes.Item(1).InnerText
+            bonding = m_node.ChildNodes.Item(2).InnerText
+            block = m_node.ChildNodes.Item(3).InnerText
+            buyprice = m_node.ChildNodes.Item(4).InnerText
+            spellcharges_1 = m_node.ChildNodes.Item(5).InnerText
+            spellcharges_2 = m_node.ChildNodes.Item(6).InnerText
+            spellcharges_3 = m_node.ChildNodes.Item(7).InnerText
+            allowableclass = m_node.ChildNodes.Item(8).InnerText
+            description = m_node.ChildNodes.Item(12).InnerText
+            displayid = m_node.ChildNodes.Item(20).InnerText
+            dmg_max1 = m_node.ChildNodes.Item(21).InnerText
+            dmg_max2 = m_node.ChildNodes.Item(22).InnerText
+            dmg_max3 = m_node.ChildNodes.Item(23).InnerText
+            dmg_min1 = m_node.ChildNodes.Item(24).InnerText
+            dmg_min2 = m_node.ChildNodes.Item(25).InnerText
+            dmg_min3 = m_node.ChildNodes.Item(26).InnerText
+            dmg_type1 = m_node.ChildNodes.Item(27).InnerText
+            dmg_type2 = m_node.ChildNodes.Item(28).InnerText
+            dmg_type3 = m_node.ChildNodes.Item(29).InnerText
+            fire_res = m_node.ChildNodes.Item(31).InnerText
+            flags = m_node.ChildNodes.Item(33).InnerText
+            frost_res = m_node.ChildNodes.Item(34).InnerText
+            GemProperties = m_node.ChildNodes.Item(35).InnerText
+            holy_res = m_node.ChildNodes.Item(36).InnerText
+            itemicon = m_node.ChildNodes.Item(37).InnerText
             entry = m_node.ChildNodes.Item(38).InnerText
             classs = m_node.ChildNodes.Item(48).InnerText
             subclass = m_node.ChildNodes.Item(50).InnerText
-            field4 = -1
+            itemlevel = m_node.ChildNodes.Item(51).InnerText
+            requiredlevel = m_node.ChildNodes.Item(53).InnerText
             name1 = m_node.ChildNodes.Item(54).InnerText
             name2 = m_node.ChildNodes.Item(55).InnerText
             name3 = m_node.ChildNodes.Item(56).InnerText
             name4 = m_node.ChildNodes.Item(57).InnerText
-            displayid = m_node.ChildNodes.Item(20).InnerText
+            nature_res = m_node.ChildNodes.Item(58).InnerText
             quality = m_node.ChildNodes.Item(62).InnerText
-            flags = m_node.ChildNodes.Item(34).InnerText
-            faction = 0
-            buycount = 1
-            buyprice = m_node.ChildNodes.Item(4).InnerText
-            sellprice = m_node.ChildNodes.Item(72).InnerText
-            inventorytype = m_node.ChildNodes.Item(75).InnerText
-            allowableclass = m_node.ChildNodes.Item(8).InnerText
             allowablerace = m_node.ChildNodes.Item(63).InnerText
-            itemlevel = m_node.ChildNodes.Item(51).InnerText
-            requiredlevel = m_node.ChildNodes.Item(53).InnerText
+            randomprop = m_node.ChildNodes.Item(65).InnerText
+            randomsuffix = m_node.ChildNodes.Item(64).InnerText
             RequiredSkill = m_node.ChildNodes.Item(67).InnerText
             RequiredSkillRank = m_node.ChildNodes.Item(66).InnerText
             RequiredSpell = m_node.ChildNodes.Item(68).InnerText
-            RequiredPlayerRank1 = m_node.ChildNodes.Item(71).InnerText
-            RequiredPlayerRank2 = 0
             RequiredFaction = m_node.ChildNodes.Item(69).InnerText
             RequiredFactionStanding = m_node.ChildNodes.Item(70).InnerText
-            RequiredReputationRank = 0
-            Unique = m_node.ChildNodes.Item(125).InnerText
-            maxcount = m_node.ChildNodes.Item(127).InnerText
+            RequiredPlayerRank1 = m_node.ChildNodes.Item(71).InnerText
+            sellprice = m_node.ChildNodes.Item(72).InnerText
+            itemset = m_node.ChildNodes.Item(73).InnerText
+            shadow_res = m_node.ChildNodes.Item(74).InnerText
+            inventorytype = m_node.ChildNodes.Item(75).InnerText
             ContainerSlots = m_node.ChildNodes.Item(76).InnerText
-            itemstatscount = m_node.ChildNodes.Item(120).InnerText
+            socket_color_1 = m_node.ChildNodes.Item(77).InnerText
+            unk201_3 = 0
+            socket_color_2 = m_node.ChildNodes.Item(78).InnerText
+            unk201_5 = 0
+            socket_color_3 = m_node.ChildNodes.Item(79).InnerText
+            unk201_7 = 0
+            socket_bonus = m_node.ChildNodes.Item(80).InnerText
+            field4 = "-1"
+            RequiredPlayerRank2 = 0
+            delay = m_node.ChildNodes.Item(82).InnerText
+            spelltrigger_1 = m_node.ChildNodes.Item(83).InnerText
+            spelltrigger_2 = m_node.ChildNodes.Item(84).InnerText
+            spelltrigger_3 = m_node.ChildNodes.Item(85).InnerText
+            spellcooldown_1 = m_node.ChildNodes.Item(86).InnerText
+            spellcooldown_2 = m_node.ChildNodes.Item(87).InnerText
+            spellcooldown_3 = m_node.ChildNodes.Item(88).InnerText
+            spellcategory_1 = m_node.ChildNodes.Item(89).InnerText
+            spellcategory_2 = m_node.ChildNodes.Item(90).InnerText
+            spellcategory_3 = m_node.ChildNodes.Item(91).InnerText
+            spellcategorycooldown_1 = m_node.ChildNodes.Item(92).InnerText
+            spellcategorycooldown_2 = m_node.ChildNodes.Item(93).InnerText
+            spellcategorycooldown_3 = m_node.ChildNodes.Item(94).InnerText
+            spellid_1 = m_node.ChildNodes.Item(95).InnerText
+            spellid_2 = m_node.ChildNodes.Item(96).InnerText
+            spellid_3 = m_node.ChildNodes.Item(97).InnerText
+            maxcount = m_node.ChildNodes.Item(98).InnerText
+            quest_id = m_node.ChildNodes.Item(99).InnerText
+            stat_type10 = m_node.ChildNodes.Item(100).InnerText
+            stat_value10 = m_node.ChildNodes.Item(101).InnerText
             stat_type1 = m_node.ChildNodes.Item(102).InnerText
             stat_value1 = m_node.ChildNodes.Item(103).InnerText
             stat_type2 = m_node.ChildNodes.Item(104).InnerText
@@ -219,59 +267,24 @@ Public Class Form2
             stat_value5 = m_node.ChildNodes.Item(111).InnerText
             stat_type6 = m_node.ChildNodes.Item(112).InnerText
             stat_value6 = m_node.ChildNodes.Item(113).InnerText
-            stat_type7 = 0
-            stat_value7 = 0
-            stat_type8 = 0
-            stat_value8 = 0
-            stat_type9 = 0
-            stat_value9 = 0
-            stat_type10 = 0
-            stat_value10 = 0
+            stat_type7 = m_node.ChildNodes.Item(114).InnerText
+            stat_value7 = m_node.ChildNodes.Item(115).InnerText
+            stat_type8 = m_node.ChildNodes.Item(116).InnerText
+            stat_value8 = m_node.ChildNodes.Item(117).InnerText
+            stat_type9 = m_node.ChildNodes.Item(118).InnerText
+            stat_value9 = m_node.ChildNodes.Item(119).InnerText
+            itemstatscount = m_node.ChildNodes.Item(120).InnerText
+            TotemCategory = m_node.ChildNodes.Item(122).InnerText
+            Unique = m_node.ChildNodes.Item(125).InnerText
             ScalingStatsEntry = 0
             ScalingStatsFlags = 0
-            dmg_min1 = m_node.ChildNodes.Item(24).InnerText
-            dmg_max1 = m_node.ChildNodes.Item(21).InnerText
-            dmg_type1 = m_node.ChildNodes.Item(27).InnerText
-            dmg_min2 = m_node.ChildNodes.Item(25).InnerText
-            dmg_max2 = m_node.ChildNodes.Item(22).InnerText
-            dmg_type2 = m_node.ChildNodes.Item(28).InnerText
-            dmg_min3 = m_node.ChildNodes.Item(26).InnerText
-            dmg_max3 = m_node.ChildNodes.Item(23).InnerText
-            dmg_type3 = m_node.ChildNodes.Item(29).InnerText
             dmg_min4 = 0
             dmg_max4 = 0
             dmg_type4 = 0
             dmg_min5 = 0
             dmg_max5 = 0
             dmg_type5 = 0
-            armor = m_node.ChildNodes.Item(1).InnerText
-            holy_res = m_node.ChildNodes.Item(36).InnerText
-            itemicon = m_node.ChildNodes.Item(37).InnerText
-            fire_res = m_node.ChildNodes.Item(31).InnerText
-            nature_res = m_node.ChildNodes.Item(58).InnerText
-            frost_res = m_node.ChildNodes.Item(34).InnerText
-            shadow_res = m_node.ChildNodes.Item(74).InnerText
-            arcane_resist = m_node.ChildNodes.Item(0).InnerText
-            delay = m_node.ChildNodes.Item(82).InnerText
-            ammo_type = m_node.ChildNodes.Item(156).InnerText
-            spellid_1 = m_node.ChildNodes.Item(95).InnerText
-            spelltrigger_1 = m_node.ChildNodes.Item(83).InnerText
-            spellcharges_1 = m_node.ChildNodes.Item(5).InnerText
-            spellcooldown_1 = m_node.ChildNodes.Item(86).InnerText
-            spellcategory_1 = m_node.ChildNodes.Item(89).InnerText
-            spellcategorycooldown_1 = m_node.ChildNodes.Item(92).InnerText
-            spellid_2 = m_node.ChildNodes.Item(96).InnerText
-            spelltrigger_2 = m_node.ChildNodes.Item(84).InnerText
-            spellcharges_2 = m_node.ChildNodes.Item(6).InnerText
-            spellcooldown_2 = m_node.ChildNodes.Item(87).InnerText
-            spellcategory_2 = m_node.ChildNodes.Item(90).InnerText
-            spellcategorycooldown_2 = m_node.ChildNodes.Item(93).InnerText
-            spellid_3 = m_node.ChildNodes.Item(97).InnerText
-            spelltrigger_3 = m_node.ChildNodes.Item(85).InnerText
-            spellcharges_3 = m_node.ChildNodes.Item(7).InnerText
-            spellcooldown_3 = m_node.ChildNodes.Item(88).InnerText
-            spellcategory_3 = m_node.ChildNodes.Item(91).InnerText
-            spellcategorycooldown_3 = m_node.ChildNodes.Item(94).InnerText
+            ammo_type = m_node.ChildNodes.Item(159).InnerText
             spellid_4 = 0
             spelltrigger_4 = 0
             spellcharges_4 = 0
@@ -284,34 +297,18 @@ Public Class Form2
             spellcooldown_6 = 0
             spellcategory_6 = 0
             spellcategorycooldown_6 = 0
-            bonding = m_node.ChildNodes.Item(2).InnerText
-            description = m_node.ChildNodes.Item(12).InnerText
             pageid = m_node.ChildNodes.Item(172).InnerText
             page_language = m_node.ChildNodes.Item(173).InnerText
             page_material = m_node.ChildNodes.Item(174).InnerText
-            quest_id = m_node.ChildNodes.Item(99).InnerText
-            lock_id = m_node.ChildNodes.Item(125).InnerText
+            lock_id = m_node.ChildNodes.Item(126).InnerText
             lock_material = m_node.ChildNodes.Item(127).InnerText
             sheathid = m_node.ChildNodes.Item(128).InnerText
-            randomprop = m_node.ChildNodes.Item(65).InnerText
-            randomsuffix = m_node.ChildNodes.Item(64).InnerText
-            block = m_node.ChildNodes.Item(3).InnerText
-            itemset = m_node.ChildNodes.Item(73).InnerText
-            MaxDurability = m_node.ChildNodes.Item(129).InnerText
-            ZoneNameID = m_node.ChildNodes.Item(131).InnerText
-            mapid = m_node.ChildNodes.Item(132).InnerText
-            bagfamily = m_node.ChildNodes.Item(133).InnerText
-            TotemCategory = m_node.ChildNodes.Item(122).InnerText
-            socket_color_1 = m_node.ChildNodes.Item(77).InnerText
-            unk201_3 = m_node.ChildNodes.Item(78).InnerText
-            socket_color_2 = m_node.ChildNodes.Item(78).InnerText
-            unk201_5 = m_node.ChildNodes.Item(77).InnerText
-            socket_color_3 = m_node.ChildNodes.Item(79).InnerText
-            unk201_7 = m_node.ChildNodes.Item(136).InnerText
-            socket_bonus = m_node.ChildNodes.Item(80).InnerText
-            GemProperties = m_node.ChildNodes.Item(35).InnerText
-            ReqDisenchantSkill = m_node.ChildNodes.Item(137).InnerText
-            ArmorDamageModifier = m_node.ChildNodes.Item(140).InnerText
+            MaxDurability = m_node.ChildNodes.Item(130).InnerText
+            ZoneNameID = m_node.ChildNodes.Item(132).InnerText
+            mapid = m_node.ChildNodes.Item(133).InnerText
+            bagfamily = m_node.ChildNodes.Item(134).InnerText
+            ReqDisenchantSkill = m_node.ChildNodes.Item(138).InnerText
+            ArmorDamageModifier = m_node.ChildNodes.Item(139).InnerText
             duration = m_node.ChildNodes.Item(142).InnerText
             ItemLimitCategoryID = 0
         Next
@@ -884,6 +881,7 @@ Public Class Form2
         If itemid <> 0 Then
             nodelist()
             TextBox6.Text = name1
+            TextBox8.Text = entry
             WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
             WebBrowser5.Navigate("http://wow.allakhazam.com/" & itemicon)
         End If
@@ -895,6 +893,7 @@ Public Class Form2
             itemid = ListBox2.SelectedItem
             nodelist()
             TextBox6.Text = name1
+            TextBox8.Text = entry
             WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
             WebBrowser5.Navigate("http://wow.allakhazam.com/" & itemicon)
         End If
@@ -905,6 +904,7 @@ Public Class Form2
             itemid = ListBox3.SelectedItem
             nodelist()
             TextBox6.Text = name1
+            TextBox8.Text = entry
             WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
             WebBrowser5.Navigate("http://wow.allakhazam.com/" & itemicon)
         End If
@@ -1000,5 +1000,9 @@ Public Class Form2
         itemdelete()
         MsgBox(itemid & " deleted successfuly.")
         ListBox3.Items.Remove(ListBox3.SelectedItem)
+    End Sub
+
+    Private Sub TextBox2_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox2.TextChanged
+        TextBox3.Text = TextBox2.Text
     End Sub
 End Class

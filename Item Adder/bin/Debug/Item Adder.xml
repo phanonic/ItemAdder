@@ -6,16 +6,16 @@ ItemAdder
 </name>
 </assembly>
 <members>
-<member name="P:il.My.Resources.Resources.ResourceManager">
+<member name="P:ia.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
-</member><member name="P:il.My.Resources.Resources.Culture">
+</member><member name="P:ia.My.Resources.Resources.Culture">
 	<summary>
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member><member name="T:il.My.Resources.Resources">
+</member><member name="T:ia.My.Resources.Resources">
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>

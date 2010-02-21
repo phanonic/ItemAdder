@@ -127,7 +127,7 @@ Partial Class Form2
         Me.Button2.Location = New System.Drawing.Point(245, 53)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(70, 23)
-        Me.Button2.TabIndex = 2
+        Me.Button2.TabIndex = 4
         Me.Button2.Text = "Add"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -223,7 +223,7 @@ Partial Class Form2
         Me.TextBox5.Location = New System.Drawing.Point(93, 86)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox5.TabIndex = 11
+        Me.TextBox5.TabIndex = 6
         Me.TextBox5.Text = "Item Name"
         '
         'WebBrowser4
@@ -240,7 +240,7 @@ Partial Class Form2
         Me.Button4.Location = New System.Drawing.Point(93, 53)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(70, 23)
-        Me.Button4.TabIndex = 4
+        Me.Button4.TabIndex = 2
         Me.Button4.Text = "Delete"
         Me.Button4.UseVisualStyleBackColor = True
         '
@@ -393,11 +393,13 @@ Partial Class Form2
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Checked = True
+        Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox1.Location = New System.Drawing.Point(9, 139)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(181, 17)
+        Me.CheckBox1.Size = New System.Drawing.Size(249, 17)
         Me.CheckBox1.TabIndex = 20
-        Me.CheckBox1.Text = "Add list automaticaly to database"
+        Me.CheckBox1.Text = "Add list automaticaly to database (low ban risk) "
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'Label8

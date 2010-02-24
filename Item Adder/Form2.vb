@@ -234,7 +234,7 @@ Public Class Form2
             socket_color_3 = m_node.ChildNodes.Item(79).InnerText
             unk201_7 = 0
             socket_bonus = m_node.ChildNodes.Item(80).InnerText
-            field4 = "-1"
+            field4 = -1
             RequiredPlayerRank2 = 0
             delay = m_node.ChildNodes.Item(82).InnerText
             spelltrigger_1 = m_node.ChildNodes.Item(83).InnerText

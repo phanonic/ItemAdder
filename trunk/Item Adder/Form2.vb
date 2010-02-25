@@ -6,8 +6,6 @@ Imports System.Xml
 Imports System.Threading
 
 
-
-
 Public Class Form2
     Dim info As Integer
     Dim itemtype As Boolean = False
@@ -165,6 +163,12 @@ Public Class Form2
     Dim y As Integer
     Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
     Dim banstatus As Boolean = False
+
+    Public Sub New()
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+        ' Add any initialization after the InitializeComponent() call.
+    End Sub
 
     Public Sub nodelist()
         Dim m_xmld As XmlDocument
@@ -385,23 +389,6 @@ Public Class Form2
 
     End Sub
 
-    Private Sub Button3_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        parsexml()
-        checktext()
-        writesql()
-        SaveFileDialog1.Filter = "Sql files (*.sql) | "
-        SaveFileDialog1.AddExtension = True
-        SaveFileDialog1.ShowDialog()
-        SaveFileDialog1.RestoreDirectory = True
-        Dim path = SaveFileDialog1.FileName & ".sql"
-        Dim fs As New FileStream(path, FileMode.Create, FileAccess.Write)
-        Dim s As New StreamWriter(fs)
-        s.Write(thequery)
-        s.Close()
-        path = ""
-        SaveFileDialog1.FileName = ""
-    End Sub
-
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         itemid = TextBox1.Text
         parsexml()
@@ -467,13 +454,11 @@ Public Class Form2
     End Sub
 
     Public Sub checkstuff()
-        Dim x As Integer
-        Dim y As Integer
-        x = ListBox1.Items.Count
+        x = ListBox5.Items.Count
         y = 0
 
         Do Until y = x
-            If itemid = ListBox1.Items.Item(y) Then
+            If itemid = ListBox5.Items.Item(y) Then
                 MsgBox(itemid & " already in list.")
                 Exit Sub
             End If
@@ -508,7 +493,7 @@ Public Class Form2
         Loop
 
         If checkitem() = True Then
-            ListBox1.Items.Add(itemid)
+            ListBox5.Items.Add(itemid)
             MsgBox(itemid & " added into list.")
         Else
             MsgBox(itemid & " not found on web.")
@@ -541,7 +526,7 @@ Public Class Form2
     End Function
 
     Private Sub removeToolStripMenuItem_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles removeToolStripMenuItem.Click
-        ListBox1.Items.Remove(ListBox1.SelectedItem)
+        ListBox5.Items.Remove(ListBox5.SelectedItem)
     End Sub
 
     Private Sub LoadRealms()
@@ -562,10 +547,10 @@ Public Class Form2
     End Sub
     Private Sub UpdateDisplay()
 
-        ListBox1.Items.Clear()
+        ListBox5.Items.Clear()
         For Each objRealm As realms In arrRealmlist
             If objRealm.realmname <> "" Then
-                ListBox1.Items.Add(objRealm.realmname)
+                ListBox5.Items.Add(objRealm.realmname)
             End If
         Next
     End Sub
@@ -594,22 +579,18 @@ Public Class Form2
     End Sub
 
     Public Sub addtodb()
-        Dim x As Integer
-        Dim y As Integer
         Dim Connection As MySqlConnection
         Dim execute As MySqlCommand
-        Dim Query As MySqlCommand
-        Dim Reader1 As MySqlDataReader = Nothing
         Dim Reader2 As MySqlDataReader = Nothing
 
-        x = ListBox1.Items.Count
+        x = ListBox5.Items.Count
         y = 0
         ProgressBar1.Maximum = x
         ProgressBar1.Value = y
         Connection = New MySqlConnection("server=" & My.Settings.host & ";user id=" & My.Settings.username & "; password=" & My.Settings.password & "; port=" & My.Settings.port & "; database=" & My.Settings.db & "; pooling=false")
         Connection.Open()
         Do Until y = x
-            itemid = ListBox1.Items.Item(y)
+            itemid = ListBox5.Items.Item(y)
             Label11.Text = "Adding to database:" & itemid & ". " & ListBox2.Items.Count & " item(s) added."
             Label11.Refresh()
             nodelist()
@@ -619,11 +600,11 @@ Public Class Form2
             execute = New MySqlCommand(thequery, Connection)
             Reader2 = execute.ExecuteReader
             Reader2.Close()
-            ListBox1.Items.RemoveAt(y)
+            ListBox5.Items.RemoveAt(y)
             ListBox2.Items.Add(itemid)
             banstatus = False
 
-            x = ListBox1.Items.Count
+            x = ListBox5.Items.Count
             ProgressBar1.Value = ProgressBar1.Value + 1
         Loop
         Label11.Text = ListBox2.Items.Count & " new item(s) added."
@@ -640,85 +621,64 @@ Public Class Form2
         If TextBox3.Text = "" Then
             MsgBox("You need to fill in an ending value")
         End If
-        Dim x As Integer = TextBox2.Text
-        Dim y As Integer = TextBox3.Text
+        x = TextBox2.Text
+        y = TextBox3.Text
         If x > y Then
             MsgBox("Starting value can't be more then ending value.")
             Exit Sub
         End If
 
-        itemid = 50000
-        nodelist()
-        ToolStripStatusLabel1.Text = "Web connect status: Connected."
-
-        If CheckBox1.Checked = True Then
-            If entry = 0 Then
-                If banstatus = False Then
-                    MsgBox("You have been banned by allakhazam.com for a while.")
-                    ToolStripStatusLabel1.Text = "Web connect status: Banned."
-                    banstatus = True
-                Else
-                    MsgBox("You are still banned.")
-                End If
+        Do Until x = y
+            If ListBox1.Items.Contains(x) Then
+            Else
+                ListBox5.Items.Add(x)
             End If
-        End If
-
-        If CheckBox1.Checked = False Then
-            Do Until x = y
-                If ListBox1.Items.Contains(x) Then
-                Else
-                    ListBox1.Items.Add(x)
-                End If
-                x = x + 1
-            Loop
-            checkdb()
-        End If
+            x = x + 1
+        Loop
+        checkdb()
     End Sub
 
     Public Function Listbox3Check() As Boolean
-        Dim x As Integer
-        Dim y As Integer
-        y = 0
-        x = ListBox3.Items.Count
+        Dim q As Integer
+        Dim z As Integer
+        q = 0
+        z = ListBox3.Items.Count
 
-        Do Until y = x
-            If ListBox3.Items.Item(y) = itemid Then
+        Do Until q = z
+            If itemid = ListBox3.Items.Item(y) Then
                 Return True
             End If
-            y = y + 1
+            q = q + 1
         Loop
     End Function
 
     Public Function Listbox4Check() As Boolean
-        Dim x As Integer
-        Dim y As Integer
-        y = 0
-        x = ListBox4.Items.Count
+        Dim q As Integer
+        Dim z As Integer
+        q = 0
+        z = ListBox4.Items.Count
 
-        Do Until y = x
-            If ListBox4.Items.Item(y) = itemid Then
+        Do Until q = z
+            If itemid = ListBox4.Items.Item(y) Then
                 Return True
             End If
-            y = y + 1
+            q = q + 1
         Loop
     End Function
 
     Public Sub checkdb()
-        Dim x As Integer
-        Dim y As Integer
         y = 0
-        x = ListBox1.Items.Count
+        x = ListBox5.Items.Count
         ProgressBar1.Maximum = x
         ProgressBar1.Value = y
 
         Do Until y = x
-            itemid = ListBox1.Items.Item(y)
+            itemid = ListBox5.Items.Item(y)
             Label11.Text = "Check database and web: " & itemid
             Label11.Refresh()
 
             If Listbox3Check() = True Then
-                ListBox1.Items.RemoveAt(y)
-                y = y - 1
+                ListBox5.Items.RemoveAt(y)
             Else
                 Dim Connection As MySqlConnection
                 Dim Query As MySqlCommand
@@ -738,13 +698,11 @@ Public Class Form2
                     Reader.Close()
                     TextBox4.Text = TextBox4.Text & itemid & " | "
                     ListBox3.Items.Add(itemid)
-                    ListBox1.Items.RemoveAt(y)
-                    y = y - 1
+                    ListBox5.Items.RemoveAt(y)
                 Else
                     Reader.Close()
                     If Listbox4Check() = True Then
-                        ListBox1.Items.RemoveAt(y)
-                        y = y - 1
+                        ListBox5.Items.RemoveAt(y)
                     Else
                         Dim url As String = ("http://wow.allakhazam.com/ihtml?" & itemid)
                         Dim webResponse3 As HttpWebResponse = Nothing
@@ -758,9 +716,10 @@ Public Class Form2
                         If strIn.Length < 470 Then
                             TextBox7.Text = TextBox7.Text & itemid & " | "
                             ListBox4.Items.Add(itemid)
-                            ListBox1.Items.RemoveAt(y)
-                            y = y - 1
+                            ListBox5.Items.RemoveAt(y)
                         Else
+                            ListBox1.Items.Add(itemid)
+                            ListBox5.Items.RemoveAt(y)
                             If CheckBox1.Checked = True Then
                                 parsexml()
                                 checktext()
@@ -771,17 +730,15 @@ Public Class Form2
                                     Execute = New MySqlCommand(thequery, Connection)
                                     Reader2 = Execute.ExecuteReader
                                     Reader2.Close()
-                                    ListBox1.Items.RemoveAt(y)
                                     ListBox2.Items.Add(itemid)
-                                    y = y - 1
+                                    ListBox1.Items.RemoveAt(y)
                                 End If
                             End If
                         End If
                     End If
                 End If
             End If
-            y = y + 1
-            x = ListBox1.Items.Count
+            x = ListBox5.Items.Count
             ProgressBar1.Value = ProgressBar1.Value + 1
         Loop
         If CheckBox1.Checked = True Then
@@ -823,8 +780,8 @@ Public Class Form2
     End Sub
 
     Public Sub additems()
-        Dim x As Integer = ListBox1.Items.Item(0)
-        Dim y As Integer = ListBox1.Items.Count
+        x = ListBox5.Items.Item(0)
+        y = ListBox5.Items.Count
 
         Do While x = y
             writesql()
@@ -834,19 +791,19 @@ Public Class Form2
     End Sub
 
     Private Sub btnClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        ListBox1.Items.Clear()
+        ListBox5.Items.Clear()
     End Sub
 
-    Private Sub ListBox1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBox1.MouseDown
+    Private Sub ListBox5_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBox5.MouseDown
         If e.Button = Windows.Forms.MouseButtons.Right Then
             Dim pt As Point
             pt.X = e.X
             pt.Y = e.Y
             Try
-                ListBox1.SelectedIndex = ListBox1.IndexFromPoint(pt)
+                ListBox5.SelectedIndex = ListBox5.IndexFromPoint(pt)
             Catch
             End Try
-            If ListBox1.SelectedIndex >= 0 Then
+            If ListBox5.SelectedIndex >= 0 Then
                 ContextMenuStrip1.Show(MousePosition)
             End If
         End If
@@ -938,34 +895,24 @@ Public Class Form2
         WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
     End Sub
 
-    Public Sub New()
-
-        ' This call is required by the Windows Form Designer.
-        InitializeComponent()
-
-        ' Add any initialization after the InitializeComponent() call.
-
-    End Sub
-
     Public Sub clearrange()
         TextBox2.Text = ""
         TextBox3.Text = ""
         CheckBox1.Checked = False
-        ListBox1.Items.Clear()
+        ListBox5.Items.Clear()
         ListBox2.Items.Clear()
         ListBox3.Items.Clear()
         ListBox4.Items.Clear()
         TextBox4.Clear()
         TextBox7.Clear()
-
     End Sub
 
     Private Sub RemoveAllToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RemoveAllToolStripMenuItem.Click
-        ListBox1.Items.Clear()
+        ListBox5.Items.Clear()
     End Sub
 
     Private Sub AddToDatabaseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddToDatabaseToolStripMenuItem.Click
-        itemid = ListBox1.SelectedItem
+        itemid = ListBox5.SelectedItem
         parsexml()
         checktext()
         writesql()
@@ -990,7 +937,7 @@ Public Class Form2
         name1 = name1.Replace("\", "")
         MsgBox(itemid & " " & name1 & " added successfuly.")
         ListBox2.Items.Add(itemid)
-        ListBox1.Items.Remove(ListBox1.SelectedItem)
+        ListBox5.Items.Remove(ListBox5.SelectedItem)
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
@@ -1055,4 +1002,5 @@ Public Class Form2
             WebBrowser1.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
         End If
     End Sub
+
 End Class

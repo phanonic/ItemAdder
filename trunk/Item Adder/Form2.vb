@@ -164,12 +164,13 @@ Public Class Form2
     Dim x As Integer
     Dim y As Integer
     Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
-
+    Dim banstatus As Boolean = False
 
     Public Sub nodelist()
         Dim m_xmld As XmlDocument
         Dim m_node As XmlNode
         Dim m_nodelist As XmlNodeList
+        Sleep(NumericUpDown1.Value)
 
         m_xmld = New XmlDocument()
         m_xmld.Load("http://wow.allakhazam.com/cluster/item-xml.pl?witem=" & itemid)
@@ -314,8 +315,6 @@ Public Class Form2
             duration = m_node.ChildNodes.Item(142).InnerText
             ItemLimitCategoryID = 0
         Next
-
-
     End Sub
 
     Public Sub writesql()
@@ -336,10 +335,18 @@ Public Class Form2
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.Click
         itemid = TextBox1.Text
         If checkitem() = True Then
-            ToolStripStatusLabel1.Text = "Web connect status: Connected."
             nodelist()
-            WebBrowser4.Navigate("http://wow.allakhazam.com/" & itemicon)
-            TextBox5.Text = name1
+            If entry = 0 Then
+                If banstatus = False Then
+                    MsgBox("You have been banned by allakhazam.com for a while.")
+                    ToolStripStatusLabel1.Text = "Web connect status: Banned."
+                    banstatus = True
+                End If
+            Else
+                TextBox5.Text = name1
+                WebBrowser4.Navigate("http://wow.allakhazam.com/" & itemicon)
+                ToolStripStatusLabel1.Text = "Web connect status: Connected."
+            End If
         End If
         WebBrowser1.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
     End Sub
@@ -360,6 +367,7 @@ Public Class Form2
             Else
                 Return True
             End If
+            ToolStripStatusLabel1.Text = "Web connect status: Connected."
         Catch ex As Exception
         End Try
 
@@ -397,33 +405,44 @@ Public Class Form2
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         itemid = TextBox1.Text
         parsexml()
-        checktext()
-        writesql()
-
-        Dim Connection As MySqlConnection
-        Dim Query As MySqlCommand
-        Dim Execute As MySqlCommand
-        Dim Reader As MySqlDataReader = Nothing
-        Dim Reader2 As MySqlDataReader = Nothing
-
-        Connection = New MySqlConnection("server=" & My.Settings.host & ";user id=" & My.Settings.username & "; password=" & My.Settings.password & "; port=" & My.Settings.port & "; database=" & My.Settings.db & "; pooling=false")
-        Connection.Open()
-        If My.Settings.type = "Trinity" Or My.Settings.type = "Mangos" Then
-            Query = New MySqlCommand("SELECT `entry` FROM `item_template` WHERE `entry` = '" & itemid & "' LIMIT 1;", Connection)
-        Else
-            Query = New MySqlCommand("SELECT `entry` FROM `items` WHERE `entry` = '" & itemid & "' LIMIT 1;", Connection)
+        If entry = 0 Then
+            If banstatus = False Then
+                MsgBox("You have been banned by allakhazam.com for a while. Please set 'Multi Item Add min. Speed' >= 2000 ms.")
+                ToolStripStatusLabel1.Text = "Web connect status: Banned."
+                banstatus = True
+            Else
+                MsgBox("You are still banned.")
+            End If
         End If
-        Reader = Query.ExecuteReader()
-        If Reader.HasRows And itemid <> "" Then
-            Reader.Close()
-            MsgBox(itemid & " already in database.")
-        Else
-            Reader.Close()
-            Execute = New MySqlCommand(thequery, Connection)
-            Reader2 = Execute.ExecuteReader
-            name1 = name1.Replace("\", "")
-            MsgBox(itemid & " " & name1 & " added successfuly.")
-            Reader2.Close()
+        If entry <> 0 Then
+            checktext()
+            writesql()
+
+            Dim Connection As MySqlConnection
+            Dim Query As MySqlCommand
+            Dim Execute As MySqlCommand
+            Dim Reader As MySqlDataReader = Nothing
+            Dim Reader2 As MySqlDataReader = Nothing
+
+            Connection = New MySqlConnection("server=" & My.Settings.host & ";user id=" & My.Settings.username & "; password=" & My.Settings.password & "; port=" & My.Settings.port & "; database=" & My.Settings.db & "; pooling=false")
+            Connection.Open()
+            If My.Settings.type = "Trinity" Or My.Settings.type = "Mangos" Then
+                Query = New MySqlCommand("SELECT `entry` FROM `item_template` WHERE `entry` = '" & itemid & "' LIMIT 1;", Connection)
+            Else
+                Query = New MySqlCommand("SELECT `entry` FROM `items` WHERE `entry` = '" & itemid & "' LIMIT 1;", Connection)
+            End If
+            Reader = Query.ExecuteReader()
+            If Reader.HasRows And itemid <> "" Then
+                Reader.Close()
+                MsgBox(itemid & " already in database.")
+            Else
+                Reader.Close()
+                Execute = New MySqlCommand(thequery, Connection)
+                Reader2 = Execute.ExecuteReader
+                name1 = name1.Replace("\", "")
+                MsgBox(itemid & " " & name1 & " added successfuly.")
+                Reader2.Close()
+            End If
         End If
     End Sub
 
@@ -579,36 +598,38 @@ Public Class Form2
         Dim y As Integer
         Dim Connection As MySqlConnection
         Dim execute As MySqlCommand
-        Dim Reader As MySqlDataReader = Nothing
+        Dim Query As MySqlCommand
+        Dim Reader1 As MySqlDataReader = Nothing
+        Dim Reader2 As MySqlDataReader = Nothing
+
         x = ListBox1.Items.Count
         y = 0
         ProgressBar1.Maximum = x
         ProgressBar1.Value = y
-        multi = True
         Connection = New MySqlConnection("server=" & My.Settings.host & ";user id=" & My.Settings.username & "; password=" & My.Settings.password & "; port=" & My.Settings.port & "; database=" & My.Settings.db & "; pooling=false")
         Connection.Open()
         Do Until y = x
             itemid = ListBox1.Items.Item(y)
-            Label11.Text = itemid & " adding to database." & ListBox2.Items.Count & " item(s) added."
+            Label11.Text = "Adding to database:" & itemid & ". " & ListBox2.Items.Count & " item(s) added."
             Label11.Refresh()
-            Sleep(NumericUpDown1.Value)
-            parsexml()
+            nodelist()
+
             checktext()
             writesql()
             execute = New MySqlCommand(thequery, Connection)
-            Reader = execute.ExecuteReader
-            Reader.Close()
+            Reader2 = execute.ExecuteReader
+            Reader2.Close()
             ListBox1.Items.RemoveAt(y)
             ListBox2.Items.Add(itemid)
+            banstatus = False
+
             x = ListBox1.Items.Count
             ProgressBar1.Value = ProgressBar1.Value + 1
         Loop
-        multi = False
         Label11.Text = ListBox2.Items.Count & " new item(s) added."
     End Sub
 
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
-        Label11.Refresh()
         If TextBox2.Text = "" And TextBox3.Text = "" Then
             MsgBox("You didn't fill in any information")
             Exit Sub
@@ -625,14 +646,33 @@ Public Class Form2
             MsgBox("Starting value can't be more then ending value.")
             Exit Sub
         End If
-        Do Until x = y
-            If ListBox1.Items.Contains(x) Then
-            Else
-                ListBox1.Items.Add(x)
+
+        itemid = 50000
+        nodelist()
+        ToolStripStatusLabel1.Text = "Web connect status: Connected."
+
+        If CheckBox1.Checked = True Then
+            If entry = 0 Then
+                If banstatus = False Then
+                    MsgBox("You have been banned by allakhazam.com for a while.")
+                    ToolStripStatusLabel1.Text = "Web connect status: Banned."
+                    banstatus = True
+                Else
+                    MsgBox("You are still banned.")
+                End If
             End If
-            x = x + 1
-        Loop
-        checkdb()
+        End If
+
+        If CheckBox1.Checked = False Then
+            Do Until x = y
+                If ListBox1.Items.Contains(x) Then
+                Else
+                    ListBox1.Items.Add(x)
+                End If
+                x = x + 1
+            Loop
+            checkdb()
+        End If
     End Sub
 
     Public Function Listbox3Check() As Boolean
@@ -700,7 +740,6 @@ Public Class Form2
                     ListBox3.Items.Add(itemid)
                     ListBox1.Items.RemoveAt(y)
                     y = y - 1
-
                 Else
                     Reader.Close()
                     If Listbox4Check() = True Then
@@ -715,48 +754,42 @@ Public Class Form2
                         webResponse3 = DirectCast(webRequest3.GetResponse(), System.Net.HttpWebResponse)
                         srResp = New StreamReader(webResponse3.GetResponseStream())
                         strIn = srResp.ReadToEnd
-                        ToolStripStatusLabel1.Text = "Web connect status: Connected."
 
                         If strIn.Length < 470 Then
                             TextBox7.Text = TextBox7.Text & itemid & " | "
                             ListBox4.Items.Add(itemid)
                             ListBox1.Items.RemoveAt(y)
                             y = y - 1
-
                         Else
                             If CheckBox1.Checked = True Then
-                                multi = True
-                                Sleep(NumericUpDown1.Value)
                                 parsexml()
                                 checktext()
                                 writesql()
-
-                                Dim Execute As MySqlCommand
-                                Dim Reader2 As MySqlDataReader = Nothing
-
-                                Execute = New MySqlCommand(thequery, Connection)
-                                Reader2 = Execute.ExecuteReader
-                                Reader2.Close()
-                                ListBox1.Items.RemoveAt(y)
-                                ListBox2.Items.Add(itemid)
-                                y = y - 1
+                                If banstatus = False Then
+                                    Dim Execute As MySqlCommand
+                                    Dim Reader2 As MySqlDataReader = Nothing
+                                    Execute = New MySqlCommand(thequery, Connection)
+                                    Reader2 = Execute.ExecuteReader
+                                    Reader2.Close()
+                                    ListBox1.Items.RemoveAt(y)
+                                    ListBox2.Items.Add(itemid)
+                                    y = y - 1
+                                End If
                             End If
                         End If
-
                     End If
                 End If
             End If
-
             y = y + 1
             x = ListBox1.Items.Count
             ProgressBar1.Value = ProgressBar1.Value + 1
-            multi = False
         Loop
         If CheckBox1.Checked = True Then
             Label11.Text = ListBox2.Items.Count & " new item(s) added."
         Else
-            Label11.Text = "Progress done."
+            Label11.Text = ListBox1.Items.Count & " new item(s) found."
         End If
+        ToolStripStatusLabel1.Text = "Web connect status: Connected."
     End Sub
 
     Private Sub Button8_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
@@ -851,36 +884,58 @@ Public Class Form2
 
     Private Sub ListBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox1.SelectedIndexChanged
         itemid = ListBox1.SelectedItem
-        If itemid <> 0 Then
-            nodelist()
+        nodelist()
+        If entry = 0 Then
+            If banstatus = False Then
+                MsgBox("You have been banned by allakhazam.com for a while. Please set 'Multi Item Add min. Speed' >= 2000 ms.")
+                ToolStripStatusLabel1.Text = "Web connect status: Banned."
+                banstatus = True
+            End If
+        End If
+        If entry <> 0 Then
             TextBox6.Text = name1
             TextBox8.Text = entry
-            WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
+            ToolStripStatusLabel1.Text = "Web connect status: Connected."
             WebBrowser5.Navigate("http://wow.allakhazam.com/" & itemicon)
         End If
+        WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
     End Sub
 
     Private Sub ListBox2_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox2.SelectedIndexChanged
         itemid = ListBox2.SelectedItem
-        If itemid <> 0 Then
-            itemid = ListBox2.SelectedItem
-            nodelist()
+        nodelist()
+        If entry = 0 Then
+            If banstatus = False Then
+                MsgBox("You have been banned by allakhazam.com for a while. Please set 'Multi Item Add min. Speed' >= 2000 ms.")
+                ToolStripStatusLabel1.Text = "Web connect status: Banned."
+                banstatus = True
+            End If
+        End If
+        If entry <> 0 Then
             TextBox6.Text = name1
             TextBox8.Text = entry
-            WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
+            ToolStripStatusLabel1.Text = "Web connect status: Connected."
             WebBrowser5.Navigate("http://wow.allakhazam.com/" & itemicon)
         End If
+        WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
     End Sub
     Private Sub ListBox3_SelectedIndex(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox3.SelectedIndexChanged
         itemid = ListBox3.SelectedItem
-        If itemid <> 0 Then
-            itemid = ListBox3.SelectedItem
-            nodelist()
+        nodelist()
+        If entry = 0 Then
+            If banstatus = False Then
+                MsgBox("You have been banned by allakhazam.com for a while. Please set 'Multi Item Add min. Speed' >= 2000 ms.")
+                ToolStripStatusLabel1.Text = "Web connect status: Banned."
+                banstatus = True
+            End If
+        End If
+        If entry <> 0 Then
             TextBox6.Text = name1
             TextBox8.Text = entry
-            WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
+            ToolStripStatusLabel1.Text = "Web connect status: Connected."
             WebBrowser5.Navigate("http://wow.allakhazam.com/" & itemicon)
         End If
+        WebBrowser2.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
     End Sub
 
     Public Sub New()
@@ -984,13 +1039,20 @@ Public Class Form2
         If Asc(e.KeyChar) = Keys.Enter Then
             itemid = TextBox1.Text
             If checkitem() = True Then
-                ToolStripStatusLabel1.Text = "Web connect status: Connected."
                 nodelist()
-                WebBrowser4.Navigate("http://wow.allakhazam.com/" & itemicon)
-                TextBox5.Text = name1
+                If entry = 0 Then
+                    If banstatus = False Then
+                        MsgBox("You have been banned by allakhazam.com for a while.")
+                        ToolStripStatusLabel1.Text = "Web connect status: Banned."
+                        banstatus = True
+                    End If
+                Else
+                    TextBox5.Text = name1
+                    WebBrowser4.Navigate("http://wow.allakhazam.com/" & itemicon)
+                    ToolStripStatusLabel1.Text = "Web connect status: Connected."
+                End If
             End If
             WebBrowser1.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
         End If
     End Sub
-
 End Class

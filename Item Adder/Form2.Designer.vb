@@ -77,8 +77,6 @@ Partial Class Form2
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog
         Me.removeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AddToDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -719,10 +717,6 @@ Partial Class Form2
         Me.Label2.Text = "* Coded by phanonic" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "* Thanks to ac-web.org/99thunder for ItemLeecherv2 source co" & _
             "de."
         '
-        'Timer1
-        '
-        Me.Timer1.Interval = 1000
-        '
         'removeToolStripMenuItem
         '
         Me.removeToolStripMenuItem.Name = "removeToolStripMenuItem"
@@ -864,8 +858,6 @@ Partial Class Form2
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents removeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents RemoveAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

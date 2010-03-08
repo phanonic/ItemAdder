@@ -367,6 +367,7 @@ Partial Class ItemAdder
         Me.RemoveAllToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem
         Me.bwJunk = New System.ComponentModel.BackgroundWorker
         Me.bwEditorDBCheck = New System.ComponentModel.BackgroundWorker
+        Me.ttSI = New System.Windows.Forms.ToolTip(Me.components)
         lblE57 = New System.Windows.Forms.Label
         Label14 = New System.Windows.Forms.Label
         Label23 = New System.Windows.Forms.Label
@@ -554,10 +555,11 @@ Partial Class ItemAdder
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(127, 20)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Black
+        Me.Label1.Location = New System.Drawing.Point(128, 18)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(44, 13)
+        Me.Label1.Size = New System.Drawing.Size(49, 15)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Item ID:"
         '
@@ -652,7 +654,7 @@ Partial Class ItemAdder
         Me.GroupBox9.Size = New System.Drawing.Size(418, 535)
         Me.GroupBox9.TabIndex = 13
         Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Item Editor (Beta Testing)"
+        Me.GroupBox9.Text = "Item Editor"
         '
         'btnIEUpdate
         '
@@ -685,6 +687,7 @@ Partial Class ItemAdder
         'btnIEReload
         '
         Me.btnIEReload.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnIEReload.Enabled = False
         Me.btnIEReload.Location = New System.Drawing.Point(6, 480)
         Me.btnIEReload.Name = "btnIEReload"
         Me.btnIEReload.Size = New System.Drawing.Size(68, 23)
@@ -3415,18 +3418,20 @@ Partial Class ItemAdder
         'MaskedTextBox1
         '
         Me.MaskedTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.MaskedTextBox1.ForeColor = System.Drawing.Color.Red
+        Me.MaskedTextBox1.ForeColor = System.Drawing.Color.Black
         Me.MaskedTextBox1.HidePromptOnLeave = True
         Me.MaskedTextBox1.Location = New System.Drawing.Point(192, 17)
         Me.MaskedTextBox1.Mask = "0000000"
         Me.MaskedTextBox1.Name = "MaskedTextBox1"
         Me.MaskedTextBox1.Size = New System.Drawing.Size(70, 20)
         Me.MaskedTextBox1.TabIndex = 1
+        Me.ttSI.SetToolTip(Me.MaskedTextBox1, "Enter an item id here to search.")
         '
         'GroupBox3
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox3.Controls.Add(Me.WebBrowser1)
         Me.GroupBox3.Location = New System.Drawing.Point(6, 154)
         Me.GroupBox3.Name = "GroupBox3"
@@ -4490,4 +4495,5 @@ Partial Class ItemAdder
     Friend WithEvents mtbRange2 As System.Windows.Forms.MaskedTextBox
     Friend WithEvents btnIEUpdate As System.Windows.Forms.Button
     Friend WithEvents btnIEAdd As System.Windows.Forms.Button
+    Friend WithEvents ttSI As System.Windows.Forms.ToolTip
 End Class

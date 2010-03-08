@@ -158,7 +158,7 @@ Public Class ItemAdder
     Dim Execute As MySqlCommand
     Dim Reader As MySqlDataReader = Nothing
     Dim Reader2 As MySqlDataReader = Nothing
-    Dim reloaditemid As Integer = Nothing
+    Dim reloaditemid As Integer
     Dim singleitemstatus As Integer
     Dim firstcheck As Boolean = True
 
@@ -386,6 +386,7 @@ Public Class ItemAdder
         nudItemSlots.Value = ContainerSlots
         mtbItemArmor.Text = armor
         mtbItemBlock.Text = block
+        itemstatscount = 10
         ComboChoose(stat_type1, cmbItemStats)
         nudItemStat.Value = stat_value1
         ComboChoose(stat_type2, cmbItemStats2)
@@ -468,19 +469,18 @@ Public Class ItemAdder
 
     Public Sub writeeditsql()
         If My.Settings.type = "Arcemu" Then
-            arcQuery = "INSERT INTO `items` VALUES ('" & mtbItemEntry.Text & "', '" & cmbItemClass.SelectedIndex & "', '" & cmbItemSubclass.SelectedIndex & "', '" & -1 & "', '" & txtItemName.Text & "', '" & mtbItemDisplay.Text & "', '" & cmbItemQuality.SelectedIndex & "', '" & flags & "', '" & faction & "', '" & buyprice & "', '" & sellprice & "', '" & inventorytype & "', '" & allowableclass & "', '" & allowablerace & "', '" & itemlevel & "', '" & requiredlevel & "', '" & RequiredSkill & "', '" & RequiredSkillRank & "', '" & RequiredSpell & "', '" & RequiredPlayerRank1 & "', '" & RequiredPlayerRank2 & "', '" & RequiredFaction & "', '" & RequiredFactionStanding & "', '" & Unique & "', '" & maxcount & "', '" & ContainerSlots & "', '" & itemstatscount & "', '" & stat_type1 & "', '" & stat_value1 & "', '" & stat_type2 & "', '" & stat_value2 & "', '" & stat_type3 & "', '" & stat_value3 & "', '" & stat_type4 & "', '" & stat_value4 & "', '" & stat_type5 & "', '" & stat_value5 & "', '" & stat_type6 & "', '" & stat_value6 & "', '" & stat_type7 & "', '" & stat_value7 & "', '" & stat_type8 & "', '" & stat_value8 & "', '" & stat_type9 & "', '" & stat_value9 & "', '" & stat_type10 & "', '" & stat_value10 & "', '" & ScalingStatsEntry & "', '" & ScalingStatsFlags & "', '" & dmg_min1 & "', '" & dmg_max1 & "', '" & dmg_type1 & "', '" & dmg_min2 & "', '" & dmg_max2 & "', '" & dmg_type2 & "', '" & armor & "', '" & holy_res & "', '" & fire_res & "', '" & nature_res & "', '" & frost_res & "', '" & shadow_res & "', '" & arcane_resist & "', '" & delay & "', '" & ammo_type & "', '" & TotemCategory & "', '" & spellid_1 & "', '" & spelltrigger_1 & "', '" & spellcharges_1 & "', '" & spellcooldown_1 & "', '" & spellcategory_1 & "', '" & spellcategorycooldown_1 & "', '" & spellid_2 & "', '" & spelltrigger_2 & "', '" & spellcharges_2 & "', '" & spellcooldown_2 & "', '" & spellcategory_2 & "', '" & spellcategorycooldown_2 & "', '" & spellid_3 & "', '" & spelltrigger_3 & "', '" & spellcharges_3 & "', '" & spellcooldown_3 & "', '" & spellcategory_3 & "', '" & spellcategorycooldown_3 & "', '" & spellid_4 & "', '" & spelltrigger_4 & "', '" & spellcharges_4 & "', '" & spellcooldown_4 & "', '" & spellcategory_4 & "', '" & spellcategorycooldown_4 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & bonding & "', '" & description & "', '" & pageid & "', '" & page_language & "', '" & page_material & "', '" & quest_id & "', '" & lock_id & "', '" & lock_material & "', '" & sheathid & "', '" & randomprop & "', '" & randomsuffix & "', '" & block & "', '" & itemset & "', '" & MaxDurability & "', '" & ZoneNameID & "', '" & mapid & "', '" & bagfamily & "', '0', '" & socket_color_1 & "', '" & unk201_3 & "', '" & socket_color_2 & "', '" & unk201_5 & "', '" & socket_color_3 & "', '" & unk201_7 & "', '" & socket_bonus & "', '" & GemProperties & "', '" & ReqDisenchantSkill & "', '" & ArmorDamageModifier & "', '" & duration & "', '" & 0 & "', '" & 0 & "');"
+            arcQuery = "INSERT INTO `items` VALUES ('" & mtbItemEntry.Text & "', '" & cmbItemClass.SelectedIndex & "', '" & cmbItemSubclass.SelectedIndex & "', '" & -1 & "', '" & txtItemName.Text & "', '" & mtbItemDisplay.Text & "', '" & cmbItemQuality.SelectedIndex & "', '" & flags & "', '" & faction & "', '" & nudGold.Value & nudSilver.Value & nudCopper.Value & "', '" & nudGoldSell.Value & nudSilverSell.Value & nudCopperSell.Value & "', '" & cmbItemInventory.SelectedIndex & "', '" & allowableclass & "', '" & allowablerace & "', '" & nudItemLevel.Value & "', '" & nudItemReqLevel.Value & "', '" & ComboGet(cmbItemSkill) & "', '" & nudItemSkillRank.Value & "', '" & RequiredSpell & "', '" & RequiredPlayerRank1 & "', '" & RequiredPlayerRank2 & "', '" & ComboGet(cmbItemFactions) & "', '" & cmbItemFactionStanding.SelectedIndex & "', '" & Unique & "', '" & cmbItemInventory.SelectedIndex & "', '" & nudItemSlots.Value & "', '" & itemstatscount & "', '" & ComboGet(cmbItemStats) & "', '" & nudItemStat.Value & "', '" & ComboGet(cmbItemStats2) & "', '" & nudItemStat2.Value & "', '" & ComboGet(cmbItemStats3) & "', '" & nudItemStat3.Value & "', '" & ComboGet(cmbItemStats4) & "', '" & nudItemStat4.Value & "', '" & ComboGet(cmbItemStats5) & "', '" & nudItemStat5.Value & "', '" & ComboGet(cmbItemStats6) & "', '" & nudItemStat6.Value & "', '" & ComboGet(cmbItemStats7) & "', '" & nudItemStat7.Value & "', '" & ComboGet(cmbItemStats8) & "', '" & nudItemStat8.Value & "', '" & ComboGet(cmbItemStats9) & "', '" & nudItemStat9.Value & "', '" & ComboGet(cmbItemStats10) & "', '" & nudItemStat10.Value & "', '" & ScalingStatsEntry & "', '" & ScalingStatsFlags & "', '" & mtbItemDamageMin.Text & "', '" & mtbItemDamageMax.Text & "', '" & cmbItemDamageType.SelectedIndex & "', '" & mtbItemDamageMin2.Text & "', '" & mtbItemDamageMax2.Text & "', '" & cmbItemDamageType2.SelectedIndex & "', '" & armor & "', '" & nudItemHoly.Value & "', '" & nudItemFire.Value & "', '" & nudItemNature.Value & "', '" & nudItemFrost.Value & "', '" & nudItemShadow.Value & "', '" & nudItemArcane.Value & "', '" & mtbItemSpeed.Text & "', '" & ammo_type & "', '" & TotemCategory & "', '" & mtbItemSpellID.Text & "', '" & cmbItemTrigger.SelectedIndex & "', '" & nudItemCharges.Value & "', '" & mtbItemCooldown.Text & "', '" & mtbItemCategory.Text & "', '" & mtbItemCategoryCooldown.Text & "', '" & mtbItemSpellID2.Text & "', '" & cmbItemTrigger2.SelectedIndex & "', '" & nudItemCharges2.Value & "', '" & mtbItemCooldown2.Text & "', '" & mtbItemCategory2.Text & "', '" & mtbItemCategoryCooldown2.Text & "', '" & mtbItemSpellID3.Text & "', '" & cmbItemTrigger3.SelectedIndex & "', '" & nudItemCharges3.Value & "', '" & mtbItemCooldown3.Text & "', '" & mtbItemCategory3.Text & "', '" & mtbItemCategoryCooldown3.Text & "', '" & mtbItemSpellID4.Text & "', '" & cmbItemTrigger4.SelectedIndex & "', '" & nudItemCharges4.Value & "', '" & mtbItemCooldown4.Text & "', '" & mtbItemCategory4.Text & "', '" & mtbItemCategoryCooldown4.Text & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & cmbItemBonding.SelectedIndex & "', '" & txtItemText.Text & "', '" & mtbItemPage.Text & "', '" & page_language & "', '" & page_material & "', '" & mtbItemQuest.Text & "', '" & lock_id & "', '" & lock_material & "', '" & cmbItemSheath.SelectedIndex & "', '" & randomprop & "', '" & randomsuffix & "', '" & mtbItemBlock.Text & "', '" & ComboGet(cmbItemSet) & "', '" & MaxDurability & "', '" & ZoneNameID & "', '" & mapid & "', '" & bagfamily & "', '0', '" & ComboGet(cmbItemSocket1) & "', '" & unk201_3 & "', '" & ComboGet(cmbItemSocket2) & "', '" & unk201_5 & "', '" & ComboGet(cmbItemSocket3) & "', '" & unk201_7 & "', '" & mtbItemBonus.Text & "', '" & GemProperties & "', '" & ReqDisenchantSkill & "', '" & ArmorDamageModifier & "', '" & duration & "', '" & 0 & "', '" & 0 & "');"
             thequery = arcQuery
         End If
         If My.Settings.type = "Trinity" Then
-            trinquery = "INSERT INTO `item_template` VALUES ('" & mtbItemEntry.Text & "', '" & cmbItemClass.SelectedIndex & "', '" & cmbItemSubclass.SelectedIndex & "', '" & -1 & "', '" & txtItemName.Text & "', '" & mtbItemDisplay.Text & "', '" & cmbItemQuality.SelectedIndex & "', '" & flags & "', '" & faction & "', '" & buycount & "', '" & buyprice & "', '" & sellprice & "', '" & inventorytype & "', '" & allowableclass & "', '" & allowablerace & "', '" & itemlevel & "', '" & requiredlevel & "', '" & RequiredSkill & "', '" & RequiredSkillRank & "', '" & RequiredSpell & "', '" & RequiredPlayerRank1 & "', '" & RequiredPlayerRank2 & "', '" & RequiredFaction & "', '" & RequiredFactionStanding & "', '" & maxcount & "', '" & 1 & "',  '" & ContainerSlots & "', '" & itemstatscount & "', '" & stat_type1 & "', '" & stat_value1 & "', '" & stat_type2 & "', '" & stat_value2 & "', '" & stat_type3 & "', '" & stat_value3 & "', '" & stat_type4 & "', '" & stat_value4 & "', '" & stat_type5 & "', '" & stat_value5 & "', '" & stat_type6 & "', '" & stat_value6 & "', '" & stat_type7 & "', '" & stat_value7 & "', '" & stat_type8 & "', '" & stat_value8 & "', '" & stat_type9 & "', '" & stat_value9 & "', '" & stat_type10 & "', '" & stat_value10 & "', '" & ScalingStatsEntry & "', '" & ScalingStatsFlags & "', '" & dmg_min1 & "', '" & dmg_max1 & "', '" & dmg_type1 & "', '" & dmg_min2 & "', '" & dmg_max2 & "', '" & dmg_type2 & "', '" & armor & "', '" & holy_res & "', '" & fire_res & "', '" & nature_res & "', '" & frost_res & "', '" & shadow_res & "', '" & arcane_resist & "', '" & delay & "', '" & ammo_type & "', '" & rangedmodrange & "', '" & spellid_1 & "', '" & spelltrigger_1 & "', '" & spellcharges_1 & "', '" & 0 & "', '" & spellcooldown_1 & "', '" & spellcategory_1 & "', '" & spellcategorycooldown_1 & "', '" & spellid_2 & "', '" & spelltrigger_2 & "', '" & spellcharges_2 & "', '" & 0 & "', '" & spellcooldown_2 & "', '" & spellcategory_2 & "', '" & spellcategorycooldown_2 & "', '" & spellid_3 & "', '" & spelltrigger_3 & "', '" & spellcharges_3 & "', '" & 0 & "', '" & spellcooldown_3 & "', '" & spellcategory_3 & "', '" & spellcategorycooldown_3 & "', '" & spellid_4 & "', '" & spelltrigger_4 & "', '" & spellcharges_4 & "', '" & 0 & "', '" & spellcooldown_4 & "', '" & spellcategory_4 & "', '" & spellcategorycooldown_4 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & bonding & "', '" & description & "', '" & pageid & "', '" & page_language & "', '" & page_material & "', '" & quest_id & "', '" & lock_id & "', '" & lock_material & "', '" & sheathid & "', '" & randomprop & "', '" & randomsuffix & "', '" & block & "', '" & itemset & "', '" & MaxDurability & "', '" & ZoneNameID & "', '" & mapid & "', '" & bagfamily & "', '" & TotemCategory & "', '" & socket_color_1 & "', '" & unk201_3 & "', '" & socket_color_2 & "', '" & unk201_5 & "', '" & socket_color_3 & "', '" & unk201_7 & "', '" & socket_bonus & "', '" & GemProperties & "', '" & ReqDisenchantSkill & "', '" & ArmorDamageModifier & "' , '" & duration & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "', '" & 0 & "');"
+            trinquery = "INSERT INTO `item_template` VALUES ('" & mtbItemEntry.Text & "', '" & cmbItemClass.SelectedIndex & "', '" & cmbItemSubclass.SelectedIndex & "', '" & -1 & "', '" & txtItemName.Text & "', '" & mtbItemDisplay.Text & "', '" & cmbItemQuality.SelectedIndex & "', '" & flags & "', '" & faction & "', '" & buycount & "', '" & nudGold.Value & nudSilver.Value & nudCopper.Value & "', '" & nudGoldSell.Value & nudSilverSell.Value & nudCopperSell.Value & "', '" & cmbItemInventory.SelectedIndex & "', '" & allowableclass & "', '" & allowablerace & "', '" & nudItemLevel.Value & "', '" & nudItemReqLevel.Value & "', '" & ComboGet(cmbItemSkill) & "', '" & nudItemSkillRank.Value & "', '" & RequiredSpell & "', '" & RequiredPlayerRank1 & "', '" & RequiredPlayerRank2 & "', '" & ComboGet(cmbItemFactions) & "', '" & cmbItemFactionStanding.SelectedIndex & "', '" & cmbItemInventory.SelectedIndex & "', '" & 1 & "',  '" & nudItemSlots.Value & "', '" & itemstatscount & "', '" & ComboGet(cmbItemStats) & "', '" & nudItemStat.Value & "', '" & ComboGet(cmbItemStats2) & "', '" & nudItemStat2.Value & "', '" & ComboGet(cmbItemStats3) & "', '" & nudItemStat3.Value & "', '" & ComboGet(cmbItemStats4) & "', '" & nudItemStat4.Value & "', '" & ComboGet(cmbItemStats5) & "', '" & nudItemStat5.Value & "', '" & ComboGet(cmbItemStats6) & "', '" & nudItemStat6.Value & "', '" & ComboGet(cmbItemStats7) & "', '" & nudItemStat7.Value & "', '" & ComboGet(cmbItemStats8) & "', '" & nudItemStat8.Value & "', '" & ComboGet(cmbItemStats9) & "', '" & nudItemStat9.Value & "', '" & ComboGet(cmbItemStats10) & "', '" & nudItemStat10.Value & "', '" & ScalingStatsEntry & "', '" & ScalingStatsFlags & "', '" & mtbItemDamageMin.Text & "', '" & mtbItemDamageMax.Text & "', '" & cmbItemDamageType.SelectedIndex & "', '" & mtbItemDamageMin2.Text & "', '" & mtbItemDamageMax2.Text & "', '" & cmbItemDamageType2.SelectedIndex & "', '" & armor & "', '" & nudItemHoly.Value & "', '" & nudItemFire.Value & "', '" & nudItemNature.Value & "', '" & nudItemFrost.Value & "', '" & nudItemShadow.Value & "', '" & nudItemArcane.Value & "', '" & mtbItemSpeed.Text & "', '" & ammo_type & "', '" & nudItemRange.Value & "', '" & mtbItemSpellID.Text & "', '" & cmbItemTrigger.SelectedIndex & "', '" & nudItemCharges.Value & "', '" & 0 & "', '" & mtbItemCooldown.Text & "', '" & mtbItemCategory.Text & "', '" & mtbItemCategoryCooldown.Text & "', '" & mtbItemSpellID2.Text & "', '" & cmbItemTrigger2.SelectedIndex & "', '" & nudItemCharges2.Value & "', '" & 0 & "', '" & mtbItemCooldown2.Text & "', '" & mtbItemCategory2.Text & "', '" & mtbItemCategoryCooldown2.Text & "', '" & mtbItemSpellID3.Text & "', '" & cmbItemTrigger3.SelectedIndex & "', '" & nudItemCharges3.Value & "', '" & 0 & "', '" & mtbItemCooldown3.Text & "', '" & mtbItemCategory3.Text & "', '" & mtbItemCategoryCooldown3.Text & "', '" & mtbItemSpellID4.Text & "', '" & cmbItemTrigger4.SelectedIndex & "', '" & nudItemCharges4.Value & "', '" & 0 & "', '" & mtbItemCooldown4.Text & "', '" & mtbItemCategory4.Text & "', '" & mtbItemCategoryCooldown4.Text & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & cmbItemBonding.SelectedIndex & "', '" & txtItemText.Text & "', '" & mtbItemPage.Text & "', '" & page_language & "', '" & page_material & "', '" & mtbItemQuest.Text & "', '" & lock_id & "', '" & lock_material & "', '" & cmbItemSheath.SelectedIndex & "', '" & randomprop & "', '" & randomsuffix & "', '" & mtbItemBlock.Text & "', '" & ComboGet(cmbItemSet) & "', '" & MaxDurability & "', '" & ZoneNameID & "', '" & mapid & "', '" & bagfamily & "', '" & TotemCategory & "', '" & ComboGet(cmbItemSocket1) & "', '" & unk201_3 & "', '" & ComboGet(cmbItemSocket2) & "', '" & unk201_5 & "', '" & ComboGet(cmbItemSocket3) & "', '" & unk201_7 & "', '" & mtbItemBonus.Text & "', '" & GemProperties & "', '" & ReqDisenchantSkill & "', '" & ArmorDamageModifier & "' , '" & duration & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "', '" & 0 & "');"
             thequery = trinquery
         End If
         If My.Settings.type = "Mangos" Then
-            mangoquery = "INSERT INTO `item_template` VALUES ('" & mtbItemEntry.Text & "', '" & cmbItemClass.SelectedIndex & "', '" & cmbItemSubclass.SelectedIndex & "', '" & -1 & "', '" & txtItemName.Text & "', '" & mtbItemDisplay.Text & "', '" & cmbItemQuality.SelectedIndex & "', '" & flags & "', '" & faction & "', '" & buycount & "', '" & buyprice & "', '" & sellprice & "', '" & inventorytype & "', '" & allowableclass & "', '" & allowablerace & "', '" & itemlevel & "', '" & requiredlevel & "', '" & RequiredSkill & "', '" & RequiredSkillRank & "', '" & RequiredSpell & "', '" & RequiredPlayerRank1 & "', '" & RequiredFaction & "', '" & RequiredFactionStanding & "', '" & RequiredReputationRank & "', '" & maxcount & "', '" & Unique & "',  '" & ContainerSlots & "', '" & itemstatscount & "', '" & stat_type1 & "', '" & stat_value1 & "', '" & stat_type2 & "', '" & stat_value2 & "', '" & stat_type3 & "', '" & stat_value3 & "', '" & stat_type4 & "', '" & stat_value4 & "', '" & stat_type5 & "', '" & stat_value5 & "', '" & stat_type6 & "', '" & stat_value6 & "', '" & stat_type7 & "', '" & stat_value7 & "', '" & stat_type8 & "', '" & stat_value8 & "', '" & stat_type9 & "', '" & stat_value9 & "', '" & stat_type10 & "', '" & stat_value10 & "', '" & ScalingStatsEntry & "', '" & ScalingStatsFlags & "', '" & dmg_min1 & "', '" & dmg_max1 & "', '" & dmg_type1 & "', '" & dmg_min2 & "', '" & dmg_max2 & "', '" & dmg_type2 & "', '" & armor & "', '" & holy_res & "', '" & fire_res & "', '" & nature_res & "', '" & frost_res & "', '" & shadow_res & "', '" & arcane_resist & "', '" & delay & "', '" & ammo_type & "', " & rangedmodrange & ", '" & spellid_1 & "', '" & spelltrigger_1 & "', '" & spellcharges_1 & "', '" & 0 & "', '" & spellcooldown_1 & "', '" & spellcategory_1 & "', '" & spellcategorycooldown_1 & "', '" & spellid_2 & "', '" & spelltrigger_2 & "', '" & spellcharges_2 & "', '" & 0 & "', '" & spellcooldown_2 & "', '" & spellcategory_2 & "', '" & spellcategorycooldown_2 & "', '" & spellid_3 & "', '" & spelltrigger_3 & "', '" & spellcharges_3 & "', '" & 0 & "', '" & spellcooldown_3 & "', '" & spellcategory_3 & "', '" & spellcategorycooldown_3 & "', '" & spellid_4 & "', '" & spelltrigger_4 & "', '" & spellcharges_4 & "', '" & 0 & "', '" & spellcooldown_4 & "', '" & spellcategory_4 & "', '" & spellcategorycooldown_4 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & bonding & "', '" & description & "', '" & pageid & "', '" & page_language & "', '" & page_material & "', '" & quest_id & "', '" & lock_id & "', '" & lock_material & "', '" & sheathid & "', '" & randomprop & "', '" & randomsuffix & "', '" & block & "', '" & itemset & "', '" & MaxDurability & "', '" & ZoneNameID & "', '" & mapid & "', '" & bagfamily & "', '" & TotemCategory & "', '" & socket_color_1 & "', '" & unk201_3 & "', '" & socket_color_2 & "', '" & unk201_5 & "', '" & socket_color_3 & "', '" & unk201_7 & "', '" & socket_bonus & "', '" & GemProperties & "', '" & ReqDisenchantSkill & "', '" & ArmorDamageModifier & "' , '" & duration & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "');"
+            mangoquery = "INSERT INTO `item_template` VALUES ('" & mtbItemEntry.Text & "', '" & cmbItemClass.SelectedIndex & "', '" & cmbItemSubclass.SelectedIndex & "', '" & -1 & "', '" & txtItemName.Text & "', '" & mtbItemDisplay.Text & "', '" & cmbItemQuality.SelectedIndex & "', '" & flags & "', '" & faction & "', '" & buycount & "', '" & nudGold.Value & nudSilver.Value & nudCopper.Value & "', '" & nudGoldSell.Value & nudSilverSell.Value & nudCopperSell.Value & "', '" & cmbItemInventory.SelectedIndex & "', '" & allowableclass & "', '" & allowablerace & "', '" & nudItemLevel.Value & "', '" & nudItemReqLevel.Value & "', '" & ComboGet(cmbItemSkill) & "', '" & nudItemSkillRank.Value & "', '" & RequiredSpell & "', '" & RequiredPlayerRank1 & "', '" & ComboGet(cmbItemFactions) & "', '" & cmbItemFactionStanding.SelectedIndex & "', '" & RequiredReputationRank & "', '" & cmbItemInventory.SelectedIndex & "', '" & Unique & "',  '" & nudItemSlots.Value & "', '" & itemstatscount & "', '" & ComboGet(cmbItemStats) & "', '" & nudItemStat.Value & "', '" & ComboGet(cmbItemStats2) & "', '" & nudItemStat2.Value & "', '" & ComboGet(cmbItemStats3) & "', '" & nudItemStat3.Value & "', '" & ComboGet(cmbItemStats4) & "', '" & nudItemStat4.Value & "', '" & ComboGet(cmbItemStats5) & "', '" & nudItemStat5.Value & "', '" & ComboGet(cmbItemStats6) & "', '" & nudItemStat6.Value & "', '" & ComboGet(cmbItemStats7) & "', '" & nudItemStat7.Value & "', '" & ComboGet(cmbItemStats8) & "', '" & nudItemStat8.Value & "', '" & ComboGet(cmbItemStats9) & "', '" & nudItemStat9.Value & "', '" & ComboGet(cmbItemStats10) & "', '" & nudItemStat10.Value & "', '" & ScalingStatsEntry & "', '" & ScalingStatsFlags & "', '" & mtbItemDamageMin.Text & "', '" & mtbItemDamageMax.Text & "', '" & cmbItemDamageType.SelectedIndex & "', '" & mtbItemDamageMin2.Text & "', '" & mtbItemDamageMax2.Text & "', '" & cmbItemDamageType2.SelectedIndex & "', '" & armor & "', '" & nudItemHoly.Value & "', '" & nudItemFire.Value & "', '" & nudItemNature.Value & "', '" & nudItemFrost.Value & "', '" & nudItemShadow.Value & "', '" & nudItemArcane.Value & "', '" & mtbItemSpeed.Text & "', '" & ammo_type & "', " & nudItemRange.Value & ", '" & mtbItemSpellID.Text & "', '" & cmbItemTrigger.SelectedIndex & "', '" & nudItemCharges.Value & "', '" & 0 & "', '" & mtbItemCooldown.Text & "', '" & mtbItemCategory.Text & "', '" & mtbItemCategoryCooldown.Text & "', '" & mtbItemSpellID2.Text & "', '" & cmbItemTrigger2.SelectedIndex & "', '" & nudItemCharges2.Value & "', '" & 0 & "', '" & mtbItemCooldown2.Text & "', '" & mtbItemCategory2.Text & "', '" & mtbItemCategoryCooldown2.Text & "', '" & mtbItemSpellID3.Text & "', '" & cmbItemTrigger3.SelectedIndex & "', '" & nudItemCharges3.Value & "', '" & 0 & "', '" & mtbItemCooldown3.Text & "', '" & mtbItemCategory3.Text & "', '" & mtbItemCategoryCooldown3.Text & "', '" & mtbItemSpellID4.Text & "', '" & cmbItemTrigger4.SelectedIndex & "', '" & nudItemCharges4.Value & "', '" & 0 & "', '" & mtbItemCooldown4.Text & "', '" & mtbItemCategory4.Text & "', '" & mtbItemCategoryCooldown4.Text & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & 0 & "', '" & cmbItemBonding.SelectedIndex & "', '" & txtItemText.Text & "', '" & mtbItemPage.Text & "', '" & page_language & "', '" & page_material & "', '" & mtbItemQuest.Text & "', '" & lock_id & "', '" & lock_material & "', '" & cmbItemSheath.SelectedIndex & "', '" & randomprop & "', '" & randomsuffix & "', '" & mtbItemBlock.Text & "', '" & ComboGet(cmbItemSet) & "', '" & MaxDurability & "', '" & ZoneNameID & "', '" & mapid & "', '" & bagfamily & "', '" & TotemCategory & "', '" & ComboGet(cmbItemSocket1) & "', '" & unk201_3 & "', '" & ComboGet(cmbItemSocket2) & "', '" & unk201_5 & "', '" & ComboGet(cmbItemSocket3) & "', '" & unk201_7 & "', '" & mtbItemBonus.Text & "', '" & GemProperties & "', '" & ReqDisenchantSkill & "', '" & ArmorDamageModifier & "' , '" & duration & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "' , '" & 0 & "');"
             thequery = mangoquery
         End If
     End Sub
-
 
     Private Sub btnItemPage_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnItemPage.Click
         Dim PageChooser As frmPageChooser
@@ -564,8 +564,9 @@ Public Class ItemAdder
     End Sub
 
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSIFind.Click
+        Dim c As Integer
         ToolStripStatusLabel1.ForeColor = Color.DarkOrange
-        ToolStripStatusLabel1.Text = "Web connect status: Connecting to the web. Please wait for a while."
+        ToolStripStatusLabel1.Text = "Web connect status: Connecting to the web. Please wait."
         itemid = MaskedTextBox1.Text
         btnSIFind.Enabled = False
         Button2.Enabled = False
@@ -603,17 +604,18 @@ Public Class ItemAdder
         If checkitem() = True Then
             ToolStripProgressBar1.Value = 3
             nodelist()
-            txtItemEditStatus.ForeColor = Color.Green
-            txtItemEditStatus.Text = "Item Status: " & itemid & " loaded succesfuly."
             If chkEditor.Checked = True Then
-                fillitemedit()
-                chkEditor.Checked = False
                 reloaditemid = itemid
+                fillitemedit()
+                btnIEReload.Enabled = True
                 firstcheck = True
+                chkEditor.Checked = False
+                Label71.Text = "Current ID: " & itemid
+                txtItemEditStatus.ForeColor = Color.Green
+                txtItemEditStatus.Text = "Item Status: " & itemid & " loaded succesfuly."
             End If
             TextBox5.Text = name1
             WebBrowser4.Navigate("http://wow.allakhazam.com/" & itemicon)
-            Label71.Text = "Current ID: " & itemid
             ToolStripProgressBar1.Value = 4
         Else
             txtSIS.ForeColor = Color.Red
@@ -1339,6 +1341,8 @@ Public Class ItemAdder
         writeeditsql()
         ViewSQL.Show()
         ViewSQL.rtxtViewSQL.Text = thequery
+        txtItemName.Text = txtItemName.Text.Replace("\", "")
+        txtItemText.Text = txtItemText.Text.Replace("\", "")
     End Sub
 
     Private Sub Button3_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
@@ -1357,11 +1361,12 @@ Public Class ItemAdder
             Try
                 fillitemedit()
             Catch ex As Exception
+                txtItemEditStatus.ForeColor = Color.Red
                 txtItemEditStatus.Text = ex.Message
                 Exit Sub
             End Try
             txtItemEditStatus.ForeColor = Color.Green
-            txtItemEditStatus.Text = "Item Status: Item reloaded succesfuly."
+            txtItemEditStatus.Text = "Item Status: " & reloaditemid & " reloaded succesfuly."
         End If
     End Sub
 
@@ -1411,10 +1416,42 @@ Public Class ItemAdder
     End Sub
 
     Private Sub btnIEUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnIEUpdate.Click
-        MsgBox("That section is under developing.")
+        itemid = mtbItemEntry.Text
+        Try
+            itemdelete()
+            checktext2()
+            writeeditsql()
+            Execute = New MySqlCommand(thequery, Connection)
+            Reader2 = Execute.ExecuteReader
+            Reader2.Close()
+            txtItemName.Text = txtItemName.Text.Replace("\", "")
+            txtItemText.Text = txtItemText.Text.Replace("\", "")
+        Catch ex As Exception
+            txtItemEditStatus.ForeColor = Color.Red
+            txtItemEditStatus.Text = ex.Message
+            Exit Sub
+        End Try
+        txtItemEditStatus.ForeColor = Color.Green
+        txtItemEditStatus.Text = "Item Status: " & itemid & " updated successfuly."
     End Sub
 
     Private Sub btnIEAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnIEAdd.Click
-        MsgBox("That section is under developing.")
+        itemid = mtbItemEntry.Text
+        Try
+            checktext2()
+            writeeditsql()
+            Execute = New MySqlCommand(thequery, Connection)
+            Reader2 = Execute.ExecuteReader
+            Reader2.Close()
+            txtItemName.Text = txtItemName.Text.Replace("\", "")
+            txtItemText.Text = txtItemText.Text.Replace("\", "")
+        Catch ex As Exception
+            txtItemEditStatus.ForeColor = Color.Red
+            txtItemEditStatus.Text = ex.Message
+            Exit Sub
+        End Try
+        txtItemEditStatus.ForeColor = Color.Green
+        txtItemEditStatus.Text = "Item Status: " & itemid & " added successfuly."
     End Sub
+
 End Class

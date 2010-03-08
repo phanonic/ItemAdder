@@ -49,7 +49,7 @@ Public Class Logon
                 My.Settings.mode = True
                 ItemAdder.Show()
                 Me.Hide()
-                ItemAdder.Text = "Item Adder (3.3.2.1h) - Database " & My.Settings.db & " on " & My.Settings.host & " "
+                ItemAdder.Text = "Item Adder (3.3.2.2a) - Database " & My.Settings.db & " on " & My.Settings.host & " "
             Else
                 MsgBox("Error while connecting. Two possible problems:" & vbCrLf & "1. The input is wrong. Database connection details are supposed to be the same as those inside the Server config file (and programs like HeidiSQL)." & vbCrLf & "2. Check if your server is running (Mysql).", MsgBoxStyle.Critical, "Error")
                 Me.Enabled = True
@@ -90,13 +90,13 @@ Public Class Logon
         ItemAdder.Button2.Enabled = False
         My.Settings.mode = False
         Me.Hide()
-        ItemAdder.Text = "Item Adder (3.3.2.1h) - No Database Connection"
+        ItemAdder.Text = "Item Adder (3.3.2.2a) - No Database Connection"
     End Sub
 
     Private Sub BackgroundWorker1_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
         Try
-            Dim url As String = ("http://www.phanonic.smfnew.com/index.php?action=dlattach;topic=2.0;attach=14")
+            Dim url As String = ("http://www.phanonic.smfnew.com/index.php?action=dlattach;topic=2.0;attach=13")
             Dim webResponse3 As HttpWebResponse = Nothing
             Dim webRequest3 As HttpWebRequest = HttpWebRequest.Create(url)
             Dim srResp As StreamReader

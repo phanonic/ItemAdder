@@ -10,7 +10,7 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Item Adder v3.3.2.1h")> 
+<Assembly: AssemblyTitle("Item Adder v3.3.2.2a")> 
 <Assembly: AssemblyDescription("WoW Item Adder for 3.3.2 Emulator Server")> 
 <Assembly: AssemblyCompany("http://www.phanonic.smfnew.com/")> 
 <Assembly: AssemblyProduct("Item Adder")> 
@@ -33,7 +33,7 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("3.3.2.1")> 
-<Assembly: AssemblyFileVersion("3.3.2.1")> 
+<Assembly: AssemblyVersion("3.3.2.2")> 
+<Assembly: AssemblyFileVersion("3.3.2.2")> 
 
 <Assembly: NeutralResourcesLanguageAttribute("en-US")> 

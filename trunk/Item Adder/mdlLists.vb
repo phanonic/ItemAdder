@@ -485,4 +485,13 @@ Module mdlLists
             Number = 0
         End If
     End Sub
+
+    Public Function ComboGet(ByVal Combo As ComboBox) As String
+        If IsNumeric(Combo.Text) Then
+            Return Combo.Text
+        Else
+            Return CStr(GetNumberFromIndex(Combo))
+        End If
+    End Function
+
 End Module

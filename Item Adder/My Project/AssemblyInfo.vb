@@ -10,11 +10,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Item Adder v3.3.2.1f")> 
-<Assembly: AssemblyDescription("WoW 3.3.2a Item Adder for Emulator Server")> 
-<Assembly: AssemblyCompany("phanonic.co.cc")> 
+<Assembly: AssemblyTitle("Item Adder v3.3.2.1h")> 
+<Assembly: AssemblyDescription("WoW Item Adder for 3.3.2 Emulator Server")> 
+<Assembly: AssemblyCompany("http://www.phanonic.smfnew.com/")> 
 <Assembly: AssemblyProduct("Item Adder")> 
-<Assembly: AssemblyCopyright("Copyright © phanonic 2009")> 
+<Assembly: AssemblyCopyright("Copyright © phanonic 2010")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)> 

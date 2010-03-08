@@ -22,7 +22,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ManifestCertificateThumbprint>C365328A2E09F47AF4C5ADC9980B914A628CAE2D</ManifestCertificateThumbprint>
     <ManifestKeyFile>itemleecher_TemporaryKey.pfx</ManifestKeyFile>
-    <GenerateManifests>false</GenerateManifests>
+    <GenerateManifests>true</GenerateManifests>
     <TargetZone>LocalIntranet</TargetZone>
     <SignManifests>false</SignManifests>
     <PublishUrl>publish\</PublishUrl>
@@ -36,10 +36,10 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>3.3.2.0</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>3.3.2.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>false</BootstrapperEnabled>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -82,6 +82,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="frmPageChooser.designer.vb">
+      <DependentUpon>frmPageChooser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPageChooser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuestChooser.designer.vb">
+      <DependentUpon>frmQuestChooser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuestChooser.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="mdlLists.vb" />
     <Compile Include="Logon.vb">
       <SubType>Form</SubType>
@@ -111,9 +123,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="realms.vb" />
+    <Compile Include="ViewSQL.Designer.vb">
+      <DependentUpon>ViewSQL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSQL.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmPageChooser.resx">
+      <DependentUpon>frmPageChooser.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuestChooser.resx">
+      <DependentUpon>frmQuestChooser.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Logon.resx">
       <DependentUpon>Logon.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -126,6 +151,10 @@
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSQL.resx">
+      <DependentUpon>ViewSQL.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
@@ -178,6 +207,7 @@
     <Content Include="Resources\copper.png" />
     <Content Include="Resources\gold.png" />
     <Content Include="Resources\money_gold.gif" />
+    <Content Include="Resources\quest.png" />
     <Content Include="Resources\silver.png" />
   </ItemGroup>
   <ItemGroup>

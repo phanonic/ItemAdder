@@ -1,15 +1,18 @@
-﻿Imports System.Net
+﻿Option Explicit On
+
+Imports System.Net
 Imports System.IO
 Imports System.Text.RegularExpressions
 Imports MySql.Data.MySqlClient
 
 Public Class Logon
-    Public Connection As MySqlConnection
     Public Host As String
     Public Username As String
     Public Password As String
     Public DB As String
     Public Port As Integer
+
+    Public Connection As MySqlConnection
 
     Public Function ConnectToDB() As Boolean
         Try
@@ -46,7 +49,7 @@ Public Class Logon
                 My.Settings.mode = True
                 ItemAdder.Show()
                 Me.Hide()
-                ItemAdder.Text = "Item Adder (3.3.2.1f) - Database " & My.Settings.db & " on " & My.Settings.host & " "
+                ItemAdder.Text = "Item Adder (3.3.2.1h) - Database " & My.Settings.db & " on " & My.Settings.host & " "
             Else
                 MsgBox("Error while connecting. Two possible problems:" & vbCrLf & "1. The input is wrong. Database connection details are supposed to be the same as those inside the Server config file (and programs like HeidiSQL)." & vbCrLf & "2. Check if your server is running (Mysql).", MsgBoxStyle.Critical, "Error")
                 Me.Enabled = True
@@ -87,13 +90,13 @@ Public Class Logon
         ItemAdder.Button2.Enabled = False
         My.Settings.mode = False
         Me.Hide()
-        ItemAdder.Text = "Item Adder (3.3.2.1f) - No Database Connection"
+        ItemAdder.Text = "Item Adder (3.3.2.1h) - No Database Connection"
     End Sub
 
     Private Sub BackgroundWorker1_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
         Try
-            Dim url As String = ("http://www.phanonic.smfnew.com/index.php?action=dlattach;topic=2.0;attach=12")
+            Dim url As String = ("http://www.phanonic.smfnew.com/index.php?action=dlattach;topic=2.0;attach=13")
             Dim webResponse3 As HttpWebResponse = Nothing
             Dim webRequest3 As HttpWebRequest = HttpWebRequest.Create(url)
             Dim srResp As StreamReader
@@ -148,5 +151,11 @@ Public Class Logon
 
     Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         System.Diagnostics.Process.Start("http://www.phanonic.smfnew.com/")
+    End Sub
+
+    Private Sub txtHost_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtHost.KeyPress
+        If Asc(e.KeyChar) = Keys.Enter Then
+            lblPort_Click(Nothing, Nothing)
+        End If
     End Sub
 End Class

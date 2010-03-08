@@ -52,7 +52,7 @@ Partial Class Logon
         Me.txtPort.Location = New System.Drawing.Point(189, 40)
         Me.txtPort.Name = "txtPort"
         Me.txtPort.Size = New System.Drawing.Size(55, 20)
-        Me.txtPort.TabIndex = 1
+        Me.txtPort.TabIndex = 2
         Me.txtPort.Text = "3306"
         '
         'lblPort
@@ -67,19 +67,19 @@ Partial Class Logon
         '
         'btnExit
         '
-        Me.btnExit.Location = New System.Drawing.Point(47, 273)
+        Me.btnExit.Location = New System.Drawing.Point(43, 273)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
-        Me.btnExit.TabIndex = 33
+        Me.btnExit.TabIndex = 7
         Me.btnExit.Text = "E&xit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
         'proceed
         '
-        Me.proceed.Location = New System.Drawing.Point(128, 273)
+        Me.proceed.Location = New System.Drawing.Point(132, 273)
         Me.proceed.Name = "proceed"
         Me.proceed.Size = New System.Drawing.Size(75, 23)
-        Me.proceed.TabIndex = 6
+        Me.proceed.TabIndex = 0
         Me.proceed.Text = "&Proceed"
         Me.proceed.UseVisualStyleBackColor = True
         '
@@ -88,7 +88,7 @@ Partial Class Logon
         Me.txtDatabase.Location = New System.Drawing.Point(6, 195)
         Me.txtDatabase.Name = "txtDatabase"
         Me.txtDatabase.Size = New System.Drawing.Size(238, 20)
-        Me.txtDatabase.TabIndex = 4
+        Me.txtDatabase.TabIndex = 5
         Me.txtDatabase.Text = "world"
         '
         'lblE5
@@ -105,7 +105,7 @@ Partial Class Logon
         Me.txtPassword.Location = New System.Drawing.Point(6, 140)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(238, 20)
-        Me.txtPassword.TabIndex = 3
+        Me.txtPassword.TabIndex = 4
         Me.txtPassword.Text = "ascent"
         Me.txtPassword.UseSystemPasswordChar = True
         '
@@ -123,7 +123,7 @@ Partial Class Logon
         Me.txtUsername.Location = New System.Drawing.Point(6, 91)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(238, 20)
-        Me.txtUsername.TabIndex = 2
+        Me.txtUsername.TabIndex = 3
         Me.txtUsername.Text = "root"
         '
         'lblE3
@@ -140,7 +140,7 @@ Partial Class Logon
         Me.txtHost.Location = New System.Drawing.Point(6, 40)
         Me.txtHost.Name = "txtHost"
         Me.txtHost.Size = New System.Drawing.Size(177, 20)
-        Me.txtHost.TabIndex = 0
+        Me.txtHost.TabIndex = 1
         Me.txtHost.Text = "localhost"
         '
         'lblE2
@@ -160,7 +160,7 @@ Partial Class Logon
         Me.ComboBox1.Location = New System.Drawing.Point(142, 246)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(102, 21)
-        Me.ComboBox1.TabIndex = 5
+        Me.ComboBox1.TabIndex = 6
         Me.ComboBox1.Text = "Arcemu"
         '
         'Label2
@@ -224,8 +224,8 @@ Partial Class Logon
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(57, 305)
+        Me.Label1.ForeColor = System.Drawing.Color.Black
+        Me.Label1.Location = New System.Drawing.Point(57, 306)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(136, 13)
         Me.Label1.TabIndex = 39
@@ -243,7 +243,7 @@ Partial Class Logon
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Logon"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Item Adder 3.3.2.1f"
+        Me.Text = "Item Adder 3.3.2.1h"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

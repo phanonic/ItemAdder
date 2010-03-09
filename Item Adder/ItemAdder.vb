@@ -499,24 +499,6 @@ Public Class ItemAdder
         End If
     End Sub
 
-    Private Sub btnItemPage_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnItemPage.Click
-        Dim PageChooser As frmPageChooser
-
-        Me.Enabled = False
-        PageChooser = New frmPageChooser
-        PageChooser.Field = mtbItemPage
-        PageChooser.Show(Me)
-    End Sub
-
-    Private Sub btnItemChooseQuest_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnItemChooseQuest.Click
-        Dim QuestChooser As frmQuestChooser
-
-        Me.Enabled = False
-        QuestChooser = New frmQuestChooser
-        QuestChooser.Field = mtbItemQuest
-        QuestChooser.Show(Me)
-    End Sub
-
     Private Sub cmbItemClass_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbItemClass.SelectedIndexChanged
         FillSubclasses(cmbItemClass.SelectedIndex)
 

@@ -4,6 +4,7 @@ Imports System.IO
 Imports MySql.Data.MySqlClient
 
 Public Class Logon
+    Public version As String = "3.3.2.2b"
     Public Host As String
     Public Username As String
     Public Password As String
@@ -46,7 +47,7 @@ Public Class Logon
                 My.Settings.mode = True
                 ItemAdder.Show()
                 Me.Hide()
-                ItemAdder.Text = "Item Adder (3.3.2.2b) - Database " & My.Settings.db & " on " & My.Settings.host & " "
+                ItemAdder.Text = "Item Adder " & version & " - Database " & My.Settings.db & " on " & My.Settings.host & " "
             Else
                 MsgBox("Error while connecting. Two possible problems:" & vbCrLf & "1. The input is wrong. Database connection details are supposed to be the same as those inside the Server config file (and programs like HeidiSQL)." & vbCrLf & "2. Check if your server is running (Mysql).", MsgBoxStyle.Critical, "Error")
                 Me.Enabled = True
@@ -55,6 +56,7 @@ Public Class Logon
     End Sub
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.Text = "Item Adder " & version & " Logon"
         If My.Settings.type <> "" Then
             ComboBox1.Text = My.Settings.type
         End If
@@ -89,13 +91,13 @@ Public Class Logon
         ItemAdder.Button2.Enabled = False
         My.Settings.mode = False
         Me.Hide()
-        ItemAdder.Text = "Item Adder (3.3.2.2b) - No Database Connection"
+        ItemAdder.Text = "Item Adder " & version & " - No Database Connection"
     End Sub
 
     Private Sub BackgroundWorker1_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
         Try
-            If GetContents("http://itemadder.googlecode.com/svn/trunk/Item%20Adder/itemadder.ver") = "3.3.2.2b" Then
+            If GetContents("http://itemadder.googlecode.com/svn/trunk/Item%20Adder/itemadder.ver") = version Then
                 SetText(Label1, "No new version available.")
             Else
                 SetVisible(Label1, False)

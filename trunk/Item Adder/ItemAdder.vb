@@ -819,6 +819,9 @@ Public Class ItemAdder
                 Execute = New MySqlCommand(thequery, Connection)
                 Reader2 = Execute.ExecuteReader
                 Reader2.Close()
+                If CheckBox2.Checked = True Then
+                    ViewSQL.rtxtViewSQL.Text = ViewSQL.rtxtViewSQL.Text & thequery & Environment.NewLine
+                End If
                 ListBox2.Items.Add(itemid)
                 ListBox1.Items.RemoveAt(y)
             Catch ex As Exception
@@ -829,6 +832,21 @@ Public Class ItemAdder
             x = ListBox1.Items.Count
             ProgressBar1.Value = ProgressBar1.Value + 1
         Loop
+
+        If CheckBox2.Checked = True Then
+            SaveFileDialog1.Filter = "Sql files (*.sql)|"
+            SaveFileDialog1.AddExtension = True
+            SaveFileDialog1.ShowDialog()
+            SaveFileDialog1.RestoreDirectory = True
+            Dim path = SaveFileDialog1.FileName & ".sql"
+            Dim fs As New FileStream(path, FileMode.Create, FileAccess.Write)
+            Dim s As New StreamWriter(fs)
+            s.Write(ViewSQL.rtxtViewSQL.Text)
+            s.Close()
+            path = ""
+            SaveFileDialog1.FileName = ""
+        End If
+
         Label11.Text = ListBox2.Items.Count & " new item(s) added."
     End Sub
 
@@ -970,6 +988,9 @@ Public Class ItemAdder
                                     Execute = New MySqlCommand(thequery, Connection)
                                     Reader2 = Execute.ExecuteReader
                                     Reader2.Close()
+                                    If CheckBox2.Checked = True Then
+                                        ViewSQL.rtxtViewSQL.Text = ViewSQL.rtxtViewSQL.Text & thequery & Environment.NewLine
+                                    End If
                                     ListBox2.Items.Add(itemid)
                                     ListBox1.Items.RemoveAt(y)
                                 Catch ex As Exception
@@ -996,6 +1017,20 @@ Public Class ItemAdder
         If ListBox1.Items.Count > 0 Then
             CheckBox1.Checked = False
             CheckBox1.Enabled = False
+        End If
+
+        If CheckBox2.Checked = True Then
+            SaveFileDialog1.Filter = "Sql files (*.sql)|"
+            SaveFileDialog1.AddExtension = True
+            SaveFileDialog1.ShowDialog()
+            SaveFileDialog1.RestoreDirectory = True
+            Dim path = SaveFileDialog1.FileName & ".sql"
+            Dim fs As New FileStream(path, FileMode.Create, FileAccess.Write)
+            Dim s As New StreamWriter(fs)
+            s.Write(ViewSQL.rtxtViewSQL.Text)
+            s.Close()
+            path = ""
+            SaveFileDialog1.FileName = ""
         End If
 
     End Sub
@@ -1370,7 +1405,7 @@ Public Class ItemAdder
         checktext()
         writesql()
         ViewSQL.Show()
-        ViewSQL.rtxtViewSQL.Text = thequery
+        ViewSQL.rtxtViewSQL.Text = thequery + Environment.NewLine + Environment.NewLine
     End Sub
 
     Private Sub btnItemEditReload_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnIEReload.Click

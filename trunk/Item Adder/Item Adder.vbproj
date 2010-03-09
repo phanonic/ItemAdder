@@ -196,6 +196,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="itemadder.ver" />
     <None Include="Resources\icon.ico" />
   </ItemGroup>
   <ItemGroup>

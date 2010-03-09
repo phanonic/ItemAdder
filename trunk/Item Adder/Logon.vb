@@ -95,16 +95,7 @@ Public Class Logon
     Private Sub BackgroundWorker1_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
         Try
-            Dim url As String = ("http://www.phanonic.smfnew.com/index.php?action=dlattach;topic=2.0;attach=16")
-            Dim webResponse3 As HttpWebResponse = Nothing
-            Dim webRequest3 As HttpWebRequest = HttpWebRequest.Create(url)
-            Dim srResp As StreamReader
-            Dim strIn As String
-            webResponse3 = DirectCast(webRequest3.GetResponse(), System.Net.HttpWebResponse)
-            srResp = New StreamReader(webResponse3.GetResponseStream())
-            strIn = srResp.ReadToEnd
-
-            If strIn.Length < 120000 Then
+            If GetContents("http://itemadder.googlecode.com/svn/trunk/Item%20Adder/itemadder.ver") = "3.3.2.2b" Then
                 SetText(Label1, "No new version available.")
             Else
                 SetVisible(Label1, False)
@@ -127,6 +118,30 @@ Public Class Logon
             If My.Computer.FileSystem.FileExists("temp") Then My.Computer.FileSystem.DeleteFile("temp")
         End Try
     End Sub
+
+    Public Function GetContents(ByVal URL As String) As String
+        Dim FinalString As String = ""
+
+        Dim myWebRequest As WebRequest = WebRequest.Create(URL)
+        Dim myWebResponse As WebResponse = myWebRequest.GetResponse()
+        Dim ReceiveStream As IO.Stream = myWebResponse.GetResponseStream()
+        Dim encode As System.Text.Encoding = System.Text.Encoding.GetEncoding("utf-8")
+        Dim readStream As New IO.StreamReader(ReceiveStream, encode)
+        Dim Buffer(256) As [Char]
+        Dim Count As Integer = readStream.Read(Buffer, 0, 256)
+
+        While Count > 0
+            Dim TempString As New [String](Buffer, 0, Count)
+            FinalString &= TempString
+            Count = readStream.Read(Buffer, 0, 256)
+            Application.DoEvents()
+        End While
+
+        readStream.Close()
+        myWebResponse.Close()
+
+        Return FinalString
+    End Function
 
     Private Delegate Sub SetTextDel(ByVal Label As Label, ByVal Text As String)
 

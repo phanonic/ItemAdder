@@ -365,9 +365,9 @@ Partial Class ItemAdder
         Me.Lİstbox3ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.RemoveAllToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem
         Me.RemoveAllToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem
-        Me.bwJunk = New System.ComponentModel.BackgroundWorker
         Me.bwEditorDBCheck = New System.ComponentModel.BackgroundWorker
         Me.ttSI = New System.Windows.Forms.ToolTip(Me.components)
+        Me.webForum = New System.Windows.Forms.WebBrowser
         lblE57 = New System.Windows.Forms.Label
         Label14 = New System.Windows.Forms.Label
         Label23 = New System.Windows.Forms.Label
@@ -517,7 +517,7 @@ Partial Class ItemAdder
         'lblE29
         '
         lblE29.AutoSize = True
-        lblE29.Location = New System.Drawing.Point(3, 25)
+        lblE29.Location = New System.Drawing.Point(21, 16)
         lblE29.Name = "lblE29"
         lblE29.Size = New System.Drawing.Size(48, 13)
         lblE29.TabIndex = 130
@@ -525,8 +525,9 @@ Partial Class ItemAdder
         '
         'Button3
         '
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button3.Enabled = False
-        Me.Button3.Location = New System.Drawing.Point(116, 44)
+        Me.Button3.Location = New System.Drawing.Point(315, 102)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(70, 23)
         Me.Button3.TabIndex = 5
@@ -535,8 +536,9 @@ Partial Class ItemAdder
         '
         'Button2
         '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button2.Enabled = False
-        Me.Button2.Location = New System.Drawing.Point(268, 44)
+        Me.Button2.Location = New System.Drawing.Point(315, 44)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(70, 23)
         Me.Button2.TabIndex = 3
@@ -545,7 +547,8 @@ Partial Class ItemAdder
         '
         'btnSIFind
         '
-        Me.btnSIFind.Location = New System.Drawing.Point(268, 15)
+        Me.btnSIFind.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSIFind.Location = New System.Drawing.Point(315, 15)
         Me.btnSIFind.Name = "btnSIFind"
         Me.btnSIFind.Size = New System.Drawing.Size(70, 23)
         Me.btnSIFind.TabIndex = 2
@@ -557,7 +560,7 @@ Partial Class ItemAdder
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(128, 18)
+        Me.Label1.Location = New System.Drawing.Point(175, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(49, 15)
         Me.Label1.TabIndex = 9
@@ -571,7 +574,7 @@ Partial Class ItemAdder
         Me.WebBrowser1.Location = New System.Drawing.Point(6, 19)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(332, 362)
+        Me.WebBrowser1.Size = New System.Drawing.Size(379, 382)
         Me.WebBrowser1.TabIndex = 7
         Me.WebBrowser1.Url = New System.Uri("", System.UriKind.Relative)
         '
@@ -588,7 +591,7 @@ Partial Class ItemAdder
         Me.tcItemAdder.MinimumSize = New System.Drawing.Size(360, 400)
         Me.tcItemAdder.Name = "tcItemAdder"
         Me.tcItemAdder.SelectedIndex = 0
-        Me.tcItemAdder.Size = New System.Drawing.Size(805, 573)
+        Me.tcItemAdder.Size = New System.Drawing.Size(867, 588)
         Me.tcItemAdder.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.tcItemAdder.TabIndex = 0
         '
@@ -602,7 +605,7 @@ Partial Class ItemAdder
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(797, 547)
+        Me.TabPage1.Size = New System.Drawing.Size(859, 562)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Single Item"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -649,16 +652,17 @@ Partial Class ItemAdder
         Me.GroupBox9.Controls.Add(Me.mtbItemEntry)
         Me.GroupBox9.Controls.Add(lblE29)
         Me.GroupBox9.Controls.Add(Me.tcItemEditor)
-        Me.GroupBox9.Location = New System.Drawing.Point(371, 6)
+        Me.GroupBox9.Location = New System.Drawing.Point(403, 6)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(418, 535)
+        Me.GroupBox9.Size = New System.Drawing.Size(450, 546)
         Me.GroupBox9.TabIndex = 13
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Item Editor"
         '
         'btnIEUpdate
         '
-        Me.btnIEUpdate.Location = New System.Drawing.Point(282, 480)
+        Me.btnIEUpdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnIEUpdate.Location = New System.Drawing.Point(304, 482)
         Me.btnIEUpdate.Name = "btnIEUpdate"
         Me.btnIEUpdate.Size = New System.Drawing.Size(60, 23)
         Me.btnIEUpdate.TabIndex = 165
@@ -667,7 +671,8 @@ Partial Class ItemAdder
         '
         'btnIEAdd
         '
-        Me.btnIEAdd.Location = New System.Drawing.Point(348, 480)
+        Me.btnIEAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnIEAdd.Location = New System.Drawing.Point(370, 482)
         Me.btnIEAdd.Name = "btnIEAdd"
         Me.btnIEAdd.Size = New System.Drawing.Size(60, 23)
         Me.btnIEAdd.TabIndex = 164
@@ -678,7 +683,7 @@ Partial Class ItemAdder
         '
         Me.Label71.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label71.AutoSize = True
-        Me.Label71.Location = New System.Drawing.Point(80, 485)
+        Me.Label71.Location = New System.Drawing.Point(98, 487)
         Me.Label71.Name = "Label71"
         Me.Label71.Size = New System.Drawing.Size(61, 13)
         Me.Label71.TabIndex = 163
@@ -688,7 +693,7 @@ Partial Class ItemAdder
         '
         Me.btnIEReload.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnIEReload.Enabled = False
-        Me.btnIEReload.Location = New System.Drawing.Point(6, 480)
+        Me.btnIEReload.Location = New System.Drawing.Point(24, 482)
         Me.btnIEReload.Name = "btnIEReload"
         Me.btnIEReload.Size = New System.Drawing.Size(68, 23)
         Me.btnIEReload.TabIndex = 162
@@ -699,7 +704,7 @@ Partial Class ItemAdder
         '
         Me.txtItemEditStatus.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtItemEditStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtItemEditStatus.Location = New System.Drawing.Point(6, 508)
+        Me.txtItemEditStatus.Location = New System.Drawing.Point(24, 512)
         Me.txtItemEditStatus.Name = "txtItemEditStatus"
         Me.txtItemEditStatus.Size = New System.Drawing.Size(406, 23)
         Me.txtItemEditStatus.TabIndex = 161
@@ -708,15 +713,15 @@ Partial Class ItemAdder
         '
         'nudItemMaxCount
         '
-        Me.nudItemMaxCount.Location = New System.Drawing.Point(331, 161)
+        Me.nudItemMaxCount.Location = New System.Drawing.Point(360, 152)
         Me.nudItemMaxCount.Name = "nudItemMaxCount"
-        Me.nudItemMaxCount.Size = New System.Drawing.Size(81, 20)
+        Me.nudItemMaxCount.Size = New System.Drawing.Size(70, 20)
         Me.nudItemMaxCount.TabIndex = 160
         '
         'Label68
         '
         Me.Label68.AutoSize = True
-        Me.Label68.Location = New System.Drawing.Point(328, 145)
+        Me.Label68.Location = New System.Drawing.Point(357, 136)
         Me.Label68.Name = "Label68"
         Me.Label68.Size = New System.Drawing.Size(61, 13)
         Me.Label68.TabIndex = 159
@@ -725,7 +730,7 @@ Partial Class ItemAdder
         'lblE65
         '
         Me.lblE65.AutoSize = True
-        Me.lblE65.Location = New System.Drawing.Point(159, 145)
+        Me.lblE65.Location = New System.Drawing.Point(189, 136)
         Me.lblE65.Name = "lblE65"
         Me.lblE65.Size = New System.Drawing.Size(62, 13)
         Me.lblE65.TabIndex = 149
@@ -734,7 +739,7 @@ Partial Class ItemAdder
         'btnIEViewSQL
         '
         Me.btnIEViewSQL.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnIEViewSQL.Location = New System.Drawing.Point(206, 480)
+        Me.btnIEViewSQL.Location = New System.Drawing.Point(228, 482)
         Me.btnIEViewSQL.Name = "btnIEViewSQL"
         Me.btnIEViewSQL.Size = New System.Drawing.Size(70, 23)
         Me.btnIEViewSQL.TabIndex = 3
@@ -743,7 +748,7 @@ Partial Class ItemAdder
         '
         'nudItemReqLevel
         '
-        Me.nudItemReqLevel.Location = New System.Drawing.Point(162, 161)
+        Me.nudItemReqLevel.Location = New System.Drawing.Point(192, 152)
         Me.nudItemReqLevel.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
         Me.nudItemReqLevel.Name = "nudItemReqLevel"
         Me.nudItemReqLevel.Size = New System.Drawing.Size(69, 20)
@@ -751,7 +756,7 @@ Partial Class ItemAdder
         '
         'btnItemDisplay
         '
-        Me.btnItemDisplay.Location = New System.Drawing.Point(126, 159)
+        Me.btnItemDisplay.Location = New System.Drawing.Point(144, 150)
         Me.btnItemDisplay.Name = "btnItemDisplay"
         Me.btnItemDisplay.Size = New System.Drawing.Size(30, 23)
         Me.btnItemDisplay.TabIndex = 156
@@ -763,7 +768,7 @@ Partial Class ItemAdder
         '
         Me.cmbItemSubclass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemSubclass.FormattingEnabled = True
-        Me.cmbItemSubclass.Location = New System.Drawing.Point(162, 81)
+        Me.cmbItemSubclass.Location = New System.Drawing.Point(192, 72)
         Me.cmbItemSubclass.Name = "cmbItemSubclass"
         Me.cmbItemSubclass.Size = New System.Drawing.Size(162, 21)
         Me.cmbItemSubclass.TabIndex = 135
@@ -773,7 +778,7 @@ Partial Class ItemAdder
         Me.cmbItemSheath.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemSheath.FormattingEnabled = True
         Me.cmbItemSheath.Items.AddRange(New Object() {"Not Defined", "Two Handed Sword (on the back; tip down)", "Staff (on the back; tip up)", "One Handed Sword (on the side)", "Shield (on the back)", "Enchanter's Rod", "Unknown", "Off Hand"})
-        Me.cmbItemSheath.Location = New System.Drawing.Point(214, 201)
+        Me.cmbItemSheath.Location = New System.Drawing.Point(232, 192)
         Me.cmbItemSheath.Name = "cmbItemSheath"
         Me.cmbItemSheath.Size = New System.Drawing.Size(198, 21)
         Me.cmbItemSheath.TabIndex = 158
@@ -781,7 +786,7 @@ Partial Class ItemAdder
         'lblE172
         '
         Me.lblE172.AutoSize = True
-        Me.lblE172.Location = New System.Drawing.Point(211, 185)
+        Me.lblE172.Location = New System.Drawing.Point(229, 176)
         Me.lblE172.Name = "lblE172"
         Me.lblE172.Size = New System.Drawing.Size(107, 13)
         Me.lblE172.TabIndex = 157
@@ -792,15 +797,15 @@ Partial Class ItemAdder
         Me.cmbItemBonding.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemBonding.FormattingEnabled = True
         Me.cmbItemBonding.Items.AddRange(New Object() {"None", "Binds on Pickup", "Binds on Equip", "Binds on Use", "Quest Item", "Quest Item (?)"})
-        Me.cmbItemBonding.Location = New System.Drawing.Point(6, 121)
+        Me.cmbItemBonding.Location = New System.Drawing.Point(24, 112)
         Me.cmbItemBonding.Name = "cmbItemBonding"
-        Me.cmbItemBonding.Size = New System.Drawing.Size(147, 21)
+        Me.cmbItemBonding.Size = New System.Drawing.Size(162, 21)
         Me.cmbItemBonding.TabIndex = 155
         '
         'lblE41
         '
         Me.lblE41.AutoSize = True
-        Me.lblE41.Location = New System.Drawing.Point(3, 105)
+        Me.lblE41.Location = New System.Drawing.Point(21, 96)
         Me.lblE41.Name = "lblE41"
         Me.lblE41.Size = New System.Drawing.Size(49, 13)
         Me.lblE41.TabIndex = 154
@@ -809,15 +814,15 @@ Partial Class ItemAdder
         'nudItemSlots
         '
         Me.nudItemSlots.Enabled = False
-        Me.nudItemSlots.Location = New System.Drawing.Point(331, 41)
+        Me.nudItemSlots.Location = New System.Drawing.Point(360, 32)
         Me.nudItemSlots.Name = "nudItemSlots"
-        Me.nudItemSlots.Size = New System.Drawing.Size(81, 20)
+        Me.nudItemSlots.Size = New System.Drawing.Size(70, 20)
         Me.nudItemSlots.TabIndex = 153
         '
         'lblE40
         '
         Me.lblE40.AutoSize = True
-        Me.lblE40.Location = New System.Drawing.Point(328, 25)
+        Me.lblE40.Location = New System.Drawing.Point(357, 16)
         Me.lblE40.Name = "lblE40"
         Me.lblE40.Size = New System.Drawing.Size(81, 13)
         Me.lblE40.TabIndex = 152
@@ -825,7 +830,7 @@ Partial Class ItemAdder
         '
         'nudItemLevel
         '
-        Me.nudItemLevel.Location = New System.Drawing.Point(256, 161)
+        Me.nudItemLevel.Location = New System.Drawing.Point(286, 152)
         Me.nudItemLevel.Maximum = New Decimal(New Integer() {999, 0, 0, 0})
         Me.nudItemLevel.Name = "nudItemLevel"
         Me.nudItemLevel.Size = New System.Drawing.Size(68, 20)
@@ -834,7 +839,7 @@ Partial Class ItemAdder
         'lblE39
         '
         Me.lblE39.AutoSize = True
-        Me.lblE39.Location = New System.Drawing.Point(253, 145)
+        Me.lblE39.Location = New System.Drawing.Point(283, 136)
         Me.lblE39.Name = "lblE39"
         Me.lblE39.Size = New System.Drawing.Size(59, 13)
         Me.lblE39.TabIndex = 150
@@ -843,7 +848,7 @@ Partial Class ItemAdder
         'lblE56
         '
         Me.lblE56.AutoSize = True
-        Me.lblE56.Location = New System.Drawing.Point(328, 105)
+        Me.lblE56.Location = New System.Drawing.Point(357, 96)
         Me.lblE56.Name = "lblE56"
         Me.lblE56.Size = New System.Drawing.Size(37, 13)
         Me.lblE56.TabIndex = 147
@@ -854,7 +859,7 @@ Partial Class ItemAdder
         Me.cmbItemInventory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemInventory.FormattingEnabled = True
         Me.cmbItemInventory.Items.AddRange(New Object() {"Non-Equip", "Head", "Neck", "Shoulders", "Body", "Chest", "Waist", "Legs", "Feet", "Wrists", "Hands", "Finger", "Trinket", "Weapon", "Shield", "Ranged", "Cloak", "Two-Hand Weapon", "Bag", "Tabard", "Robe", "Weapon Main-Hand", "Weapon Off-Hand", "Holdable", "Ammo", "Thrown", "Ranged (Right)", "Quiver", "Relic"})
-        Me.cmbItemInventory.Location = New System.Drawing.Point(6, 201)
+        Me.cmbItemInventory.Location = New System.Drawing.Point(24, 192)
         Me.cmbItemInventory.Name = "cmbItemInventory"
         Me.cmbItemInventory.Size = New System.Drawing.Size(198, 21)
         Me.cmbItemInventory.TabIndex = 138
@@ -862,7 +867,7 @@ Partial Class ItemAdder
         'lblE71
         '
         Me.lblE71.AutoSize = True
-        Me.lblE71.Location = New System.Drawing.Point(6, 185)
+        Me.lblE71.Location = New System.Drawing.Point(24, 176)
         Me.lblE71.Name = "lblE71"
         Me.lblE71.Size = New System.Drawing.Size(81, 13)
         Me.lblE71.TabIndex = 136
@@ -871,10 +876,10 @@ Partial Class ItemAdder
         'mtbItemBlock
         '
         Me.mtbItemBlock.HidePromptOnLeave = True
-        Me.mtbItemBlock.Location = New System.Drawing.Point(331, 121)
+        Me.mtbItemBlock.Location = New System.Drawing.Point(360, 112)
         Me.mtbItemBlock.Mask = "0000000"
         Me.mtbItemBlock.Name = "mtbItemBlock"
-        Me.mtbItemBlock.Size = New System.Drawing.Size(81, 20)
+        Me.mtbItemBlock.Size = New System.Drawing.Size(70, 20)
         Me.mtbItemBlock.TabIndex = 144
         Me.mtbItemBlock.Text = "0"
         '
@@ -883,7 +888,7 @@ Partial Class ItemAdder
         Me.cmbItemQuality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemQuality.FormattingEnabled = True
         Me.cmbItemQuality.Items.AddRange(New Object() {"Poor (Grey)", "Normal (White)", "Uncommon (Green)", "Rare (Blue)", "Epic (Purple)", "Legendary (Orange)", "Artifact (Light Yellow)", "Bind to Account (Gold)"})
-        Me.cmbItemQuality.Location = New System.Drawing.Point(162, 121)
+        Me.cmbItemQuality.Location = New System.Drawing.Point(192, 112)
         Me.cmbItemQuality.Name = "cmbItemQuality"
         Me.cmbItemQuality.Size = New System.Drawing.Size(162, 21)
         Me.cmbItemQuality.TabIndex = 146
@@ -891,7 +896,7 @@ Partial Class ItemAdder
         'lblE55
         '
         Me.lblE55.AutoSize = True
-        Me.lblE55.Location = New System.Drawing.Point(328, 65)
+        Me.lblE55.Location = New System.Drawing.Point(357, 56)
         Me.lblE55.Name = "lblE55"
         Me.lblE55.Size = New System.Drawing.Size(37, 13)
         Me.lblE55.TabIndex = 143
@@ -900,17 +905,17 @@ Partial Class ItemAdder
         'mtbItemArmor
         '
         Me.mtbItemArmor.HidePromptOnLeave = True
-        Me.mtbItemArmor.Location = New System.Drawing.Point(331, 81)
+        Me.mtbItemArmor.Location = New System.Drawing.Point(360, 72)
         Me.mtbItemArmor.Mask = "0000000"
         Me.mtbItemArmor.Name = "mtbItemArmor"
-        Me.mtbItemArmor.Size = New System.Drawing.Size(81, 20)
+        Me.mtbItemArmor.Size = New System.Drawing.Size(70, 20)
         Me.mtbItemArmor.TabIndex = 141
         Me.mtbItemArmor.Text = "0"
         '
         'lblE35
         '
         Me.lblE35.AutoSize = True
-        Me.lblE35.Location = New System.Drawing.Point(159, 105)
+        Me.lblE35.Location = New System.Drawing.Point(189, 96)
         Me.lblE35.Name = "lblE35"
         Me.lblE35.Size = New System.Drawing.Size(42, 13)
         Me.lblE35.TabIndex = 145
@@ -919,7 +924,7 @@ Partial Class ItemAdder
         'mtbItemDisplay
         '
         Me.mtbItemDisplay.HidePromptOnLeave = True
-        Me.mtbItemDisplay.Location = New System.Drawing.Point(6, 161)
+        Me.mtbItemDisplay.Location = New System.Drawing.Point(24, 152)
         Me.mtbItemDisplay.Mask = "0000000"
         Me.mtbItemDisplay.Name = "mtbItemDisplay"
         Me.mtbItemDisplay.Size = New System.Drawing.Size(86, 20)
@@ -929,7 +934,7 @@ Partial Class ItemAdder
         'lblE34
         '
         Me.lblE34.AutoSize = True
-        Me.lblE34.Location = New System.Drawing.Point(3, 145)
+        Me.lblE34.Location = New System.Drawing.Point(21, 136)
         Me.lblE34.Name = "lblE34"
         Me.lblE34.Size = New System.Drawing.Size(58, 13)
         Me.lblE34.TabIndex = 140
@@ -937,15 +942,15 @@ Partial Class ItemAdder
         '
         'txtItemName
         '
-        Me.txtItemName.Location = New System.Drawing.Point(6, 81)
+        Me.txtItemName.Location = New System.Drawing.Point(24, 72)
         Me.txtItemName.Name = "txtItemName"
-        Me.txtItemName.Size = New System.Drawing.Size(147, 20)
+        Me.txtItemName.Size = New System.Drawing.Size(162, 20)
         Me.txtItemName.TabIndex = 139
         '
         'lblE33
         '
         Me.lblE33.AutoSize = True
-        Me.lblE33.Location = New System.Drawing.Point(16, 65)
+        Me.lblE33.Location = New System.Drawing.Point(34, 56)
         Me.lblE33.Name = "lblE33"
         Me.lblE33.Size = New System.Drawing.Size(38, 13)
         Me.lblE33.TabIndex = 137
@@ -954,7 +959,7 @@ Partial Class ItemAdder
         'lblE31
         '
         Me.lblE31.AutoSize = True
-        Me.lblE31.Location = New System.Drawing.Point(159, 65)
+        Me.lblE31.Location = New System.Drawing.Point(189, 56)
         Me.lblE31.Name = "lblE31"
         Me.lblE31.Size = New System.Drawing.Size(57, 13)
         Me.lblE31.TabIndex = 134
@@ -965,7 +970,7 @@ Partial Class ItemAdder
         Me.cmbItemClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemClass.FormattingEnabled = True
         Me.cmbItemClass.Items.AddRange(New Object() {"Consumable", "Container", "Weapon", "Gem", "Armor", "Reagent", "Projectile", "Trade Goods", "Generic", "Recipe", "Money", "Quiver", "Quest", "Key", "Permanent", "Miscellaneous", "Glyph"})
-        Me.cmbItemClass.Location = New System.Drawing.Point(162, 41)
+        Me.cmbItemClass.Location = New System.Drawing.Point(192, 32)
         Me.cmbItemClass.Name = "cmbItemClass"
         Me.cmbItemClass.Size = New System.Drawing.Size(162, 21)
         Me.cmbItemClass.TabIndex = 133
@@ -973,7 +978,7 @@ Partial Class ItemAdder
         'lblE30
         '
         Me.lblE30.AutoSize = True
-        Me.lblE30.Location = New System.Drawing.Point(159, 25)
+        Me.lblE30.Location = New System.Drawing.Point(189, 16)
         Me.lblE30.Name = "lblE30"
         Me.lblE30.Size = New System.Drawing.Size(35, 13)
         Me.lblE30.TabIndex = 132
@@ -982,10 +987,10 @@ Partial Class ItemAdder
         'mtbItemEntry
         '
         Me.mtbItemEntry.HidePromptOnLeave = True
-        Me.mtbItemEntry.Location = New System.Drawing.Point(6, 41)
+        Me.mtbItemEntry.Location = New System.Drawing.Point(24, 32)
         Me.mtbItemEntry.Mask = "0000000"
         Me.mtbItemEntry.Name = "mtbItemEntry"
-        Me.mtbItemEntry.Size = New System.Drawing.Size(86, 20)
+        Me.mtbItemEntry.Size = New System.Drawing.Size(70, 20)
         Me.mtbItemEntry.TabIndex = 131
         '
         'tcItemEditor
@@ -998,7 +1003,7 @@ Partial Class ItemAdder
         Me.tcItemEditor.Controls.Add(Me.tabItemSpells)
         Me.tcItemEditor.Controls.Add(Me.tabItemReq)
         Me.tcItemEditor.Controls.Add(Me.tabItemSockets)
-        Me.tcItemEditor.Location = New System.Drawing.Point(6, 232)
+        Me.tcItemEditor.Location = New System.Drawing.Point(24, 234)
         Me.tcItemEditor.Multiline = True
         Me.tcItemEditor.Name = "tcItemEditor"
         Me.tcItemEditor.SelectedIndex = 0
@@ -1245,9 +1250,9 @@ Partial Class ItemAdder
         '
         Me.cmbItemSet.FormattingEnabled = True
         Me.cmbItemSet.Items.AddRange(New Object() {"No Set [0]", "The Gladiator [1]", "Dal'Rend's Arms [41]", "Spider's Kiss [65]", "The Postmaster [81]", "Cadaverous Garb [121]", "Necropile Raiment [122]", "Bloodmail Regalia [123]", "Deathbone Guardian [124]", "Volcanic Armor [141]", "Stormshroud Armor [142]", "Devilsaur Armor [143]", "Ironfeather Armor [144]", "Defias Leather [161]", "Embrace of the Viper [162]", "Chain of the Scarlet Crusade [163]", "Magister's Regalia [181]", "Vestments of the Devout [182]", "Dreadmist Raiment [183]", "Shadowcraft Armor [184]", "Wildheart Raiment [185]", "Beaststalker Armor [186]", "The Elements [187]", "Lightforge Armor [188]", "Battlegear of Valor [189]", "Arcanist Regalia [201]", "Vestments of Prophecy [202]", "Felheart Raiment [203]", "Nightslayer Armor [204]", "Cenarion Raiment [205]", "Giantstalker Armor [206]", "The Earthfury [207]", "Lawbringer Armor [208]", "Battlegear of Might [209]", "Netherwind Regalia [210]", "Vestments of Transcendence [211]", "Nemesis Raiment [212]", "Bloodfang Armor [213]", "Stormrage Raiment [214]", "Dragonstalker Armor [215]", "The Ten Storms [216]", "Judgement Armor [217]", "Battlegear of Wrath [218]", "Garb of Thero-shan [221]", "Shard of the Gods [241]", "Spirit of Eskhandar [261]", "Champion's Battlegear [281]", "Lieutenant Commander's Battlegear [282]", "Champion's Earthshaker [301]", "Imperial Plate [321]", "Champion's Regalia [341]", "Champion's Raiment [342]", "Lieutenant Commander's Regalia [343]", "Lieutenant Commander's Raiment [344]", "Champion's Threads [345]", "Lieutenant Commander's Threads [346]", "Champion's Vestments [347]", "Lieutenant Commander's Vestments [348]", "Champion's Pursuit [361]", "Lieutenant Commander's Pursuit [362]", "Lieutenant Commander's Sanctuary [381]", "Champion's Sanctuary [382]", "Warlord's Battlegear [383]", "Field Marshal's Battlegear [384]", "Warlord's Earthshaker [386]", "Warlord's Regalia [387]", "Field Marshal's Regalia [388]", "Field Marshal's Raiment [389]", "Warlord's Raiment [390]", "Warlord's Threads [391]", "Field Marshal's Threads [392]", "Warlord's Vestments [393]", "Field Marshal's Vestments [394]", "Field Marshal's Pursuit [395]", "Warlord's Pursuit [396]", "Field Marshal's Sanctuary [397]", "Warlord's Sanctuary [398]", "Lieutenant Commander's Aegis [401]", "Field Marshal's Aegis [402]", "Bloodvine Garb [421]", "Primal Batskin [441]", "Blood Tiger Harness [442]", "Bloodsoul Embrace [443]", "The Darksoul [444]", "The Twin Blades of Hakkari [461]", "Zanzil's Concentration [462]", "Primal Blessing [463]", "Overlord's Resolution [464]", "Prayer of the Primal [465]", "Major Mojo Infusion [466]", "The Highlander's Resolution [467]", "The Highlander's Resolve [468]", "The Highlander's Determination [469]", "The Highlander's Fortitude [470]", "The Highlander's Purpose [471]", "The Highlander's Will [472]", "The Highlander's Intent [473]", "Vindicator's Battlegear [474]", "Freethinker's Armor [475]", "Augur's Regalia [476]", "Predator's Armor [477]", "Madcap's Outfit [478]", "Haruspex's Garb [479]", "Confessor's Raiment [480]", "Demoniac's Threads [481]", "Illusionist's Attire [482]", "The Defiler's Determination [483]", "The Defiler's Fortitude [484]", "The Defiler's Intent [485]", "The Defiler's Purpose [486]", "The Defiler's Resolution [487]", "The Defiler's Will [488]", "Black Dragon Mail [489]", "Green Dragon Mail [490]", "Blue Dragon Mail [491]", "Twilight Trappings [492]", "Genesis Raiment [493]", "Symbols of Unending Life [494]", "Battlegear of Unyielding Strength [495]", "Conqueror's Battlegear [496]", "Deathdealer's Embrace [497]", "Emblems of Veiled Shadows [498]", "Doomcaller's Attire [499]", "Implements of Unspoken Names [500]", "Stormcaller's Garb [501]", "Gift of the Gathering Storm [502]", "Enigma Vestments [503]", "Trappings of Vaulted Secrets [504]", "Avenger's Battlegear [505]", "Battlegear of Eternal Justice [506]", "Garments of the Oracle [507]", "Finery of Infinite Wisdom [508]", "Striker's Garb [509]", "Trappings of the Unseen Path [510]", "Battlegear of Heroism [511]", "Darkmantle Armor [512]", "Feralheart Raiment [513]", "Vestments of the Virtuous [514]", "Beastmaster Armor [515]", "Soulforge Armor [516]", "Sorcerer's Regalia [517]", "Deathmist Raiment [518]", "The Five Thunders [519]", "Ironweave Battlesuit [520]", "Dreamwalker Raiment [521]", "Champion's Guard [522]", "Dreadnaught's Battlegear [523]", "Bonescythe Armor [524]", "Vestments of Faith [525]", "Frostfire Regalia [526]", "The Earthshatterer [527]", "Redemption Armor [528]", "Plagueheart Raiment [529]", "Cryptstalker Armor [530]", "Battlegear of Undead Slaying [533]", "Undead Slayer's Armor [534]", "Garb of the Undead Slayer [535]", "Regalia of Undead Cleansing [536]", "Champion's Battlearmor [537]", "Champion's Stormcaller [538]", "Champion's Refuge [539]", "Champion's Investiture [540]", "Champion's Dreadgear [541]", "Champion's Arcanum [542]", "Champion's Pursuance [543]", "Lieutenant Commander's Redoubt [544]", "Lieutenant Commander's Battlearmor [545]", "Lieutenant Commander's Arcanum [546]", "Lieutenant Commander's Dreadgear [547]", "Lieutenant Commander's Guard [548]", "Lieutenant Commander's Investiture [549]", "Lieutenant Commander's Pursuance [550]", "Lieutenant Commander's Refuge [551]", "Wrath of Spellfire [552]", "Shadow's Embrace [553]", "Primal Mooncloth [554]", "Netherweave Vestments [555]", "Imbued Netherweave [556]", "Soulcloth Embrace [557]", "Arcanoweave Vestments [558]", "Spellstrike Infusion [559]", "Fel Iron Plate [560]", "Fel Iron Chain [561]", "Adamantite Battlegear [562]", "Enchanted Adamantite Armor [563]", "Flame Guard [564]", "Khorium Ward [565]", "Burning Rage [566]", "Gladiator's Battlegear [567]", "Gladiator's Dreadgear [568]", "Faith in Felsteel [569]", "The Unyielding [570]", "Whitemend Wisdom [571]", "Battlecast Garb [572]", "Fel Skin [573]", "Strength of the Clefthoof [574]", "Felstalker Armor [575]", "Fury of the Nether [576]", "Gladiator's Vestments [577]", "Gladiator's Earthshaker [578]", "Gladiator's Regalia [579]", "Gladiator's Thunderfist [580]", "Gladiator's Raiment [581]", "Gladiator's Aegis [582]", "Gladiator's Vindication [583]", "Gladiator's Sanctuary [584]", "Gladiator's Wildhide [585]", "Gladiator's Pursuit [586]", "High Warlord's Aegis [587]", "High Warlord's Battlegear [588]", "Grand Marshal's Aegis [589]", "Grand Marshal's Battlegear [590]", "Grand Marshal's Dreadgear [591]", "High Warlord's Dreadgear [592]", "Grand Marshal's Earthshaker [593]", "High Warlord's Earthshaker [594]", "Grand Marshal's Pursuit [595]", "High Warlord's Pursuit [596]", "Grand Marshal's Raiment [597]", "High Warlord's Raiment [598]", "Grand Marshal's Regalia [599]", "High Warlord's Regalia [600]", "Grand Marshal's Sanctuary [601]", "High Warlord's Sanctuary [602]", "Grand Marshal's Thunderfist [603]", "High Warlord's Thunderfist [604]", "Grand Marshal's Vestments [605]", "High Warlord's Vestments [606]", "Grand Marshal's Vindication [607]", "High Warlord's Vindication [608]", "Grand Marshal's Wildhide [609]", "High Warlord's Wildhide [610]", "Felscale Armor [611]", "Scaled Draenic Armor [612]", "Thick Draenic Armor [613]", "Wild Draenish Armor [614]", "Gladiator's Felshroud [615]", "Netherscale Armor [616]", "Netherstrike Armor [617]", "Windhawk Armor [618]", "Primal Intent [619]", "Assassination Armor [620]", "Netherblade [621]", "Deathmantle [622]", "Righteous Armor [623]", "Justicar Raiment [624]", "Justicar Armor [625]", "Justicar Battlegear [626]", "Crystalforge Raiment [627]", "Crystalforge Armor [628]", "Crystalforge Battlegear [629]", "Tidefury Raiment [630]", "Cyclone Raiment [631]", "Cyclone Regalia [632]", "Cyclone Harness [633]", "Cataclysm Raiment [634]", "Cataclysm Regalia [635]", "Cataclysm Harness [636]", "Moonglade Raiment [637]", "Malorne Raiment [638]", "Malorne Regalia [639]", "Malorne Harness [640]", "Nordrassil Harness [641]", "Nordrassil Raiment [642]", "Nordrassil Regalia [643]", "Oblivion Raiment [644]", "Voidheart Raiment [645]", "Corruptor Raiment [646]", "Incanter's Regalia [647]", "Aldor Regalia [648]", "Tirisfal Regalia [649]", "Beast Lord Armor [650]", "Demon Stalker Armor [651]", "Rift Stalker Armor [652]", "Bold Armor [653]", "Warbringer Armor [654]", "Warbringer Battlegear [655]", "Destroyer Armor [656]", "Destroyer Battlegear [657]", "Mana-Etched Regalia [658]", "Wastewalker Armor [659]", "Desolation Battlegear [660]", "Doomplate Battlegear [661]", "Hallowed Raiment [662]", "Incarnate Raiment [663]", "Incarnate Regalia [664]", "Avatar Raiment [665]", "Avatar Regalia [666]", "The Twin Stars [667]", "Slayer's Armor [668]", "Gronnstalker's Armor [669]", "Malefic Raiment [670]", "Tempest Regalia [671]", "Onslaught Battlegear [672]", "Onslaught Armor [673]", "Absolution Regalia [674]", "Vestments of Absolution [675]", "Thunderheart Harness [676]", "Thunderheart Regalia [677]", "Thunderheart Raiment [678]", "Lightbringer Armor [679]", "Lightbringer Battlegear [680]", "Lightbringer Raiment [681]", "Skyshatter Harness [682]", "Skyshatter Raiment [683]", "Skyshatter Regalia [684]", "Gladiator's Refuge [685]", "Gladiator's Wartide [686]", "Gladiator's Investiture [687]", "Grand Marshal's Refuge [688]", "High Warlord's Refuge [689]", "Gladiator's Redemption [690]", "Grand Marshal's Investiture [691]", "High Warlord's Investiture [692]", "Grand Marshal's Redemption [693]", "High Warlord's Redemption [694]", "Grand Marshal's Wartide [695]", "High Warlord's Wartide [696]", "Champion's Redoubt [697]", "Warlord's Aegis [698]", "The Twin Blades of Azzinoth [699]", "Merciless Gladiator's Aegis [700]", "Merciless Gladiator's Battlegear [701]", "Merciless Gladiator's Dreadgear [702]", "Merciless Gladiator's Earthshaker [703]", "Merciless Gladiator's Felshroud [704]", "Merciless Gladiator's Investiture [705]", "Merciless Gladiator's Pursuit [706]", "Merciless Gladiator's Raiment [707]", "Merciless Gladiator's Redemption [708]", "Merciless Gladiator's Refuge [709]", "Merciless Gladiator's Regalia [710]", "Merciless Gladiator's Sanctuary [711]", "Merciless Gladiator's Thunderfist [712]", "Merciless Gladiator's Vestments [713]", "Merciless Gladiator's Vindication [714]", "Merciless Gladiator's Wartide [715]", "Merciless Gladiator's Wildhide [716]", "Field Marshal's Earthshaker [717]", "Lieutenant Commander's Earthshaker [718]", "The Fists of Fury [719]", "Vengeful Gladiator's Refuge [720]", "Vengeful Gladiator's Sanctuary [721]", "Vengeful Gladiator's Wildhide [722]", "Vengeful Gladiator's Pursuit [723]", "Vengeful Gladiator's Regalia [724]", "Vengeful Gladiator's Redemption [725]", "Vengeful Gladiator's Vindication [726]", "Vengeful Gladiator's Aegis [727]", "Vengeful Gladiator's Investiture [728]", "Vengeful Gladiator's Raiment [729]", "Vengeful Gladiator's Vestments [730]", "Vengeful Gladiator's Wartide [731]", "Vengeful Gladiator's Earthshaker [732]", "Vengeful Gladiator's Thunderfist [733]", "Vengeful Gladiator's Dreadgear [734]", "Vengeful Gladiator's Felshroud [735]", "Vengeful Gladiator's Battlegear [736]", "Latro's Flurry [737]", "Dreadweave Battlegear [738]", "Mooncloth Battlegear [739]", "Satin Battlegear [740]", "Evoker's Silk Battlegear [741]", "Dragonhide Battlegear [742]", "Wyrmhide Battlegear" & Global.Microsoft.VisualBasic.ChrW(9) & " [743]", "Kodohide Battlegear [744]", "Opportunist's Battlegear [745]", "Seer's Mail Battlegear [746]", "Seer's Ringmail Battlegear [747]", "Seer's Linked Battlegear [748]", "Stalker's Chain Battlegear [749]", "Savage Plate Battlegear [750]", "Crusader's Ornamented Battlegear [751]", "Crusader's Scaled Battlegear [752]", "Borean Embrace [754]", "Nerubian Hive [755]", "Frostscale Binding [756]", "Iceborne Embrace [757]", "Raine's Revenge [759]", "Gladiator's Dreadplate [760]", "Winter Garb [761]", "Brewfest Garb [762]", "Frostwoven Power [763]", "Duskweaver [764]", "Gladiator's Battlegear [765]", "Gladiator's Vindication [766]", "Gladiator's Redemption [767]", "Gladiator's Desecration [768]", "Gladiator's Thunderfist [769]", "Gladiator's Earthshaker [770]", "Gladiator's Wartide [771]", "Gladiator's Pursuit [772]", "Gladiator's Refuge [773]", "Gladiator's Wildhide [774]", "Gladiator's Sanctuary [775]", "Gladiator's Vestments [776]", "Gladiator's Investiture [777]", "Gladiator's Raiment [778]", "Gladiator's Regalia [779]", "Gladiator's Felshroud [780]", "Blessed Regalia of Undead Cleansing [781]", "Undead Slayer's Blessed Armor [782]", "Blessed Garb of the Undead Slayer [783]", "Blessed Battlegear of Undead Slaying [784]", "Midsummer Reveler [785]", "Dreadnaught Plate [787]", "Dreadnaught Battlegear [788]", "Redemption Battlegear [789]", "Redemption Regalia [790]", "Redemption Plate [791]", "Scourgeborne Battlegear [792]", "Scourgeborne Plate [793]", "Cryptstalker Battlegear [794]", "Earthshatter Battlegear [795]", "Earthshatter Garb [796]", "Earthshatter Regalia [797]", "Dreamwalker Battlegear [798]", "Dreamwalker Regalia [799]", "Dreamwalker Garb [800]", "Bonescythe Battlegear [801]", "Plagueheart Garb [802]", "Frostfire Garb [803]", "Regalia of Faith [804]", "Garb of Faith [805]", "Spring Tuxedo [812]", "Eviscerator's Battlegear [813]", "Ornate Saronite Battlegear [814]", "Overcaster Battlegear [815]", "Savage Saronite Battlegear [816]", "Stormhide Battlegear [817]", "Swiftarrow Battlefear [818]", "Frostsavage Battlegear [819]", "Aegis Battlegear [820]", "Aegis Plate [821]", "Aegis Regalia [822]", "Worldbreaker Battlegear [823]", "Worldbreaker Garb [824]", "Worldbreaker Regalia [825]", "Terrorblade Battlegear [826]", "Nightsong Battlegear [827]", "Nightsong Garb [828]", "Nightsong Regalia [829]", "Siegebreaker Battlegear [830]", "Siegebreaker Plate [831]", "Sanctification Garb [832]", "Sanctification Regalia [833]", "Darkruned Battlegear [834]", "Darkruned Plate [835]", "Kirin Tor Garb [836]", "Deathbringer Garb [837]", "Scourgestalker Battlegear [838]", "Khadgar's Regalia [843]", "Sunstrider's Regalia [844]", "Gul'dan's Regalia [845]", "Kel'Thuzad's Regalia [846]", "Velen's Raiment [847]", "Zabra's Raiment [848]", "Velen's Regalia [849]", "Zabra's Regalia [850]", "Malfurion's Garb [851]", "Runetotem's Garb [852]", "Malfurion's Regalia [853]", "Runetotem's Regalia [854]", "Malfurion's Battlegear [855]", "Runetotem's Battlegear [856]", "VanCleef's Battlegear [857]", "Garona's Battlegear [858]", "Windrunner's Battlegear [859]", "Windrunner's Pursuit [860]", "Nobundo's Garb [861]", "Thrall's Garb [862]", "Thrall's Regalia [863]", "Nobundo's Regalia [864]", "Nobundo's Battlegear [865]", "Thrall's Battlegear [866]", "Wrynn's Battlegear [867]", "Hellscream's Battlegear [868]", "Wrynn's Plate [869]", "Hellscream's Plate [870]", "Thassarian's Battlegear [871]", "Koltira's Battlegear [872]", "Thassarian's Plate [873]", "Koltira's Plate [874]", "Turalyon's Garb [875]", "Liadrin's Garb [876]", "Turalyon's Battlegear [877]", "Liadrin's Battlegear [878]", "Turalyon's Plate [879]", "Liadrin's Plate [880]", "Purified Shard of the Gods [881]", "Shiny Shard of the Gods [882]", "Bloodmage's Regalia [883]", "Dark Coven's Regalia [884]", "Crimson Acolyte's Raiment [885]", "Crimson Acolyte's Regalia [886]", "Lasherweave Garb [887]", "Lasherweave Regalia [888]", "Lasherweave Battlegear [889]", "Shadowblade's Battlegear [890]", "Ahn'Kahar Blood Hunter's Battlegear [891]", "Frost Witch's Garb [892]", "Frost Witch's Regalia [893]", "Frost Witch's Battlegear [894]", "Ymirjar Lord's Plate [896]", "Scourgelord's Battlegear [897]", "Scourgelord's Plate [898]", "Lightsworn Garb [899]", "Lightsworn Battlegear [900]", "Lightsworn Plat [901]"})
-        Me.cmbItemSet.Location = New System.Drawing.Point(46, 23)
+        Me.cmbItemSet.Location = New System.Drawing.Point(47, 23)
         Me.cmbItemSet.Name = "cmbItemSet"
-        Me.cmbItemSet.Size = New System.Drawing.Size(307, 21)
+        Me.cmbItemSet.Size = New System.Drawing.Size(306, 21)
         Me.cmbItemSet.TabIndex = 140
         '
         'lblE167
@@ -1278,7 +1283,7 @@ Partial Class ItemAdder
         'lblE76
         '
         Me.lblE76.AutoSize = True
-        Me.lblE76.Location = New System.Drawing.Point(43, 47)
+        Me.lblE76.Location = New System.Drawing.Point(44, 47)
         Me.lblE76.Name = "lblE76"
         Me.lblE76.Size = New System.Drawing.Size(142, 13)
         Me.lblE76.TabIndex = 130
@@ -3351,7 +3356,6 @@ Partial Class ItemAdder
         'GroupBox6
         '
         Me.GroupBox6.Controls.Add(Me.chkEditor)
-        Me.GroupBox6.Controls.Add(Me.txtSIS)
         Me.GroupBox6.Controls.Add(Me.TextBox5)
         Me.GroupBox6.Controls.Add(Me.WebBrowser4)
         Me.GroupBox6.Controls.Add(Me.Button2)
@@ -3360,19 +3364,22 @@ Partial Class ItemAdder
         Me.GroupBox6.Controls.Add(Me.btnSIFind)
         Me.GroupBox6.Controls.Add(Me.Label1)
         Me.GroupBox6.Controls.Add(Me.MaskedTextBox1)
+        Me.GroupBox6.Controls.Add(Me.txtSIS)
         Me.GroupBox6.Location = New System.Drawing.Point(6, 6)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(344, 142)
+        Me.GroupBox6.Size = New System.Drawing.Size(391, 133)
         Me.GroupBox6.TabIndex = 12
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Item Search"
         '
         'chkEditor
         '
+        Me.chkEditor.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkEditor.AutoSize = True
         Me.chkEditor.Checked = True
         Me.chkEditor.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chkEditor.Location = New System.Drawing.Point(116, 73)
+        Me.chkEditor.Location = New System.Drawing.Point(94, 52)
         Me.chkEditor.Name = "chkEditor"
         Me.chkEditor.Size = New System.Drawing.Size(115, 17)
         Me.chkEditor.TabIndex = 11
@@ -3381,8 +3388,9 @@ Partial Class ItemAdder
         '
         'txtSIS
         '
+        Me.txtSIS.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtSIS.AutoSize = True
-        Me.txtSIS.Location = New System.Drawing.Point(3, 122)
+        Me.txtSIS.Location = New System.Drawing.Point(6, 112)
         Me.txtSIS.Name = "txtSIS"
         Me.txtSIS.Size = New System.Drawing.Size(63, 13)
         Me.txtSIS.TabIndex = 10
@@ -3390,9 +3398,11 @@ Partial Class ItemAdder
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(116, 96)
+        Me.TextBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox5.Location = New System.Drawing.Point(94, 75)
         Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(221, 20)
+        Me.TextBox5.Size = New System.Drawing.Size(215, 20)
         Me.TextBox5.TabIndex = 6
         Me.TextBox5.Text = "Item Name"
         '
@@ -3407,8 +3417,9 @@ Partial Class ItemAdder
         '
         'Button4
         '
+        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button4.Enabled = False
-        Me.Button4.Location = New System.Drawing.Point(192, 44)
+        Me.Button4.Location = New System.Drawing.Point(315, 73)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(70, 23)
         Me.Button4.TabIndex = 4
@@ -3417,10 +3428,11 @@ Partial Class ItemAdder
         '
         'MaskedTextBox1
         '
+        Me.MaskedTextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MaskedTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.MaskedTextBox1.ForeColor = System.Drawing.Color.Black
         Me.MaskedTextBox1.HidePromptOnLeave = True
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(192, 17)
+        Me.MaskedTextBox1.Location = New System.Drawing.Point(239, 17)
         Me.MaskedTextBox1.Mask = "0000000"
         Me.MaskedTextBox1.Name = "MaskedTextBox1"
         Me.MaskedTextBox1.Size = New System.Drawing.Size(70, 20)
@@ -3433,9 +3445,9 @@ Partial Class ItemAdder
                     Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox3.Controls.Add(Me.WebBrowser1)
-        Me.GroupBox3.Location = New System.Drawing.Point(6, 154)
+        Me.GroupBox3.Location = New System.Drawing.Point(6, 145)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(344, 387)
+        Me.GroupBox3.Size = New System.Drawing.Size(391, 407)
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Item Info"
@@ -3447,7 +3459,7 @@ Partial Class ItemAdder
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(797, 547)
+        Me.TabPage2.Size = New System.Drawing.Size(859, 562)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Multi Item"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -3474,7 +3486,7 @@ Partial Class ItemAdder
         Me.GroupBox5.Controls.Add(Me.Label7)
         Me.GroupBox5.Location = New System.Drawing.Point(6, 6)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(423, 535)
+        Me.GroupBox5.Size = New System.Drawing.Size(476, 550)
         Me.GroupBox5.TabIndex = 25
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Item Range"
@@ -3484,7 +3496,7 @@ Partial Class ItemAdder
         Me.mtbRange1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.mtbRange1.ForeColor = System.Drawing.Color.Black
         Me.mtbRange1.HidePromptOnLeave = True
-        Me.mtbRange1.Location = New System.Drawing.Point(122, 52)
+        Me.mtbRange1.Location = New System.Drawing.Point(141, 53)
         Me.mtbRange1.Mask = "0000000"
         Me.mtbRange1.Name = "mtbRange1"
         Me.mtbRange1.Size = New System.Drawing.Size(60, 20)
@@ -3495,7 +3507,7 @@ Partial Class ItemAdder
         Me.mtbRange2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.mtbRange2.ForeColor = System.Drawing.Color.Black
         Me.mtbRange2.HidePromptOnLeave = True
-        Me.mtbRange2.Location = New System.Drawing.Point(211, 52)
+        Me.mtbRange2.Location = New System.Drawing.Point(230, 53)
         Me.mtbRange2.Mask = "0000000"
         Me.mtbRange2.Name = "mtbRange2"
         Me.mtbRange2.Size = New System.Drawing.Size(60, 20)
@@ -3504,7 +3516,7 @@ Partial Class ItemAdder
         'NumericUpDown1
         '
         Me.NumericUpDown1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown1.Location = New System.Drawing.Point(191, 149)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(210, 158)
         Me.NumericUpDown1.Maximum = New Decimal(New Integer() {3000, 0, 0, 0})
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {500, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
@@ -3517,7 +3529,7 @@ Partial Class ItemAdder
         Me.GroupBox8.Controls.Add(Me.TextBox4)
         Me.GroupBox8.Location = New System.Drawing.Point(6, 282)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(301, 118)
+        Me.GroupBox8.Size = New System.Drawing.Size(354, 132)
         Me.GroupBox8.TabIndex = 26
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Error: Item already in database."
@@ -3531,14 +3543,14 @@ Partial Class ItemAdder
         Me.TextBox4.Multiline = True
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox4.Size = New System.Drawing.Size(289, 93)
+        Me.TextBox4.Size = New System.Drawing.Size(342, 107)
         Me.TextBox4.TabIndex = 0
         '
         'Label5
         '
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(241, 151)
+        Me.Label5.Location = New System.Drawing.Point(260, 160)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(23, 13)
         Me.Label5.TabIndex = 23
@@ -3546,7 +3558,7 @@ Partial Class ItemAdder
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(313, 19)
+        Me.Button6.Location = New System.Drawing.Point(366, 19)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(104, 38)
         Me.Button6.TabIndex = 2
@@ -3557,7 +3569,7 @@ Partial Class ItemAdder
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(55, 151)
+        Me.Label4.Location = New System.Drawing.Point(74, 160)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(130, 13)
         Me.Label4.TabIndex = 23
@@ -3568,9 +3580,9 @@ Partial Class ItemAdder
         Me.GroupBox7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox7.Controls.Add(Me.TextBox7)
-        Me.GroupBox7.Location = New System.Drawing.Point(6, 406)
+        Me.GroupBox7.Location = New System.Drawing.Point(6, 420)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(301, 124)
+        Me.GroupBox7.Size = New System.Drawing.Size(354, 125)
         Me.GroupBox7.TabIndex = 25
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Error: Item not found."
@@ -3584,16 +3596,16 @@ Partial Class ItemAdder
         Me.TextBox7.Multiline = True
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox7.Size = New System.Drawing.Size(288, 98)
+        Me.TextBox7.Size = New System.Drawing.Size(341, 99)
         Me.TextBox7.TabIndex = 0
         '
         'ProgressBar1
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(12, 244)
+        Me.ProgressBar1.Location = New System.Drawing.Point(6, 253)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(289, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(354, 23)
         Me.ProgressBar1.TabIndex = 21
         '
         'Label11
@@ -3601,7 +3613,7 @@ Partial Class ItemAdder
         Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(12, 222)
+        Me.Label11.Location = New System.Drawing.Point(3, 233)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(96, 17)
         Me.Label11.TabIndex = 19
@@ -3618,11 +3630,11 @@ Partial Class ItemAdder
         Me.tcListBox.Controls.Add(Me.TabInDB)
         Me.tcListBox.Controls.Add(Me.TabNotFound)
         Me.tcListBox.Controls.Add(Me.TabJunk)
-        Me.tcListBox.Location = New System.Drawing.Point(313, 71)
+        Me.tcListBox.Location = New System.Drawing.Point(366, 71)
         Me.tcListBox.Multiline = True
         Me.tcListBox.Name = "tcListBox"
         Me.tcListBox.SelectedIndex = 0
-        Me.tcListBox.Size = New System.Drawing.Size(104, 458)
+        Me.tcListBox.Size = New System.Drawing.Size(104, 473)
         Me.tcListBox.TabIndex = 24
         '
         'TabNewItems
@@ -3631,7 +3643,7 @@ Partial Class ItemAdder
         Me.TabNewItems.Location = New System.Drawing.Point(23, 4)
         Me.TabNewItems.Name = "TabNewItems"
         Me.TabNewItems.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabNewItems.Size = New System.Drawing.Size(77, 450)
+        Me.TabNewItems.Size = New System.Drawing.Size(77, 465)
         Me.TabNewItems.TabIndex = 0
         Me.TabNewItems.Text = "New Items"
         Me.TabNewItems.UseVisualStyleBackColor = True
@@ -3648,7 +3660,7 @@ Partial Class ItemAdder
         Me.ListBox1.ItemHeight = 16
         Me.ListBox1.Location = New System.Drawing.Point(3, 5)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(71, 436)
+        Me.ListBox1.Size = New System.Drawing.Size(71, 452)
         Me.ListBox1.TabIndex = 0
         '
         'TabNewAdded
@@ -3657,7 +3669,7 @@ Partial Class ItemAdder
         Me.TabNewAdded.Location = New System.Drawing.Point(23, 4)
         Me.TabNewAdded.Name = "TabNewAdded"
         Me.TabNewAdded.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabNewAdded.Size = New System.Drawing.Size(77, 450)
+        Me.TabNewAdded.Size = New System.Drawing.Size(77, 465)
         Me.TabNewAdded.TabIndex = 1
         Me.TabNewAdded.Text = "New Added"
         Me.TabNewAdded.UseVisualStyleBackColor = True
@@ -3674,7 +3686,7 @@ Partial Class ItemAdder
         Me.ListBox2.ItemHeight = 16
         Me.ListBox2.Location = New System.Drawing.Point(3, 5)
         Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(71, 436)
+        Me.ListBox2.Size = New System.Drawing.Size(71, 452)
         Me.ListBox2.TabIndex = 4
         '
         'TabInDB
@@ -3683,7 +3695,7 @@ Partial Class ItemAdder
         Me.TabInDB.Location = New System.Drawing.Point(23, 4)
         Me.TabInDB.Name = "TabInDB"
         Me.TabInDB.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabInDB.Size = New System.Drawing.Size(77, 450)
+        Me.TabInDB.Size = New System.Drawing.Size(77, 465)
         Me.TabInDB.TabIndex = 2
         Me.TabInDB.Text = "Already In DB"
         Me.TabInDB.UseVisualStyleBackColor = True
@@ -3700,7 +3712,7 @@ Partial Class ItemAdder
         Me.ListBox3.ItemHeight = 16
         Me.ListBox3.Location = New System.Drawing.Point(3, 5)
         Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(71, 436)
+        Me.ListBox3.Size = New System.Drawing.Size(71, 452)
         Me.ListBox3.TabIndex = 5
         '
         'TabNotFound
@@ -3709,7 +3721,7 @@ Partial Class ItemAdder
         Me.TabNotFound.Location = New System.Drawing.Point(23, 4)
         Me.TabNotFound.Name = "TabNotFound"
         Me.TabNotFound.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabNotFound.Size = New System.Drawing.Size(77, 450)
+        Me.TabNotFound.Size = New System.Drawing.Size(77, 465)
         Me.TabNotFound.TabIndex = 3
         Me.TabNotFound.Text = "Not Found"
         Me.TabNotFound.UseVisualStyleBackColor = True
@@ -3724,7 +3736,7 @@ Partial Class ItemAdder
         Me.ListBox4.ItemHeight = 16
         Me.ListBox4.Location = New System.Drawing.Point(3, 6)
         Me.ListBox4.Name = "ListBox4"
-        Me.ListBox4.Size = New System.Drawing.Size(71, 436)
+        Me.ListBox4.Size = New System.Drawing.Size(71, 452)
         Me.ListBox4.TabIndex = 4
         '
         'TabJunk
@@ -3733,7 +3745,7 @@ Partial Class ItemAdder
         Me.TabJunk.Location = New System.Drawing.Point(23, 4)
         Me.TabJunk.Name = "TabJunk"
         Me.TabJunk.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabJunk.Size = New System.Drawing.Size(77, 450)
+        Me.TabJunk.Size = New System.Drawing.Size(77, 465)
         Me.TabJunk.TabIndex = 4
         Me.TabJunk.Text = "Junk"
         Me.TabJunk.UseVisualStyleBackColor = True
@@ -3747,12 +3759,12 @@ Partial Class ItemAdder
         Me.ListBox5.ItemHeight = 16
         Me.ListBox5.Location = New System.Drawing.Point(3, 6)
         Me.ListBox5.Name = "ListBox5"
-        Me.ListBox5.Size = New System.Drawing.Size(73, 436)
+        Me.ListBox5.Size = New System.Drawing.Size(73, 452)
         Me.ListBox5.TabIndex = 0
         '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(73, 100)
+        Me.Button7.Location = New System.Drawing.Point(92, 106)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(70, 23)
         Me.Button7.TabIndex = 2
@@ -3763,7 +3775,7 @@ Partial Class ItemAdder
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.Label8.Location = New System.Drawing.Point(42, 52)
+        Me.Label8.Location = New System.Drawing.Point(61, 53)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(74, 15)
         Me.Label8.TabIndex = 1
@@ -3772,7 +3784,7 @@ Partial Class ItemAdder
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(12, 191)
+        Me.CheckBox1.Location = New System.Drawing.Point(6, 201)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(219, 17)
         Me.CheckBox1.TabIndex = 4
@@ -3781,7 +3793,7 @@ Partial Class ItemAdder
         '
         'Button8
         '
-        Me.Button8.Location = New System.Drawing.Point(175, 100)
+        Me.Button8.Location = New System.Drawing.Point(194, 106)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(70, 23)
         Me.Button8.TabIndex = 7
@@ -3792,7 +3804,7 @@ Partial Class ItemAdder
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.Label7.Location = New System.Drawing.Point(188, 52)
+        Me.Label7.Location = New System.Drawing.Point(207, 53)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(17, 15)
         Me.Label7.TabIndex = 3
@@ -3807,9 +3819,9 @@ Partial Class ItemAdder
         Me.GroupBox2.Controls.Add(Me.WebBrowser5)
         Me.GroupBox2.Controls.Add(Me.WebBrowser2)
         Me.GroupBox2.Controls.Add(Me.TextBox6)
-        Me.GroupBox2.Location = New System.Drawing.Point(435, 6)
+        Me.GroupBox2.Location = New System.Drawing.Point(488, 6)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(356, 535)
+        Me.GroupBox2.Size = New System.Drawing.Size(363, 550)
         Me.GroupBox2.TabIndex = 23
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Item Info"
@@ -3825,7 +3837,7 @@ Partial Class ItemAdder
         'WebBrowser5
         '
         Me.WebBrowser5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.WebBrowser5.Location = New System.Drawing.Point(261, 8)
+        Me.WebBrowser5.Location = New System.Drawing.Point(268, 8)
         Me.WebBrowser5.Margin = New System.Windows.Forms.Padding(1)
         Me.WebBrowser5.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser5.Name = "WebBrowser5"
@@ -3842,7 +3854,7 @@ Partial Class ItemAdder
         Me.WebBrowser2.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser2.Name = "WebBrowser2"
         Me.WebBrowser2.ScrollBarsEnabled = False
-        Me.WebBrowser2.Size = New System.Drawing.Size(344, 432)
+        Me.WebBrowser2.Size = New System.Drawing.Size(351, 447)
         Me.WebBrowser2.TabIndex = 6
         '
         'TextBox6
@@ -3859,7 +3871,7 @@ Partial Class ItemAdder
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(797, 547)
+        Me.TabPage3.Size = New System.Drawing.Size(859, 562)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "About"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -3869,13 +3881,14 @@ Partial Class ItemAdder
         Me.GroupBox4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox4.Controls.Add(Me.webForum)
         Me.GroupBox4.Controls.Add(Me.Label70)
         Me.GroupBox4.Controls.Add(Me.LinkLabel1)
         Me.GroupBox4.Controls.Add(Me.Label2)
         Me.GroupBox4.Controls.Add(Me.Label3)
         Me.GroupBox4.Location = New System.Drawing.Point(6, 6)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(783, 535)
+        Me.GroupBox4.Size = New System.Drawing.Size(845, 550)
         Me.GroupBox4.TabIndex = 5
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "About Item Adder"
@@ -3884,7 +3897,7 @@ Partial Class ItemAdder
         '
         Me.Label70.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label70.AutoSize = True
-        Me.Label70.Location = New System.Drawing.Point(606, 506)
+        Me.Label70.Location = New System.Drawing.Point(668, 521)
         Me.Label70.Name = "Label70"
         Me.Label70.Size = New System.Drawing.Size(119, 13)
         Me.Label70.TabIndex = 4
@@ -3894,19 +3907,19 @@ Partial Class ItemAdder
         '
         Me.LinkLabel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(606, 519)
+        Me.LinkLabel1.Location = New System.Drawing.Point(668, 534)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(171, 13)
         Me.LinkLabel1.TabIndex = 3
         Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Tag = "http://phanonic.co.cc"
+        Me.LinkLabel1.Tag = "http://www.phanonic.smfnew.com"
         Me.LinkLabel1.Text = "http://www.phanonic.smfnew.com"
         '
         'Label2
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 506)
+        Me.Label2.Location = New System.Drawing.Point(6, 521)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(144, 26)
         Me.Label2.TabIndex = 0
@@ -3917,7 +3930,7 @@ Partial Class ItemAdder
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.Label3.Location = New System.Drawing.Point(6, 490)
+        Me.Label3.Location = New System.Drawing.Point(6, 505)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(50, 13)
         Me.Label3.TabIndex = 1
@@ -3951,9 +3964,9 @@ Partial Class ItemAdder
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripProgressBar1, Me.ToolStripStatusLabel1})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 586)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 601)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(807, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(869, 22)
         Me.StatusStrip1.TabIndex = 1
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -4020,11 +4033,20 @@ Partial Class ItemAdder
         'bwEditorDBCheck
         '
         '
+        'webForum
+        '
+        Me.webForum.Location = New System.Drawing.Point(6, 20)
+        Me.webForum.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.webForum.Name = "webForum"
+        Me.webForum.Size = New System.Drawing.Size(833, 467)
+        Me.webForum.TabIndex = 5
+        Me.webForum.Url = New System.Uri("http://www.phanonic.smfnew.com", System.UriKind.Absolute)
+        '
         'ItemAdder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(807, 608)
+        Me.ClientSize = New System.Drawing.Size(869, 623)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.tcItemAdder)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -4222,7 +4244,6 @@ Partial Class ItemAdder
     Friend WithEvents TabJunk As System.Windows.Forms.TabPage
     Friend WithEvents ListBox5 As System.Windows.Forms.ListBox
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents bwJunk As System.ComponentModel.BackgroundWorker
     Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
     Friend WithEvents tcItemEditor As System.Windows.Forms.TabControl
     Friend WithEvents tabItemStats As System.Windows.Forms.TabPage
@@ -4496,4 +4517,5 @@ Partial Class ItemAdder
     Friend WithEvents btnIEUpdate As System.Windows.Forms.Button
     Friend WithEvents btnIEAdd As System.Windows.Forms.Button
     Friend WithEvents ttSI As System.Windows.Forms.ToolTip
+    Friend WithEvents webForum As System.Windows.Forms.WebBrowser
 End Class

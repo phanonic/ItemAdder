@@ -1,10 +1,9 @@
 ﻿Option Explicit On
 Imports System.Net
 Imports System.IO
-Imports MySql.Data.MySqlClient
 Imports System.Xml
 Imports System.Threading
-
+Imports MySql.Data.MySqlClient
 
 Public Class ItemAdder
     Dim info As Integer
@@ -19,8 +18,8 @@ Public Class ItemAdder
     Dim entry = 0
     Dim classs = 0
     Dim subclass = 0
-    Dim field4 = 0
-    Dim name1 As String = 0
+    Dim field4 = -1
+    Dim name1 As String
     Dim name2 = 0
     Dim name3 = 0
     Dim name4 = 0
@@ -32,8 +31,8 @@ Public Class ItemAdder
     Dim buyprice = 0
     Dim sellprice = 0
     Dim inventorytype = 0
-    Dim allowableclass = 0
-    Dim allowablerace = 0
+    Dim allowableclass = -1
+    Dim allowablerace = -1
     Dim itemlevel = 0
     Dim requiredlevel = 0
     Dim RequiredSkill = 0
@@ -46,7 +45,7 @@ Public Class ItemAdder
     Dim RequiredReputationRank = 0
     Dim Unique = 0
     Dim rangedmodrange = 0
-    Dim maxcount = 0
+    Dim maxcount = 1
     Dim ContainerSlots = 0
     Dim itemstatscount = 0
     Dim stat_type1 = 0
@@ -84,40 +83,40 @@ Public Class ItemAdder
     Dim frost_res = 0
     Dim shadow_res = 0
     Dim arcane_resist = 0
-    Dim delay = 0
+    Dim delay = 1000
     Dim ammo_type = 0
     Dim spellid_1 = 0
     Dim spelltrigger_1 = 0
     Dim spellcharges_1 = 0
-    Dim spellcooldown_1 = 0
+    Dim spellcooldown_1 = -1
     Dim spellcategory_1 = 0
-    Dim spellcategorycooldown_1 = 0
+    Dim spellcategorycooldown_1 = -1
     Dim spellid_2 = 0
     Dim spelltrigger_2 = 0
     Dim spellcharges_2 = 0
-    Dim spellcooldown_2 = 0
+    Dim spellcooldown_2 = -1
     Dim spellcategory_2 = 0
-    Dim spellcategorycooldown_2 = 0
+    Dim spellcategorycooldown_2 = -1
     Dim spellid_3 = 0
     Dim spelltrigger_3 = 0
     Dim spellcharges_3 = 0
-    Dim spellcooldown_3 = 0
+    Dim spellcooldown_3 = -1
     Dim spellcategory_3 = 0
-    Dim spellcategorycooldown_3 = 0
+    Dim spellcategorycooldown_3 = -1
     Dim spellid_4 = 0
     Dim spelltrigger_4 = 0
     Dim spellcharges_4 = 0
-    Dim spellcooldown_4 = 0
+    Dim spellcooldown_4 = -1
     Dim spellcategory_4 = 0
-    Dim spellcategorycooldown_4 = 0
+    Dim spellcategorycooldown_4 = -1
     Dim spellid_5 = 0
     Dim spelltrigger_5 = 0
     Dim spellcharges_5 = 0
-    Dim spellcooldown_5 = 0
+    Dim spellcooldown_5 = -1
     Dim spellcategory_5 = 0
-    Dim spellcategorycooldown_5 = 0
+    Dim spellcategorycooldown_5 = -1
     Dim bonding = 0
-    Dim description = 0
+    Dim description
     Dim pageid = 0
     Dim page_language = 0
     Dim page_material = 0
@@ -142,7 +141,7 @@ Public Class ItemAdder
     Dim unk201_7 = 0
     Dim socket_bonus = 0
     Dim GemProperties = 0
-    Dim ReqDisenchantSkill = 0
+    Dim ReqDisenchantSkill = -1
     Dim ArmorDamageModifier = 0
     Dim duration
     Dim ItemLimitCategoryID
@@ -153,20 +152,24 @@ Public Class ItemAdder
     Dim y As Integer
     Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
     Dim banstatus As Boolean = False
-    Dim Connection As New MySqlConnection("server=" & My.Settings.host & ";user id=" & My.Settings.username & "; password=" & My.Settings.password & "; port=" & My.Settings.port & "; database=" & My.Settings.db & "; pooling=false")
     Dim Query As MySqlCommand
     Dim Execute As MySqlCommand
     Dim Reader As MySqlDataReader = Nothing
     Dim Reader2 As MySqlDataReader = Nothing
+    Dim Connection = New MySqlConnection
     Dim reloaditemid As Integer
     Dim singleitemstatus As Integer
     Dim firstcheck As Boolean = True
-
 
     Public Sub New()
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
         ' Add any initialization after the InitializeComponent() call.
+    End Sub
+
+    Private Sub Form2_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Connection = New MySqlConnection("server=" & My.Settings.host & ";user id=" & My.Settings.username & "; password=" & My.Settings.password & "; port=" & My.Settings.port & "; database=" & My.Settings.db & "; pooling=false")
+        Connection.Open()
     End Sub
 
     Private Delegate Sub SetTextDel(ByVal Label As Label, ByVal Text As String)
@@ -208,6 +211,19 @@ Public Class ItemAdder
             m_xmld = New XmlDocument()
             m_xmld.Load("http://wow.allakhazam.com/cluster/item-xml.pl?witem=" & itemid)
             m_nodelist = m_xmld.SelectNodes("/wowitem")
+
+            If m_nodelist.Count = 0 Then
+                ToolStripStatusLabel1.ForeColor = Color.Red
+                ToolStripStatusLabel1.Text = "Web connect status: Banned."
+                If banstatus = False Then
+                    MsgBox("You are banned from allakhazam.com. You can not send multiple requests within two seconds. Please wait for a while to unban.")
+                End If
+                banstatus = True
+                Exit Sub
+            Else
+                ToolStripStatusLabel1.ForeColor = Color.Green
+                ToolStripStatusLabel1.Text = "Web connect status: UnBanned."
+            End If
 
             For Each m_node In m_nodelist
                 arcane_resist = m_node.ChildNodes.Item(0).InnerText
@@ -343,6 +359,7 @@ Public Class ItemAdder
             MsgBox(ex.Message)
             Exit Sub
         End Try
+
         ToolStripStatusLabel1.ForeColor = Color.Green
         ToolStripStatusLabel1.Text = "Web connect status: Connected."
     End Sub
@@ -564,9 +581,6 @@ Public Class ItemAdder
     End Sub
 
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSIFind.Click
-        Dim c As Integer
-        ToolStripStatusLabel1.ForeColor = Color.DarkOrange
-        ToolStripStatusLabel1.Text = "Web connect status: Connecting to the web. Please wait."
         itemid = MaskedTextBox1.Text
         btnSIFind.Enabled = False
         Button2.Enabled = False
@@ -606,13 +620,15 @@ Public Class ItemAdder
             nodelist()
             If chkEditor.Checked = True Then
                 reloaditemid = itemid
-                fillitemedit()
-                btnIEReload.Enabled = True
-                firstcheck = True
-                chkEditor.Checked = False
-                Label71.Text = "Current ID: " & itemid
-                txtItemEditStatus.ForeColor = Color.Green
-                txtItemEditStatus.Text = "Item Status: " & itemid & " loaded succesfuly."
+                If banstatus = False Then
+                    fillitemedit()
+                    btnIEReload.Enabled = True
+                    firstcheck = True
+                    chkEditor.Checked = False
+                    txtItemEditStatus.ForeColor = Color.Green
+                    txtItemEditStatus.Text = "Item Status: " & itemid & " loaded succesfuly."
+                    Label71.Text = "Current ID: " & itemid
+                End If
             End If
             TextBox5.Text = name1
             WebBrowser4.Navigate("http://wow.allakhazam.com/" & itemicon)
@@ -625,6 +641,15 @@ Public Class ItemAdder
             Button2.Enabled = False
             Button3.Enabled = False
         End If
+
+        If banstatus = True Then
+            txtSIS.ForeColor = Color.Red
+            txtSIS.Text = "You are banned from allakhazam.com."
+            WebBrowser4.Navigate("")
+            Button2.Enabled = False
+            Button3.Enabled = False
+        End If
+
         Reader.Close()
         WebBrowser1.Navigate("http://wow.allakhazam.com/ihtml?" & itemid)
         btnSIFind.Enabled = True
@@ -665,13 +690,6 @@ Public Class ItemAdder
 
     Private Sub Form2_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         Logon.Close()
-    End Sub
-
-    Private Sub Form2_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Try
-            Connection.Open()
-        Catch ex As Exception
-        End Try
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
@@ -795,6 +813,7 @@ Public Class ItemAdder
                 Label11.Text = itemid & " adding to database. " & ListBox2.Items.Count & " item(s) added."
                 Label11.Refresh()
                 nodelist()
+                Sleep(NumericUpDown1.Value)
                 checktext()
                 writesql()
                 Execute = New MySqlCommand(thequery, Connection)

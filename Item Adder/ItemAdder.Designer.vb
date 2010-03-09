@@ -368,6 +368,8 @@ Partial Class ItemAdder
         Me.bwEditorDBCheck = New System.ComponentModel.BackgroundWorker
         Me.ttSI = New System.Windows.Forms.ToolTip(Me.components)
         Me.webForum = New System.Windows.Forms.WebBrowser
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog
         lblE57 = New System.Windows.Forms.Label
         Label14 = New System.Windows.Forms.Label
         Label23 = New System.Windows.Forms.Label
@@ -3468,6 +3470,7 @@ Partial Class ItemAdder
         '
         Me.GroupBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox5.Controls.Add(Me.CheckBox2)
         Me.GroupBox5.Controls.Add(Me.mtbRange1)
         Me.GroupBox5.Controls.Add(Me.mtbRange2)
         Me.GroupBox5.Controls.Add(Me.NumericUpDown1)
@@ -3516,7 +3519,7 @@ Partial Class ItemAdder
         'NumericUpDown1
         '
         Me.NumericUpDown1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown1.Location = New System.Drawing.Point(210, 158)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(210, 154)
         Me.NumericUpDown1.Maximum = New Decimal(New Integer() {3000, 0, 0, 0})
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {500, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
@@ -3550,7 +3553,7 @@ Partial Class ItemAdder
         '
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(260, 160)
+        Me.Label5.Location = New System.Drawing.Point(260, 156)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(23, 13)
         Me.Label5.TabIndex = 23
@@ -3569,7 +3572,7 @@ Partial Class ItemAdder
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(74, 160)
+        Me.Label4.Location = New System.Drawing.Point(74, 156)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(130, 13)
         Me.Label4.TabIndex = 23
@@ -3784,7 +3787,7 @@ Partial Class ItemAdder
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(6, 201)
+        Me.CheckBox1.Location = New System.Drawing.Point(6, 190)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(219, 17)
         Me.CheckBox1.TabIndex = 4
@@ -4042,6 +4045,16 @@ Partial Class ItemAdder
         Me.webForum.TabIndex = 5
         Me.webForum.Url = New System.Uri("http://www.phanonic.smfnew.com", System.UriKind.Absolute)
         '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(6, 213)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(191, 17)
+        Me.CheckBox2.TabIndex = 27
+        Me.CheckBox2.Text = "Save new added items as SQL File"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
         'ItemAdder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4052,7 +4065,7 @@ Partial Class ItemAdder
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ItemAdder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Item Adder 3.3.2"
+        Me.Text = "Item Adder"
         Me.tcItemAdder.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.GroupBox9.ResumeLayout(False)
@@ -4518,4 +4531,6 @@ Partial Class ItemAdder
     Friend WithEvents btnIEAdd As System.Windows.Forms.Button
     Friend WithEvents ttSI As System.Windows.Forms.ToolTip
     Friend WithEvents webForum As System.Windows.Forms.WebBrowser
+    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
+    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
 End Class

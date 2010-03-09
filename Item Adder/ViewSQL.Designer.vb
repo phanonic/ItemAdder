@@ -24,10 +24,15 @@ Partial Class ViewSQL
     Private Sub InitializeComponent()
         Me.rtxtViewSQL = New System.Windows.Forms.RichTextBox
         Me.btnOK = New System.Windows.Forms.Button
+        Me.btnSave = New System.Windows.Forms.Button
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog
         Me.SuspendLayout()
         '
         'rtxtViewSQL
         '
+        Me.rtxtViewSQL.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rtxtViewSQL.Location = New System.Drawing.Point(12, 12)
         Me.rtxtViewSQL.Name = "rtxtViewSQL"
         Me.rtxtViewSQL.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical
@@ -37,25 +42,40 @@ Partial Class ViewSQL
         '
         'btnOK
         '
-        Me.btnOK.Location = New System.Drawing.Point(387, 213)
+        Me.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnOK.Location = New System.Drawing.Point(427, 213)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 23)
         Me.btnOK.TabIndex = 1
         Me.btnOK.Text = "OK"
         Me.btnOK.UseVisualStyleBackColor = True
         '
+        'btnSave
+        '
+        Me.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnSave.Location = New System.Drawing.Point(346, 213)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(75, 23)
+        Me.btnSave.TabIndex = 2
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
         'ViewSQL
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(849, 248)
+        Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.rtxtViewSQL)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "ViewSQL"
-        Me.Text = "ViewSQL"
+        Me.Text = "SQL View"
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents rtxtViewSQL As System.Windows.Forms.RichTextBox
     Friend WithEvents btnOK As System.Windows.Forms.Button
+    Friend WithEvents btnSave As System.Windows.Forms.Button
+    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
 End Class

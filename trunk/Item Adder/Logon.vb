@@ -4,7 +4,7 @@ Imports System.IO
 Imports MySql.Data.MySqlClient
 
 Public Class Logon
-    Public version As String = "3.3.2.2b"
+    Public version As String = "3.3.2.2c"
     Public Host As String
     Public Username As String
     Public Password As String

@@ -303,14 +303,15 @@ Partial Class ItemAdder
         Me.lblE168 = New System.Windows.Forms.Label
         Me.GroupBox6 = New System.Windows.Forms.GroupBox
         Me.chkEditor = New System.Windows.Forms.CheckBox
-        Me.txtSIS = New System.Windows.Forms.Label
         Me.TextBox5 = New System.Windows.Forms.TextBox
         Me.WebBrowser4 = New System.Windows.Forms.WebBrowser
         Me.Button4 = New System.Windows.Forms.Button
         Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox
+        Me.txtSIS = New System.Windows.Forms.Label
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.TabPage2 = New System.Windows.Forms.TabPage
         Me.GroupBox5 = New System.Windows.Forms.GroupBox
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox
         Me.mtbRange1 = New System.Windows.Forms.MaskedTextBox
         Me.mtbRange2 = New System.Windows.Forms.MaskedTextBox
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown
@@ -367,8 +368,6 @@ Partial Class ItemAdder
         Me.RemoveAllToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem
         Me.bwEditorDBCheck = New System.ComponentModel.BackgroundWorker
         Me.ttSI = New System.Windows.Forms.ToolTip(Me.components)
-        Me.webForum = New System.Windows.Forms.WebBrowser
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog
         lblE57 = New System.Windows.Forms.Label
         Label14 = New System.Windows.Forms.Label
@@ -2335,7 +2334,7 @@ Partial Class ItemAdder
         '
         Me.cmbItemTrigger.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemTrigger.FormattingEnabled = True
-        Me.cmbItemTrigger.Items.AddRange(New Object() {"Use", "On Equip", "Chance on Hit", "Soulstone", "Use with no delay", "Learn Spell ID"})
+        Me.cmbItemTrigger.Items.AddRange(New Object() {"Use", "On Equip", "Chance on Hit", "None", "Soulstone", "Use with no delay", "Learn Spell ID"})
         Me.cmbItemTrigger.Location = New System.Drawing.Point(76, 69)
         Me.cmbItemTrigger.Name = "cmbItemTrigger"
         Me.cmbItemTrigger.Size = New System.Drawing.Size(230, 21)
@@ -2502,7 +2501,7 @@ Partial Class ItemAdder
         '
         Me.cmbItemTrigger2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemTrigger2.FormattingEnabled = True
-        Me.cmbItemTrigger2.Items.AddRange(New Object() {"Use", "On Equip", "Chance on Hit", "Soulstone", "Use with no delay", "Learn Spell ID"})
+        Me.cmbItemTrigger2.Items.AddRange(New Object() {"Use", "On Equip", "Chance on Hit", "None", "Soulstone", "Use with no delay", "Learn Spell ID"})
         Me.cmbItemTrigger2.Location = New System.Drawing.Point(76, 69)
         Me.cmbItemTrigger2.Name = "cmbItemTrigger2"
         Me.cmbItemTrigger2.Size = New System.Drawing.Size(230, 21)
@@ -2669,7 +2668,7 @@ Partial Class ItemAdder
         '
         Me.cmbItemTrigger3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemTrigger3.FormattingEnabled = True
-        Me.cmbItemTrigger3.Items.AddRange(New Object() {"Use", "On Equip", "Chance on Hit", "Soulstone", "Use with no delay", "Learn Spell ID"})
+        Me.cmbItemTrigger3.Items.AddRange(New Object() {"Use", "On Equip", "Chance on Hit", "None", "Soulstone", "Use with no delay", "Learn Spell ID"})
         Me.cmbItemTrigger3.Location = New System.Drawing.Point(76, 69)
         Me.cmbItemTrigger3.Name = "cmbItemTrigger3"
         Me.cmbItemTrigger3.Size = New System.Drawing.Size(230, 21)
@@ -2836,7 +2835,7 @@ Partial Class ItemAdder
         '
         Me.cmbItemTrigger4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemTrigger4.FormattingEnabled = True
-        Me.cmbItemTrigger4.Items.AddRange(New Object() {"Use", "On Equip", "Chance on Hit", "Soulstone", "Use with no delay", "Learn Spell ID"})
+        Me.cmbItemTrigger4.Items.AddRange(New Object() {"Use", "On Equip", "Chance on Hit", "None", "Soulstone", "Use with no delay", "Learn Spell ID"})
         Me.cmbItemTrigger4.Location = New System.Drawing.Point(76, 69)
         Me.cmbItemTrigger4.Name = "cmbItemTrigger4"
         Me.cmbItemTrigger4.Size = New System.Drawing.Size(230, 21)
@@ -3003,7 +3002,7 @@ Partial Class ItemAdder
         '
         Me.cmbItemTrigger5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemTrigger5.FormattingEnabled = True
-        Me.cmbItemTrigger5.Items.AddRange(New Object() {"Use", "On Equip", "Chance on Hit", "Soulstone", "Use with no delay", "Learn Spell ID"})
+        Me.cmbItemTrigger5.Items.AddRange(New Object() {"Use", "On Equip", "Chance on Hit", "None", "Soulstone", "Use with no delay", "Learn Spell ID"})
         Me.cmbItemTrigger5.Location = New System.Drawing.Point(76, 69)
         Me.cmbItemTrigger5.Name = "cmbItemTrigger5"
         Me.cmbItemTrigger5.Size = New System.Drawing.Size(230, 21)
@@ -3388,16 +3387,6 @@ Partial Class ItemAdder
         Me.chkEditor.Text = "Load to Item Editor"
         Me.chkEditor.UseVisualStyleBackColor = True
         '
-        'txtSIS
-        '
-        Me.txtSIS.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtSIS.AutoSize = True
-        Me.txtSIS.Location = New System.Drawing.Point(6, 112)
-        Me.txtSIS.Name = "txtSIS"
-        Me.txtSIS.Size = New System.Drawing.Size(63, 13)
-        Me.txtSIS.TabIndex = 10
-        Me.txtSIS.Text = "Item Status:"
-        '
         'TextBox5
         '
         Me.TextBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
@@ -3440,6 +3429,16 @@ Partial Class ItemAdder
         Me.MaskedTextBox1.Size = New System.Drawing.Size(70, 20)
         Me.MaskedTextBox1.TabIndex = 1
         Me.ttSI.SetToolTip(Me.MaskedTextBox1, "Enter an item id here to search.")
+        '
+        'txtSIS
+        '
+        Me.txtSIS.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtSIS.AutoSize = True
+        Me.txtSIS.Location = New System.Drawing.Point(6, 112)
+        Me.txtSIS.Name = "txtSIS"
+        Me.txtSIS.Size = New System.Drawing.Size(63, 13)
+        Me.txtSIS.TabIndex = 10
+        Me.txtSIS.Text = "Item Status:"
         '
         'GroupBox3
         '
@@ -3493,6 +3492,16 @@ Partial Class ItemAdder
         Me.GroupBox5.TabIndex = 25
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Item Range"
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(6, 213)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(191, 17)
+        Me.CheckBox2.TabIndex = 27
+        Me.CheckBox2.Text = "Save new added items as SQL File"
+        Me.CheckBox2.UseVisualStyleBackColor = True
         '
         'mtbRange1
         '
@@ -3884,7 +3893,6 @@ Partial Class ItemAdder
         Me.GroupBox4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox4.Controls.Add(Me.webForum)
         Me.GroupBox4.Controls.Add(Me.Label70)
         Me.GroupBox4.Controls.Add(Me.LinkLabel1)
         Me.GroupBox4.Controls.Add(Me.Label2)
@@ -4035,25 +4043,6 @@ Partial Class ItemAdder
         '
         'bwEditorDBCheck
         '
-        '
-        'webForum
-        '
-        Me.webForum.Location = New System.Drawing.Point(6, 20)
-        Me.webForum.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.webForum.Name = "webForum"
-        Me.webForum.Size = New System.Drawing.Size(833, 467)
-        Me.webForum.TabIndex = 5
-        Me.webForum.Url = New System.Uri("http://www.phanonic.smfnew.com", System.UriKind.Absolute)
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(6, 213)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(191, 17)
-        Me.CheckBox2.TabIndex = 27
-        Me.CheckBox2.Text = "Save new added items as SQL File"
-        Me.CheckBox2.UseVisualStyleBackColor = True
         '
         'ItemAdder
         '
@@ -4530,7 +4519,6 @@ Partial Class ItemAdder
     Friend WithEvents btnIEUpdate As System.Windows.Forms.Button
     Friend WithEvents btnIEAdd As System.Windows.Forms.Button
     Friend WithEvents ttSI As System.Windows.Forms.ToolTip
-    Friend WithEvents webForum As System.Windows.Forms.WebBrowser
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
 End Class

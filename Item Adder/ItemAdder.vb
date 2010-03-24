@@ -1468,6 +1468,8 @@ Public Class ItemAdder
             txtItemEditStatus.Text = ex.Message
             Exit Sub
         End Try
+        Button2.Enabled = False
+        Button4.Enabled = True
         txtItemEditStatus.ForeColor = Color.Green
         txtItemEditStatus.Text = "Item Status: " & itemid & " updated successfuly."
     End Sub
@@ -1487,6 +1489,8 @@ Public Class ItemAdder
             txtItemEditStatus.Text = ex.Message
             Exit Sub
         End Try
+        Button2.Enabled = False
+        Button4.Enabled = True
         txtItemEditStatus.ForeColor = Color.Green
         txtItemEditStatus.Text = "Item Status: " & itemid & " added successfuly."
     End Sub
